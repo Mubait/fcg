@@ -44,7 +44,6 @@ usersRouter.post('/signup', (req, res) => {
   const userCreatedpromise = model.createUser(userData)
   userCreatedpromise.then(userCreated => {
     if(userCreated) return res.sendStatus(200)
-    console.error('Ошибка создания пользователя в БД')
     return res.sendStatus(500)
   })
 
