@@ -1,0 +1,13 @@
+{
+  "rootPage": {
+    "gameDescription": "Fantasy Card Game is a card game with 5 factions: humans, elves, werewolves, orcs, undead.....",
+    "buttonPlay": "next"
+  },
+  "authPage": {
+    "email": "Email",
+    "password": "Password",
+    "newPassword":  "forgot you password?",
+    "signIn": "Sign in",
+    "signUp": "Sign up"
+  }
+}

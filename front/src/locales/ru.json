@@ -1,0 +1,13 @@
+{
+  "rootPage": {
+    "gameDescription": "Fantasy Card Game это карточная игра с 5-ю фракциями: люди, эльфы, оборотни, орки, нежить.....",
+    "buttonPlay": "начать"
+  },
+  "authPage": {
+    "email": "Почта",
+    "password": "Пароль",
+    "newPassword":  "Забыли пароль?",
+    "signIn": "Вход",
+    "signUp": "Регистрация"
+  }
+}
