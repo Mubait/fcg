@@ -6,7 +6,7 @@ class DbModel {
   return users.create(userData).then(userCreated => {
       return true
     }).catch(err => {
-      console.error('Ошибка создания пользователя. Возможно, пользователь с такими данным email уже существует', err)
+      console.error('Ошибка создания пользователя. Возможно, пользователь с такими email уже существует', err)
       return false
     })
   }
