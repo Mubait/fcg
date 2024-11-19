@@ -1,10 +1,14 @@
 import axios from "axios"
 
-const users = {
-  axiosPostUsersSignup: (userData) => {
-    console.log(import.meta.env.VITE_URLSERVER)
-    return axios.post(`${import.meta.env.VITE_URLSERVER}/users/signup`, userData, { headers: { Authorization: `Bearer justtoken`}})
+class Users {
+  axiosPostUserSignin = (userData) => {
+    return axios.post(`${import.meta.env.VITE_URLSERVER}/users/signin`, userData /*{ headers: { Authorization: `Bearer justtoken`}}*/)
+  }
+  axiosPostUserSignup = (userData) => {
+    return axios.post(`${import.meta.env.VITE_URLSERVER}/users/signup`, userData)
   }
 }
+
+const users = new Users()
 
 export { users }
