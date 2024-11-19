@@ -8,6 +8,9 @@
     "password": "Password",
     "newPassword":  "forgot you password?",
     "signIn": "Sign in",
-    "signUp": "Sign up"
+    "signUp": "Sign up",
+    "signInIsNotOk": "bad data",
+    "signUpIsOk": "success!",
+    "signUpIsNotOk": "this email already exists"
   }
 }

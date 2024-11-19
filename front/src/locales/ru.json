@@ -8,6 +8,9 @@
     "password": "Пароль",
     "newPassword":  "Забыли пароль?",
     "signIn": "Вход",
-    "signUp": "Регистрация"
+    "signUp": "Регистрация",
+    "signInIsNotOk": "неверные данные",
+    "signUpIsOk": "успешно!",
+    "signUpIsNotOk": "такая почта уже зарегистрировна"
   }
 }
