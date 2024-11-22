@@ -9,7 +9,7 @@ export default {
       backgroundImage: {
         'bgIntro': "url('/1.introPg/intro.jpg')",
         'bgAuth': "url('/2.regPg/regPg.jpg')",
-        'bgRegNick': "url('/3.regNicknamePg/regPgNickname.jpg')",
+        'bgRegNick': "url('/3.regNicknamePg/bgPgRegNick1.jpg')",
       },
       fontFamily: {
 				stalinist: ["Stalinist One"],
@@ -33,6 +33,7 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [
+  ],
 }
 
