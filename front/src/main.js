@@ -8,7 +8,7 @@ import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 
 import Intro from './pages/Intro.vue'
 import Auth from './pages/Auth.vue'
-import Regnick from './pages/Regnick.vue'
+import Regnick from './pages/RegNick.vue'
 
 import i18n  from "./i18n.js"
 
