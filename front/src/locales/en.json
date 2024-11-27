@@ -14,6 +14,8 @@
     "signUpIsNotOk": "this email already exists"
   },
   "regNickPage": {
-    "regNick": "Choose a card and put your name on it!"
+    "regNickHead": "choose a card and put your name on it!",
+    "enterYourName": "enter your name!",
+    "btnText": "next"
   }
 }
