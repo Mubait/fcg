@@ -9,6 +9,7 @@ import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 import Intro from './pages/Intro.vue'
 import Auth from './pages/Auth.vue'
 import Regnick from './pages/RegNick.vue'
+import MainGame from './pages/MainGame.vue'
 
 import i18n  from "./i18n.js"
 
@@ -16,6 +17,7 @@ const routes = [
   { path: '/',   component: Intro },
   { path: '/auth',   component: Auth },
   { path: '/regnick',   component: Regnick },
+  { path: '/main',   component: MainGame },
 ]
 
 const router = createRouter({
