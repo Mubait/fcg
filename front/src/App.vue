@@ -40,7 +40,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <RouterView />
+  <RouterView v-auto-animate/>
 
   <div class="absolute right-0 bottom-0 flex space-x-4 mr-4 items-center">
     <img @click="soundAction" class="relative w-10 h-12 my-2 cursor-pointer" :src="soundImgUrl" alt="audio"/>

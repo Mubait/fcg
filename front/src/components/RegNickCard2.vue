@@ -9,8 +9,7 @@ const router = useRouter()
 let userName = undefined
 
 const nextPage = () => {
-  userInfo.setUserName(userName)
-  console.log(userInfo.getUserName())
+  userInfo.userName = userName
   router.push('/main')
 }
 </script>

@@ -17,5 +17,15 @@
     "regNickHead": "выбери карту и внеси в неё своё имя!",
     "enterYourName": "впиши своё имя!",
     "btnText": "дальше"
+  },
+  "mainPage": {
+    "score": "рейтинг",
+    "cards": "карты",
+    "friends": "друзья",
+    "forum": "форум",
+    "btnPlayText": "играть",
+    "settings": "настройки",
+    "help": "помощь",
+    "logout": "выйти"
   }
 }

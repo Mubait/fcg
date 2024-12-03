@@ -17,5 +17,15 @@
     "regNickHead": "choose a card and put your name on it!",
     "enterYourName": "enter your name!",
     "btnText": "next"
+  },
+  "mainPage": {
+    "score": "score",
+    "cards": "cards",
+    "friends": "friends",
+    "forum": "forum",
+    "btnPlayText": "play",
+    "settings": "settings",
+    "help": "help",
+    "logout": "log out"
   }
 }
