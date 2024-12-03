@@ -23,6 +23,9 @@
     "cards": "cards",
     "friends": "friends",
     "forum": "forum",
-    "btnPlayText": "play"
+    "btnPlayText": "play",
+    "settings": "settings",
+    "help": "help",
+    "logout": "log out"
   }
 }

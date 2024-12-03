@@ -23,6 +23,9 @@
     "cards": "карты",
     "friends": "друзья",
     "forum": "форум",
-    "btnPlayText": "играть"
+    "btnPlayText": "играть",
+    "settings": "настройки",
+    "help": "помощь",
+    "logout": "выйти"
   }
 }
