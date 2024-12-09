@@ -19,7 +19,7 @@ const users = sequelize.define("users", {
   username: {
     type: Sequelize.STRING,
     unique: true,
-    allowNull: false,
+    allowNull: true,
   }
 });
 

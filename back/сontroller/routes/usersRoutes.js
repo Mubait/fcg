@@ -49,5 +49,37 @@ usersRouter.post('/signup', (req, res) => {
 
 });
 
+usersRouter.post('/addnick', (req, res) => {
+  const userData = req.body
+  const accessToken = req.headers['authorization']
+  const emptyBody = !Object.keys(userData).length ? true : false
+  if(emptyBody) {
+    console.error('Отсутствует тело запроса')
+    return res.sendStatus(400)
+  }
+  if(!accessToken){
+    console.error('Отсутствует токен доступа')
+    return res.sendStatus(401)
+  }
+  
+  try {
+    model.verifyToken(accessToken)
+  } catch (err) {
+    console.error('Ошибка проверки токена', err)
+    return res.sendStatus(401)
+  }
+
+  try {
+    const usernameIsAddedPromise = model.addUsernameToDb(userData, accessToken)
+    usernameIsAddedPromise.then(usernameIsAdded => {
+      if(usernameIsAdded) return res.sendStatus(200)
+      return res.sendStatus(500)
+    })
+  } catch (err) {
+    console.error('Ошибка добавления ника в таблицу БД', err)
+    return res.sendStatus(500)
+  }
+});
+
 module.exports = usersRouter;
 

@@ -7,6 +7,9 @@ class DbController {
   getUser = (userData) => {
     return dbmodel.getUser(userData)
   }
+  updateUser = (userData) => {
+    return dbmodel.updateUser(userData)
+  }
 }
 
 const dbcontroller = new DbController()
