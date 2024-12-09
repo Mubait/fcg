@@ -16,6 +16,11 @@ const users = sequelize.define("users", {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  username: {
+    type: Sequelize.STRING,
+    unique: true,
+    allowNull: false,
+  }
 });
 
 module.exports = {
