@@ -1,5 +1,6 @@
 const userInfo = {
-  userName: undefined
+  userName: undefined,
+  avatar: undefined,
 }
 
 export { userInfo }

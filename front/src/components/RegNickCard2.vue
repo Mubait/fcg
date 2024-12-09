@@ -10,6 +10,7 @@ let userName = undefined
 
 const nextPage = () => {
   userInfo.userName = userName
+  sessionStorage.setItem('username', userName);
   router.push('/main')
 }
 </script>
