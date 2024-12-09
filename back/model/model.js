@@ -17,6 +17,12 @@ class Model {
     })
   }
 
+  addUsernameToDb = (userData, accessToken) => {
+    const userDataDecoded = jwt.decode(accessToken)
+    userDataDecoded.username = userData.username
+
+    return dbcontroller.updateUser(userDataDecoded)
+  }
 
   generateToken = (userData) => jwt.sign(userData, process.env.SECRET_KEY, { expiresIn: '24h' })
   verifyToken = (token) => jwt.verify(token, process.env.SECRET_KEY)

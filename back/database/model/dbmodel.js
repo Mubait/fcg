@@ -1,9 +1,8 @@
 const { users } = require('../entities/EUsers')
-const { deps } = require('../entities/EDeps')
 
 class DbModel {
   createUser = (userData) => {
-  return users.create(userData).then(userCreated => {
+    return users.create(userData).then(userCreated => {
       return true
     }).catch(err => {
       console.error('Ошибка создания пользователя. Возможно, пользователь с такими email уже существует', err)
@@ -18,9 +17,13 @@ class DbModel {
       return false
     }
   }
-  getDeps = async() => { deps.findAll({raw:true}).then(result=>{
-    console.log(result);
-  }).catch(err=>console.log(err));
+  updateUser = (userData) => {
+    return users.update(userData, { where: { email: userData.email } }).then(userUpdated => {
+      return true
+    }).catch(err => {
+      console.error('Ошибка обновления дааных пользователя', err)
+      return false
+    })
   }
 }
 
