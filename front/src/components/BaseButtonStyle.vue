@@ -7,19 +7,20 @@ defineProps({
   btnTextColorHover: String,
   btnPaddingColor: String,
   btnText: String,
+  fontSize: String,
 })
 
 </script>
 
 <template>
-  <div class="relative flex flex-col justify-center items-center drop-shadow-xl">
+  <div class="relative flex drop-shadow-xl">
     <div class="p-0.5 bg-gradient-to-b from-amber-400 to-yellow-950 rounded-lg cursor-pointer">
       <div class="p-0.5 bg-gradient-to-b from-yellow-800 to-yellow-950 rounded-lg">
         <div class="p-1 rounded-lg"
         :class="[btnPaddingColor]">
           <div class="flex flex-col justify-center rounded-lg" 
           :class="[btnSize, btnColor, btnColorHover]">
-            <p class="w-full h-full flex flex-col justify-center items-center" :class="[btnTextColor, btnTextColorHover]">{{ $t(btnText)}}</p>
+            <p class="w-full h-full flex flex-col justify-center items-center select-none" :class="[btnTextColor, btnTextColorHover, fontSize]">{{ $t(btnText)}}</p>
           </div>
         </div>
       </div>

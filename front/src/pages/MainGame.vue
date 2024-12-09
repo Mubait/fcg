@@ -1,0 +1,19 @@
+<script setup>
+import BaseButtonStyle from '@/components/BaseButtonStyle.vue'
+
+import MainHeader from '@/components/MainHeader.vue';
+import MainPlayMenu from '@/components/MainPlayMenu.vue';
+
+</script>
+
+<template>
+  <main class="absolute overflow-hidden size-full bg-bgMain bg-cover">
+    <img class="absolute z-10 left-1/2 -translate-x-1/2 object-contain h-1/3 pointer-events-none" src="/logo/logoOrc.png" alt="regPg"/>
+
+    <MainHeader/>
+    <MainPlayMenu/>
+  </main>
+
+  
+
+</template>

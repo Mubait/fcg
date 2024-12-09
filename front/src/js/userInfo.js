@@ -1,14 +1,6 @@
-class UserInfo {
-  #username = undefined
-
-  setUserName = (userName) => {
-    this.#username = userName
-  }
-  getUserName = () => {
-    return this.#username
-  }
+const userInfo = {
+  userName: undefined,
+  avatar: undefined,
 }
-
-const userInfo = new UserInfo()
 
 export { userInfo }

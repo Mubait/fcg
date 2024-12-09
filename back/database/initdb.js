@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 
 const sequelize = new Sequelize("fantasycardgame", "root", "3572", {
   dialect: 'mysql',
-  host: process.env.host,
+  host: process.env.hostdb,
   define: {
       timestamps: false
   }
