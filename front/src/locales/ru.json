@@ -26,6 +26,8 @@
     "btnPlayText": "играть",
     "settings": "настройки",
     "help": "помощь",
-    "logout": "выйти"
+    "logout": "выйти",
+    "vsPlayer": "ИГРОК",
+    "vsAI": "ИИ"
   }
 }

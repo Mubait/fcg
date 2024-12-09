@@ -26,6 +26,8 @@
     "btnPlayText": "play",
     "settings": "settings",
     "help": "help",
-    "logout": "log out"
+    "logout": "log out",
+    "vsPlayer": "PLAYER",
+    "vsAI": "AI"
   }
 }
