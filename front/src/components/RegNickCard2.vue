@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import { userInfo } from '@/js/userInfo'
 
 import BaseButtonStyle from './BaseButtonStyle.vue'
+import { controller } from '@/js/controller/controller';
 
 const router = useRouter()
 let userName = undefined
@@ -11,6 +12,7 @@ let userName = undefined
 const nextPage = () => {
   userInfo.userName = userName
   sessionStorage.setItem('username', userName);
+  controller.userAddNick({username: userName})
   router.push('/main')
 }
 </script>
