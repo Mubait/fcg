@@ -17,6 +17,15 @@ class Model {
     })
   }
 
+  checkUserNickname = (accessToken) => {
+    const userDataDecoded = jwt.decode(accessToken)
+    const userDataPromise = dbcontroller.getUser(userDataDecoded)
+    return userDataPromise.then(userData => {
+      if(userData.username) return true
+      return false
+    })
+  }
+  
   addUsernameToDb = (userData, accessToken) => {
     const userDataDecoded = jwt.decode(accessToken)
     userDataDecoded.username = userData.username
