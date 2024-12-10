@@ -31,6 +31,20 @@ class Controller {
       return false
     })
   }
+  userCheckNickname = () => {
+    return users.axiosGetUserCheckNickname()
+    .then(function (response) {
+      console.log(response.data, response.status)
+      if(response.status == 200) {
+        return true
+      }
+      return false
+    })
+    .catch(function (error) {
+      console.log(error)
+      return false
+    })
+  }
 }
 
 const controller = new Controller()
