@@ -81,31 +81,5 @@ usersRouter.post('/addnick', (req, res) => {
   }
 });
 
-usersRouter.get('/checkNickname', (req, res) => {
-  const accessToken = req.headers['authorization']
-  if(!accessToken){
-    console.error('Отсутствует токен доступа')
-    return res.sendStatus(401)
-  }
-
-  try {
-    model.verifyToken(accessToken)
-  } catch (err) {
-    console.error('Ошибка проверки токена', err)
-    return res.sendStatus(401)
-  }
-
-  try {
-    const userNicknameIsExistPromise = model.checkUserNickname(accessToken)
-    userNicknameIsExistPromise.then(userNicknameIsExist => {
-      if(userNicknameIsExist) return res.sendStatus(200)
-      return res.sendStatus(404)
-    })
-  } catch (err) {
-    console.error("Ошибка проверки никнейма", err)
-    return res.sendStatus(500)
-  }
-});
-
 module.exports = usersRouter;
 
