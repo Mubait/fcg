@@ -51,7 +51,7 @@ usersRouter.post('/signup', (req, res) => {
 
 usersRouter.post('/addnick', (req, res) => {
   const userData = req.body
-  const accessToken = req.headers['authorization'].split(' ')[1]
+  const accessToken = req.headers['authorization']
   const emptyBody = !Object.keys(userData).length ? true : false
   if(emptyBody) {
     console.error('Отсутствует тело запроса')
@@ -82,7 +82,7 @@ usersRouter.post('/addnick', (req, res) => {
 });
 
 usersRouter.get('/checkNickname', (req, res) => {
-  const accessToken = req.headers['authorization'].split(' ')[1]
+  const accessToken = req.headers['authorization']
   if(!accessToken){
     console.error('Отсутствует токен доступа')
     return res.sendStatus(401)
