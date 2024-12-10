@@ -33,6 +33,9 @@ class Controller {
   }
   userAddNickname = (userData) => {
     return users.axiosPostUserAddnickname(userData)
+  }
+  userCheckNickname = () => {
+    return users.axiosGetUserCheckNickname()
     .then(function (response) {
       console.log(response.data)
       if(response.status == 200)
