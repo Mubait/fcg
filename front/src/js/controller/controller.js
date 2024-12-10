@@ -31,6 +31,19 @@ class Controller {
       return false
     })
   }
+  userAddNickname = (userData) => {
+    return users.axiosPostUserAddnickname(userData)
+    .then(function (response) {
+      console.log(response.data)
+      if(response.status == 200)
+        return true
+      return false
+    })
+    .catch(function (error) {
+      console.log(error)
+      return false
+    })
+  }
 }
 
 const controller = new Controller()
