@@ -1,6 +1,4 @@
 <script setup>
-import BaseButtonStyle from '@/components/BaseButtonStyle.vue'
-
 import MainHeader from '@/components/MainHeader.vue';
 import MainPlayMenu from '@/components/MainPlayMenu.vue';
 

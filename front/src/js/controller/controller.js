@@ -57,6 +57,19 @@ class Controller {
       return false
     })
   }
+  userGetNick = () => {
+    return users.axiosGetUserNick()
+    .then(function (response) {
+      console.log(response.data)
+      if(response.status == 200)
+        return response.data.username
+      return false
+    })
+    .catch(function (error) {
+      console.log(error)
+      return false
+    })
+  }
 }
 
 const controller = new Controller()
