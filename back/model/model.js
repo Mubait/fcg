@@ -16,7 +16,6 @@ class Model {
       return true
     })
   }
-
   checkUserNickname = (accessToken) => {
     const userDataDecoded = jwt.decode(accessToken)
     const userDataPromise = dbcontroller.getUser(userDataDecoded)
@@ -25,12 +24,19 @@ class Model {
       return false
     })
   }
-
   addUsernameToDb = (userData, accessToken) => {
     const userDataDecoded = jwt.decode(accessToken)
     userDataDecoded.username = userData.username
 
     return dbcontroller.updateUser(userDataDecoded)
+  }
+  getUserNick = (accessToken) => {
+    const userDataDecoded = jwt.decode(accessToken)
+    const userDataPromise = dbcontroller.getUser(userDataDecoded)
+    return userDataPromise.then(userData => {
+      if(userData.username) return  { username: userData.username }
+      return false
+    })
   }
 
   generateToken = (userData) => jwt.sign(userData, process.env.SECRET_KEY, { expiresIn: '24h' })
