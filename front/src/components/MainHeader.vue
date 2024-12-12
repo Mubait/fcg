@@ -1,10 +1,14 @@
 <script setup>
+import { controller } from '@/js/controller/controller';
 import { userInfo } from '@/js/userInfo';
 import { ref } from 'vue';
 
 const avatarUrl = ref(sessionStorage.getItem('useravatar') ? sessionStorage.getItem('useravatar') : '/logo/noAvatar.png')
 const isProfileOpen = ref(false)
-const userName = ref(sessionStorage.getItem('username'))
+const userName = ref()
+const getUserNickPromise = controller.userGetNick().then(userNick => {
+  userName.value = userNick
+})
 
 const triggerUploadAvatar = () => {
   document.getElementById('fileInput').click()

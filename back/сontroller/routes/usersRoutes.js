@@ -107,5 +107,32 @@ usersRouter.get('/checkNickname', (req, res) => {
   }
 });
 
+usersRouter.get('/getNick', (req, res) => {
+  const accessToken = req.headers['authorization'].split(' ')[1]
+  if(!accessToken){
+    console.error('Отсутствует токен доступа')
+    return res.sendStatus(401)
+  }
+
+  try {
+    model.verifyToken(accessToken)
+  } catch (err) {
+    console.error('Ошибка проверки токена', err)
+    return res.sendStatus(401)
+  }
+
+  try {
+    const userNickPromise = model.getUserNick(accessToken)
+    userNickPromise.then(userNick => {
+      if(userNick) return res.json(userNick)
+      return res.sendStatus(404)
+    })
+  } catch (err) {
+    console.error("Ошибка получения ника", err)
+    return res.sendStatus(500)
+  }
+});
+
+
 module.exports = usersRouter;
 

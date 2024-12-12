@@ -16,6 +16,11 @@ class Users {
       { headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}`}}
     )
   }
+  axiosGetUserNick = () => {
+    return axios.get(`${import.meta.env.VITE_URLSERVER}/users/getNick`,
+      { headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}`}}
+    )
+  }
 }
 
 const users = new Users()
