@@ -11,6 +11,11 @@ class Users {
     return axios.post(`${import.meta.env.VITE_URLSERVER}/users/addnick`, userData, 
       { headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}`}})
   }
+  axiosGetUserCheckNick = () => {
+    return axios.post(`${import.meta.env.VITE_URLSERVER}/users/checkNickname`,
+      { headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}`}}
+    )
+  }
 }
 
 const users = new Users()
