@@ -32,7 +32,7 @@ class Controller {
     })
   }
   userAddNick = (userData) => {
-    return users.axiosPostUserSignup(userData)
+    return users.axiosPostUserAddnick(userData)
     .then(function (response) {
       console.log(response.data)
       if(response.status == 200)
