@@ -9,7 +9,7 @@ class Users {
   }
   axiosPostUserAddnick = (userData) => {
     return axios.post(`${import.meta.env.VITE_URLSERVER}/users/addnick`, userData, 
-      { headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}}`}})
+      { headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}`}})
   }
 }
 
