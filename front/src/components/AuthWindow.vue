@@ -15,16 +15,10 @@ let userSignin = () => {
     signinVisible.value = true
     if(userSigninIsOk) {
       signinIsOk.value = true
-      const userIsNicknameExistPromise = controller.userCheckNickname()
-      userIsNicknameExistPromise.then(userIsNicknameExist => {
-        if(userIsNicknameExist)
-          router.push('/main')
-        else router.push('/regnick')
-      })
+      router.push('/regnick')
     }
-    else {
+    else 
       signinIsOk.value = false
-    }
     
     setTimeout(() => {
       signinVisible.value = false
