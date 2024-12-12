@@ -15,7 +15,11 @@ let userSignin = () => {
     signinVisible.value = true
     if(userSigninIsOk) {
       signinIsOk.value = true
-      router.push('/regnick')
+      controller.userCheckNick()
+      .then(isUserNickExist => {
+        if(isUserNickExist) router.push('/main')
+        else router.push('/regnick')
+      })
     }
     else 
       signinIsOk.value = false

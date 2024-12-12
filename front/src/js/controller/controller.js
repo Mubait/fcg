@@ -31,6 +31,32 @@ class Controller {
       return false
     })
   }
+  userAddNick = (userData) => {
+    return users.axiosPostUserAddnick(userData)
+    .then(function (response) {
+      console.log(response.data)
+      if(response.status == 200)
+        return true
+      return false
+    })
+    .catch(function (error) {
+      console.log(error)
+      return false
+    })
+  }
+  userCheckNick = () => {
+    return users.axiosGetUserCheckNick()
+    .then(function (response) {
+      console.log(response.data)
+      if(response.status == 200)
+        return true
+      return false
+    })
+    .catch(function (error) {
+      console.log(error)
+      return false
+    })
+  }
 }
 
 const controller = new Controller()
