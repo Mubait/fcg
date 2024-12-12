@@ -8,7 +8,7 @@ class Users {
     return axios.post(`${import.meta.env.VITE_URLSERVER}/users/signup`, userData)
   }
   axiosGetUserCheckNick = () => {
-    return axios.post(`${import.meta.env.VITE_URLSERVER}/users/checkNickname`,
+    return axios.get(`${import.meta.env.VITE_URLSERVER}/users/checkNickname`,
       { headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}`}}
     )
   }
