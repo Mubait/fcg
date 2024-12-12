@@ -7,9 +7,6 @@ class Users {
   axiosPostUserSignup = (userData) => {
     return axios.post(`${import.meta.env.VITE_URLSERVER}/users/signup`, userData)
   }
-  axiosPostUserAddnickname = (userData) => {
-    return axios.post(`${import.meta.env.VITE_URLSERVER}/users/addnick`, userData, { headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}`}})
-  }
 }
 
 const users = new Users()
