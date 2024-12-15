@@ -1,12 +1,12 @@
 <script setup>
-import { controller } from '@/js/controller/controller';
+import { controllerUsers } from '@/js/controller/controllerUsers';
 import { userInfo } from '@/js/userInfo';
 import { ref } from 'vue';
 
 const avatarUrl = ref(sessionStorage.getItem('useravatar') ? sessionStorage.getItem('useravatar') : '/logo/noAvatar.png')
 const isProfileOpen = ref(false)
 const userName = ref()
-const getUserNickPromise = controller.userGetNick().then(userNick => {
+const getUserNickPromise = controllerUsers.userGetNick().then(userNick => {
   userName.value = userNick
 })
 

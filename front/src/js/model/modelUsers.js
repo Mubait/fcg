@@ -1,8 +1,6 @@
-import { users } from "./routes/users";
-
-class Controller {
-  userSignin = (userData) => {
-    return users.axiosPostUserSignin(userData)
+class ModelUsers {
+  userSignin = (userSigninPromise) => {
+    return userSigninPromise
     .then(function (response) {
       console.log(response.data)
       const token = response.data
@@ -18,8 +16,8 @@ class Controller {
       return false
     })
   }
-  userSignup = (userData) => {
-    return users.axiosPostUserSignup(userData)
+  userSignup = (userSignupPromise) => {
+    return userSignupPromise
     .then(function (response) {
       console.log(response.data)
       if(response.status == 200)
@@ -31,8 +29,8 @@ class Controller {
       return false
     })
   }
-  userAddNick = (userData) => {
-    return users.axiosPostUserAddnick(userData)
+  userAddNick = (userAddNickPromise) => {
+    return userAddNickPromise
     .then(function (response) {
       console.log(response.data)
       if(response.status == 200)
@@ -44,8 +42,8 @@ class Controller {
       return false
     })
   }
-  userCheckNick = () => {
-    return users.axiosGetUserCheckNick()
+  userCheckNick = (userCheckNickPromise) => {
+    return userCheckNickPromise
     .then(function (response) {
       console.log(response.data)
       if(response.status == 200)
@@ -57,8 +55,8 @@ class Controller {
       return false
     })
   }
-  userGetNick = () => {
-    return users.axiosGetUserNick()
+  userGetNick = (userGetNickPromise) => {
+    return userGetNickPromise
     .then(function (response) {
       console.log(response.data)
       if(response.status == 200)
@@ -72,6 +70,6 @@ class Controller {
   }
 }
 
-const controller = new Controller()
+const modelUsers = new ModelUsers()
 
-export { controller }
+export { modelUsers }

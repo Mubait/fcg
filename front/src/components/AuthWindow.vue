@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, reactive } from 'vue'
 import { useRouter } from 'vue-router';
-import { controller } from '@/js/controller/controller'
+import { controllerUsers } from '@/js/controller/controllerUsers'
 
 const router = useRouter();
 const userData = {email: '', password: ''}
@@ -10,12 +10,12 @@ let signupIsOk = ref(false)
 let signinVisible = ref(false)
 let signupVisible = ref(false)
 let userSignin = () => {
-  const userSigninOk = controller.userSignin(userData)
+  const userSigninOk = controllerUsers.userSignin(userData)
   userSigninOk.then(userSigninIsOk => {
     signinVisible.value = true
     if(userSigninIsOk) {
       signinIsOk.value = true
-      controller.userCheckNick()
+      controllerUsers.userCheckNick()
       .then(isUserNickExist => {
         if(isUserNickExist) router.push('/main')
         else router.push('/regnick')
@@ -31,7 +31,7 @@ let userSignin = () => {
 }
 
 const userSignup = () => {
-  const userSignupOk = controller.userSignup(userData)
+  const userSignupOk = controllerUsers.userSignup(userData)
   userSignupOk.then(userSignupIsOk => {
     signupVisible.value = true
     if(userSignupIsOk)
