@@ -29,5 +29,9 @@
     "logout": "log out",
     "vsPlayer": "PLAYER",
     "vsAI": "AI"
+  },
+  "modeSelectionAIpage": {
+    "campaign": "campaign",
+    "quickPlay": "quick play"
   }
 }

@@ -29,5 +29,9 @@
     "logout": "выйти",
     "vsPlayer": "ИГРОК",
     "vsAI": "ИИ"
+  },
+  "modeSelectionAIpage": {
+    "campaign": "кампания",
+    "quickPlay": "быстрая игра"
   }
 }
