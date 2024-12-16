@@ -18,7 +18,7 @@ const router = useRouter()
 
       <div class="h-full w-72 bg-zinc-800 rounded-3xl cursor-pointer
       hover:brightness-200">
-        <p class="size-full flex items-center text-center drop-shadow-[0_0px_30px_rgba(255,255,255)]
+        <p class="size-full flex items-center justify-center text-center drop-shadow-[0_0px_30px_rgba(255,255,255)]
         text-2xl text-zinc-500">{{ $t('modeSelectionAIpage.quickPlay') }}</p>
       </div>
     </div>
