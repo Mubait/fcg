@@ -6,21 +6,27 @@ const router = useRouter()
 
 <template>
   <main class="fixed size-full bg-gradient-to-r from-indigo-950 to-black">
-    <img class="absolute ml-2 mt-2 object-contain h-1/4 cursor-pointer hover:brightness-50" src="/logo/logoOrc.png" alt="regPg" 
+    <img class="absolute ml-2 mt-2 object-contain h-1/4 cursor-pointer hover:brightness-50 select-none" src="/logo/logoOrc.png"
     @click="router.push('/main')"/>
 
-    <div class="absolute h-1/2 w-1/2 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 grid grid-cols-2 place-items-center">
-      <div class="h-full w-72 bg-zinc-800 rounded-3xl cursor-pointer
-      hover:brightness-200">
-        <p class="size-full flex items-center justify-center drop-shadow-[0_0px_30px_rgba(255,255,255)]
-        text-2xl text-zinc-500">{{ $t('modeSelectionAIpage.campaign') }}</p>
+    <div class="absolute h-1/2 w-1/2 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 grid grid-cols-2 place-items-center select-none">
+
+      <div class="relative h-full w-72 rounded-3xl cursor-pointer overflow-hidden drop-shadow-[0_20px_20px_rgba(148,134,117,1)]" 
+      @click="console.log('ok')">
+        <img class="absolute transition duration-300
+        object-cover size-full hover:scale-110 hover:brightness-75 cursor-pointer brightness-50" src="/5.modeSelectionAIPg/campaign.jpg"/>
+        <p class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+        text-2xl text-white">{{ $t('modeSelectionAIpage.campaign') }}</p>
       </div>
 
-      <div class="h-full w-72 bg-zinc-800 rounded-3xl cursor-pointer
-      hover:brightness-200">
-        <p class="size-full flex items-center justify-center text-center drop-shadow-[0_0px_30px_rgba(255,255,255)]
-        text-2xl text-zinc-500">{{ $t('modeSelectionAIpage.quickPlay') }}</p>
+      <div class="relative h-full w-72 rounded-3xl cursor-pointer overflow-hidden drop-shadow-[0_20px_20px_rgba(148,134,117,1)]" 
+      @click="console.log('ok')">
+        <img class="absolute transition duration-300 
+        object-cover size-full hover:scale-110 hover:brightness-75 cursor-pointer brightness-50" src="/5.modeSelectionAIPg/quickPlay.jpg"/>
+        <p class="absolute w-full text-center top-1/2 -translate-y-1/2 mx-auto
+        text-2xl text-white">{{ $t('modeSelectionAIpage.quickPlay') }}</p>
       </div>
+      
     </div>
 
 
