@@ -11,6 +11,7 @@ import Auth from './pages/Auth.vue'
 import Regnick from './pages/RegNick.vue'
 import MainGame from './pages/MainGame.vue'
 import ModeSelectionAI from './pages/ModeSelectionAI.vue'
+import Cards from './pages/Cards.vue'
 
 import i18n  from "./i18n.js"
 
@@ -20,6 +21,7 @@ const routes = [
   { path: '/regnick',   component: Regnick },
   { path: '/main',   component: MainGame },
   { path: '/main/modeSelectionAI',   component: ModeSelectionAI },
+  { path: '/main/cards',   component: Cards },
 ]
 
 const router = createRouter({

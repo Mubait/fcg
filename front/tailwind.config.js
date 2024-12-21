@@ -11,6 +11,7 @@ export default {
         'bgAuth': "url('/2.regPg/regPg.jpg')",
         'bgRegNick': "url('/3.regNicknamePg/bgPgRegNick1.jpg')",
         'bgMain': "url('/4.mainPg/mainPg.jpg')",
+        'bgCards': "url('/4.2.cardsPg/cardsBg.jpg')"
       },
       fontFamily: {
 				stalinist: ["Stalinist One"],
@@ -41,6 +42,7 @@ export default {
     },
   },
   plugins: [
+    require('tailwind-scrollbar')({ nocompatible: true, preferredStrategy: 'pseudoelements' }),
   ],
 }
 

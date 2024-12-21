@@ -2,6 +2,9 @@
 import { controllerUsers } from '@/js/controller/controllerUsers';
 import { userInfo } from '@/js/userInfo';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 
 const avatarUrl = ref(sessionStorage.getItem('useravatar') ? sessionStorage.getItem('useravatar') : '/logo/noAvatar.png')
 const isProfileOpen = ref(false)
@@ -42,7 +45,7 @@ const onFileChange = (event) => {
     <div class="grid grid-cols-4 w-7/12 place-items-center">
       <p class="text-2xl cursor-pointer w-fit
       brightness-150 hover:brightness-200 text-blue-500 drop-shadow-[0_0px_10px_rgba(0,0,255,1)]"> {{ $t('mainPage.score') }} </p> 
-      <p class="text-2xl cursor-pointer w-fit
+      <p @click="router.push('/main/cards')" class="text-2xl cursor-pointer w-fit
       brightness-150 hover:brightness-200 text-blue-500 drop-shadow-[0_0px_10px_rgba(0,0,255,1)]"> {{ $t('mainPage.cards') }} </p> 
       <p class="text-2xl cursor-pointer w-fit
       brightness-150 hover:brightness-200 text-blue-500 drop-shadow-[0_0px_10px_rgba(0,0,255,1)]"> {{ $t('mainPage.friends') }} </p>
