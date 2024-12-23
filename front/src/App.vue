@@ -13,7 +13,7 @@ let soundImgUrl = ref("/audio/audio-on.png")
 let langImgUrl = ref("/language/ru.png")
 
 const sound = new Howl({
-  src: ['/audio/2.mp3'],
+  src: ['/audio/fcg-maintheme.mp3'],
   autoplay: true,
   loop: true,
   volume: 0.5,
