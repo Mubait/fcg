@@ -1,5 +1,7 @@
-const jwt = require('jsonwebtoken');
-const { dbcontroller } = require('../сontroller/dbcontroller');
+const jwt = require('jsonwebtoken')
+const { dbcontroller } = require('../сontroller/dbcontroller')
+const path = require('path')
+const fs = require('fs').promises
 
 class Model {
 
@@ -41,6 +43,35 @@ class Model {
 
   generateToken = (userData) => jwt.sign(userData, process.env.SECRET_KEY, { expiresIn: '24h' })
   verifyToken = (token) => jwt.verify(token, process.env.SECRET_KEY)
+
+  getCardsJson = async () =>{
+    try {
+      const orcCardsPath = path.join(__dirname, '../assets/cards/heroes/orc/')
+      const elfCardsPath = path.join(__dirname, '../assets/cards/heroes/elf/')
+
+      var cards = {orc: [],elf: []}
+
+      const orcArrUrl = await fs.readdir(orcCardsPath).catch(err=>console.err("ошибка чтения директории", err))
+      const elfArrUrl = await fs.readdir(elfCardsPath).catch(err=>console.err("ошибка чтения директории", err))
+
+      orcArrUrl.forEach((imgUrl, i)=>{
+        cards.orc.push({
+          id: i,
+          imgUrl: `/cards/heroes/orc/${imgUrl}`
+        })
+      })
+      elfArrUrl.forEach((imgUrl, i)=>{
+        cards.elf.push({
+          id: i,
+          imgUrl: `/cards/heroes/elf/${imgUrl}`
+        })
+      })
+
+      return cards
+    } catch(err){
+      console.err(err)
+    }
+  }
 }
 
 const model = new Model()
