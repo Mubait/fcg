@@ -1,12 +1,29 @@
 <script setup>
 import BaseCard from '@/components/BaseCard.vue';
+import axios from 'axios';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter()
+
+const cardImgUrl = ref()
+const cardImgArr = ref()
+
+axios.get(`${import.meta.env.VITE_URLSERVER}/cards`)
+.then(response => {
+    console.log(response.data.orc.concat(response.data.elf))
+    cardImgArr.value = response.data.orc.concat(response.data.elf)
+    // cardImgUrl.value = "http://localhost:3000"+response.data[0].imgUrl
+})
+.catch(error => {
+    console.error('Ошибка при загрузке изображения:', error);
+});
+
 </script>
 
 <template>
   <main class="fixed size-full bg-bgCards bg-cover">
+    
     <img class="absolute ml-2 mt-2 object-contain h-1/6 cursor-pointer hover:brightness-50 select-none" src="/logo/logoOrc.png"
     @click="router.push('/main')"/>
 
@@ -17,12 +34,9 @@ const router = useRouter()
       border-2 border-teal-400 bg-teal-900/60 backdrop-blur-lg grid grid-cols-4 gap-10 place-items-center">
 
 
-        <BaseCard/>
-        <BaseCard/>
-        <BaseCard/>
-        <BaseCard/>
-        <BaseCard/>
-        <BaseCard/>
+      <div class="size-fit" v-for="img in cardImgArr">
+        <BaseCard :img-url="'http://localhost:3000'+img.imgUrl"/>
+      </div>
 
 
       </div>
