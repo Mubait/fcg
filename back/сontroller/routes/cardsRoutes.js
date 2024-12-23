@@ -5,8 +5,8 @@ const model = require('../../model/model')
 const cardsRouter = express.Router()
 
 cardsRouter.get('/', (req, res) => {
-  model.getCardsJson().then(arr=>{
-    return res.json(arr.orc)
+  model.getCardsJson().then(cards=>{
+    return res.json(cards)
     });
 
   // const accessToken = req.headers['authorization'].split(' ')[1]
