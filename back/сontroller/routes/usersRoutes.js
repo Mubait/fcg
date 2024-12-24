@@ -51,17 +51,22 @@ usersRouter.post('/signup', (req, res) => {
 
 usersRouter.post('/addnick', (req, res) => {
   const userData = req.body
+  const authHeader = req.headers['authorization']
   const emptyBody = !Object.keys(userData).length ? true : false
   if(emptyBody) {
     console.error('Отсутствует тело запроса')
     return res.sendStatus(400)
   }
+  if(!authHeader){
+    console.error('Отсутствует токен доступа')
+    return res.sendStatus(401)
+  }
   
+  const accessToken = authHeader.split(' ')[1]
   try {
-    const accessToken = req.headers['authorization'].split(' ')[1]
     model.verifyToken(accessToken)
   } catch (err) {
-    console.error('Ошибка проверки токена или токен пустой', err)
+    console.error('Ошибка проверки токена', err)
     return res.sendStatus(401)
   }
 
@@ -78,11 +83,17 @@ usersRouter.post('/addnick', (req, res) => {
 });
 
 usersRouter.get('/checkNickname', (req, res) => {
+  const authHeader = req.headers['authorization']
+  if(!authHeader){
+    console.error('Отсутствует токен доступа')
+    return res.sendStatus(401)
+  }
+  
+  const accessToken = authHeader.split(' ')[1]
   try {
-    const accessToken = req.headers['authorization'].split(' ')[1]
     model.verifyToken(accessToken)
   } catch (err) {
-    console.error('Ошибка проверки токена или токен пустой', err)
+    console.error('Ошибка проверки токена', err)
     return res.sendStatus(401)
   }
 
@@ -99,11 +110,17 @@ usersRouter.get('/checkNickname', (req, res) => {
 });
 
 usersRouter.get('/getNick', (req, res) => {
+  const authHeader = req.headers['authorization']
+  if(!authHeader){
+    console.error('Отсутствует токен доступа')
+    return res.sendStatus(401)
+  }
+  
+  const accessToken = authHeader.split(' ')[1]
   try {
-    const accessToken = req.headers['authorization'].split(' ')[1]
     model.verifyToken(accessToken)
   } catch (err) {
-    console.error('Ошибка проверки токена или токен пустой', err)
+    console.error('Ошибка проверки токена', err)
     return res.sendStatus(401)
   }
 

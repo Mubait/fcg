@@ -5,11 +5,17 @@ const model = require('../../model/model')
 const cardsRouter = express.Router()
 
 cardsRouter.get('/', (req, res) => {
+  const authHeader = req.headers['authorization']
+  if(!authHeader){
+    console.error('Отсутствует токен доступа')
+    return res.sendStatus(401)
+  }
+  
+  const accessToken = authHeader.split(' ')[1]
   try {
-    const accessToken = req.headers['authorization'].split(' ')[1]
     model.verifyToken(accessToken)
   } catch(err) {
-    console.error('Ошибка проверки токена или токен отсутствует', err)
+    console.error('Ошибка проверки токена', err)
     return res.sendStatus(401)
   }
 
