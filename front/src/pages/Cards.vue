@@ -1,22 +1,22 @@
 <script setup>
 import BaseCard from '@/components/BaseCard.vue';
+import { controllerCards } from '@/js/controller/controllerCards';
 import axios from 'axios';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter()
 
-const cardImgUrl = ref()
-const cardImgArr = ref()
+const cardsImgArr = ref()
 
-axios.get(`${import.meta.env.VITE_URLSERVER}/cards`)
-.then(response => {
-    console.log(response.data.orc.concat(response.data.elf))
-    cardImgArr.value = response.data.orc.concat(response.data.elf)
-    // cardImgUrl.value = "http://localhost:3000"+response.data[0].imgUrl
-})
-.catch(error => {
-    console.error('Ошибка при загрузке изображения:', error);
+onMounted(() => {
+  controllerCards.getCards()
+  .then(cardsArr => {
+    cardsImgArr.value = cardsArr
+  })
+  .catch(function (err) {
+    console.log(err)
+  })
 });
 
 </script>
@@ -34,7 +34,7 @@ axios.get(`${import.meta.env.VITE_URLSERVER}/cards`)
       border-2 border-teal-400 bg-teal-900/60 backdrop-blur-lg grid grid-cols-4 gap-10 place-items-center">
 
 
-      <div class="size-fit" v-for="img in cardImgArr">
+      <div class="size-fit" v-for="img in cardsImgArr">
         <BaseCard :img-url="'http://localhost:3000'+img.imgUrl"/>
       </div>
 
