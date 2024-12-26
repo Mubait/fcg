@@ -7,12 +7,12 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter()
 
-const cardsImgArr = ref()
+const cardsArr = ref()
 
 onMounted(() => {
   controllerCards.getCards()
-  .then(cardsArr => {
-    cardsImgArr.value = cardsArr
+  .then(cardsArrReturned => {
+    cardsArr.value = cardsArrReturned
   })
   .catch(function (err) {
     console.log(err)
@@ -34,8 +34,16 @@ onMounted(() => {
       border-2 border-teal-400 bg-teal-900/60 backdrop-blur-lg grid grid-cols-4 gap-10 place-items-center">
 
 
-      <div class="size-fit" v-for="img in cardsImgArr">
-        <BaseCard :img-url="'http://localhost:3000'+img.imgUrl"/>
+      <div class="relative size-fit" v-for="property in cardsArr">
+        <BaseCard 
+        :img-url="'http://localhost:3000'+property.imgUrl"
+        :boevoiDyh="property.boevoidyh"
+        :intellekt="property.intellekt"
+        :masterstvo="property.masterstvo"
+        :sila="property.sila"
+        :skorost="property.skorost"
+        :skritnost="property.skritnost"
+        />
       </div>
 
 
