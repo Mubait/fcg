@@ -46,30 +46,31 @@ class Model {
 
   getCardsJson = async () =>{
     try {
-      const orcCardsPath = path.join(__dirname, '../assets/cards/heroes/orc/')
-      const elfCardsPath = path.join(__dirname, '../assets/cards/heroes/elf/')
+      // const orcCardsPath = path.join(__dirname, '../assets/cards/heroes/orc/')
+      // const elfCardsPath = path.join(__dirname, '../assets/cards/heroes/elf/')
 
-      var cards = {orc: [],elf: []}
+      // const orcArrUrl = await fs.readdir(orcCardsPath).catch(err=>console.err("ошибка чтения директории", err))
+      // const elfArrUrl = await fs.readdir(elfCardsPath).catch(err=>console.err("ошибка чтения директории", err))
 
-      const orcArrUrl = await fs.readdir(orcCardsPath).catch(err=>console.err("ошибка чтения директории", err))
-      const elfArrUrl = await fs.readdir(elfCardsPath).catch(err=>console.err("ошибка чтения директории", err))
+      // orcArrUrl.forEach((imgUrl, i)=>{
+      //   cards.orc.push({
+      //     id: i,
+      //     imgUrl: `/cards/heroes/orc/${imgUrl}`
+      //   })
+      // })
+      // elfArrUrl.forEach((imgUrl, i)=>{
+      //   cards.elf.push({
+      //     id: i,
+      //     imgUrl: `/cards/heroes/elf/${imgUrl}`
+      //   })
+      // })
 
-      orcArrUrl.forEach((imgUrl, i)=>{
-        cards.orc.push({
-          id: i,
-          imgUrl: `/cards/heroes/orc/${imgUrl}`
-        })
-      })
-      elfArrUrl.forEach((imgUrl, i)=>{
-        cards.elf.push({
-          id: i,
-          imgUrl: `/cards/heroes/elf/${imgUrl}`
-        })
-      })
+      const cards = await fs.readFile(`${__dirname}/cards.json`, 'utf8')
+      const jsonCards = JSON.parse(cards)
 
-      return cards
+      return jsonCards
     } catch(err){
-      console.err(err)
+      console.error(err)
     }
   }
 }

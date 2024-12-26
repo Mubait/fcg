@@ -1,0 +1,126 @@
+{
+  "orc": [
+      {
+          "id": 0,
+          "imgUrl": "/cards/heroes/orc/podniatiedyha1.jpg"
+      },
+      {
+          "id": 1,
+          "imgUrl": "/cards/heroes/orc/podniatiedyha2.jpg"
+      },
+      {
+          "id": 2,
+          "imgUrl": "/cards/heroes/orc/voin1.jpg"
+      },
+      {
+          "id": 3,
+          "imgUrl": "/cards/heroes/orc/voin10.jpg"
+      },
+      {
+          "id": 4,
+          "imgUrl": "/cards/heroes/orc/voin2.jpg"
+      },
+      {
+          "id": 5,
+          "imgUrl": "/cards/heroes/orc/voin3.jpg"
+      },
+      {
+          "id": 6,
+          "imgUrl": "/cards/heroes/orc/voin4.jpg"
+      },
+      {
+          "id": 7,
+          "imgUrl": "/cards/heroes/orc/voin5.jpg"
+      },
+      {
+          "id": 8,
+          "imgUrl": "/cards/heroes/orc/voin6.jpg"
+      },
+      {
+          "id": 9,
+          "imgUrl": "/cards/heroes/orc/voin7.jpg"
+      },
+      {
+          "id": 10,
+          "imgUrl": "/cards/heroes/orc/voin8.jpg"
+      },
+      {
+          "id": 11,
+          "imgUrl": "/cards/heroes/orc/voin9.jpg"
+      },
+      {
+          "id": 12,
+          "imgUrl": "/cards/heroes/orc/zashitnik1.jpg"
+      },
+      {
+          "id": 13,
+          "imgUrl": "/cards/heroes/orc/zashitnik2.jpg"
+      }
+  ],
+  "elf": [
+      {
+          "id": 0,
+          "imgUrl": "/cards/heroes/elf/podniatiedyha1.jpg"
+      },
+      {
+          "id": 1,
+          "imgUrl": "/cards/heroes/elf/podniatiedyha2.jpg"
+      },
+      {
+          "id": 2,
+          "imgUrl": "/cards/heroes/elf/voin1.jpg"
+      },
+      {
+          "id": 3,
+          "imgUrl": "/cards/heroes/elf/voin10.jpg"
+      },
+      {
+          "id": 4,
+          "imgUrl": "/cards/heroes/elf/voin11.jpg"
+      },
+      {
+          "id": 5,
+          "imgUrl": "/cards/heroes/elf/voin12.jpg"
+      },
+      {
+          "id": 6,
+          "imgUrl": "/cards/heroes/elf/voin2.jpg"
+      },
+      {
+          "id": 7,
+          "imgUrl": "/cards/heroes/elf/voin3.jpg"
+      },
+      {
+          "id": 8,
+          "imgUrl": "/cards/heroes/elf/voin4.jpg"
+      },
+      {
+          "id": 9,
+          "imgUrl": "/cards/heroes/elf/voin5.jpg"
+      },
+      {
+          "id": 10,
+          "imgUrl": "/cards/heroes/elf/voin6.jpg"
+      },
+      {
+          "id": 11,
+          "imgUrl": "/cards/heroes/elf/voin7.jpg"
+      },
+      {
+          "id": 12,
+          "imgUrl": "/cards/heroes/elf/voin8.jpg"
+      },
+      {
+          "id": 13,
+          "imgUrl": "/cards/heroes/elf/voin9.jpg"
+      },
+      {
+          "id": 14,
+          "imgUrl": "/cards/heroes/elf/zashitnkik1.jpg"
+      },
+      {
+          "id": 15,
+          "imgUrl": "/cards/heroes/elf/zashitnkik2.jpg"
+      }
+  ]
+}
