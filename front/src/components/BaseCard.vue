@@ -1,12 +1,12 @@
 <script setup>
 defineProps({
   imgUrl: String,
-  boevoiDyh: String,
-  intellekt: String,
-  masterstvo: String,
-  sila: String,
-  skorost: String,
-  skritnost: String
+  boevoiDyh: Number,
+  intellekt: Number,
+  masterstvo: Number,
+  sila: Number,
+  skorost: Number,
+  skritnost: Number
 })
 
 </script>
