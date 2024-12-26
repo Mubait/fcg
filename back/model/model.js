@@ -52,18 +52,32 @@ class Model {
       // const orcArrUrl = await fs.readdir(orcCardsPath).catch(err=>console.err("ошибка чтения директории", err))
       // const elfArrUrl = await fs.readdir(elfCardsPath).catch(err=>console.err("ошибка чтения директории", err))
 
+      // const cards = {orc:[], elf:[]}
       // orcArrUrl.forEach((imgUrl, i)=>{
       //   cards.orc.push({
       //     id: i,
-      //     imgUrl: `/cards/heroes/orc/${imgUrl}`
+      //     imgUrl: `/cards/heroes/orc/${imgUrl}`,
+      //     boevoidyh: Math.floor(Math.random() * 10) + 1,
+      //     inkellekt: Math.floor(Math.random() * 10) + 1,
+      //     masterstvo: Math.floor(Math.random() * 10) + 1,
+      //     sila: Math.floor(Math.random() * 10) + 1,
+      //     skorost: Math.floor(Math.random() * 10) + 1,
+      //     skritnost: Math.floor(Math.random() * 10) + 1
       //   })
       // })
       // elfArrUrl.forEach((imgUrl, i)=>{
       //   cards.elf.push({
       //     id: i,
-      //     imgUrl: `/cards/heroes/elf/${imgUrl}`
+      //     imgUrl: `/cards/heroes/elf/${imgUrl}`,
+      //     boevoidyh: Math.floor(Math.random() * 10) + 1,
+      //     inkellekt: Math.floor(Math.random() * 10) + 1,
+      //     masterstvo: Math.floor(Math.random() * 10) + 1,
+      //     sila: Math.floor(Math.random() * 10) + 1,
+      //     skorost: Math.floor(Math.random() * 10) + 1,
+      //     skritnost: Math.floor(Math.random() * 10) + 1
       //   })
       // })
+      // return cards
 
       const cards = await fs.readFile(`${__dirname}/cards.json`, 'utf8')
       const jsonCards = JSON.parse(cards)
