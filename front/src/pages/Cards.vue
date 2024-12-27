@@ -3,7 +3,7 @@ import BaseButtonStyle from '@/components/BaseButtonStyle.vue';
 import BaseCard from '@/components/BaseCard.vue';
 import { controllerCards } from '@/js/controller/controllerCards';
 import axios from 'axios';
-import { onMounted, ref } from 'vue';
+import { inject, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter()
@@ -41,8 +41,9 @@ onMounted(() => {
           :hp="property.hp"
           :mana="property.mana"
           :type="property.type"
-          :name="property.name"
+          :name="property.nameRu"
           />
+          <!-- костыль с name, исправить !!! -->
         </div>
 
       </div>
