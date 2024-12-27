@@ -37,12 +37,10 @@ onMounted(() => {
       <div class="relative size-fit" v-for="property in cardsArr">
         <BaseCard 
         :img-url="'http://localhost:3000'+property.imgUrl"
-        :boevoiDyh="property.boevoidyh"
-        :intellekt="property.intellekt"
-        :masterstvo="property.masterstvo"
-        :sila="property.sila"
-        :skorost="property.skorost"
-        :skritnost="property.skritnost"
+        :damage="property.damage"
+        :hp="property.hp"
+        :mana="property.mana"
+        :type="property.type"
         />
       </div>
 
