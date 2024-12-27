@@ -13,7 +13,7 @@ const currentType = props.type=='war'? '/cardElements/sword.png' : props.type=='
 <template>
   <!-- <div class="size-fit"> -->
     <div class="absolute h-14 -left-2 -top-2">
-      <p class="absolute size-full flex justify-center items-center text-white text-2xl">10</p>
+      <p class="absolute size-full flex justify-center items-center text-white text-2xl drop-shadow-[0_25px_20px_rgba(148,134,117,1)] z-10">{{ mana }}</p>
       <img class="object-contain h-full" src="/cardElements/blueSquare.png"/>
     </div>
     <div class="absolute h-20 -right-5 -top-5">
@@ -21,13 +21,13 @@ const currentType = props.type=='war'? '/cardElements/sword.png' : props.type=='
       :src="currentType"/>
     </div>
     <div class="absolute h-14 -left-2 -bottom-2">
-      <p class="absolute size-full flex justify-center items-center text-white text-2xl">7</p>
+      <p class="absolute size-full flex justify-center items-center text-white text-2xl">{{ hp }}</p>
       <img class="object-contain h-full" src="/cardElements/greenCircle.png"/>
     </div>
     <div class="absolute h-14 -right-2 -bottom-2">
-      <p class="absolute size-full flex justify-center items-center text-white text-2xl">10</p>
+      <p class="absolute size-full flex justify-center items-center text-white text-2xl">{{ damage }}</p>
       <img class="object-contain h-full" src="/cardElements/redCircle.png"/>
     </div>
-    <img class="h-80 object-contain" :src="imgUrl"/>
+    <img class="h-80 object-contain rounded-2xl" :src="imgUrl"/>
   <!-- </div> -->
 </template>
