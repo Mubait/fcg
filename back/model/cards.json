@@ -7,7 +7,9 @@
             "effect": 3,
             "mana": 5,
             "hp": 5,
-            "damage": 8
+            "damage": 8,
+            "nameRu": "Бьёмся до конца!",
+            "nameEn": "The last hope!"
         },
         {
             "id": 1,
@@ -16,7 +18,9 @@
             "effect": 5,
             "mana": 3,
             "hp": 1,
-            "damage": 4
+            "damage": 4,
+            "nameRu": "До последнего орка!",
+            "nameEn": "To the last orc!"
         },
         {
             "id": 2,
@@ -24,7 +28,9 @@
             "type": "war",
             "mana": 2,
             "hp": 2,
-            "damage": 6
+            "damage": 6,
+            "nameRu": "Владикус",
+            "nameEn": "Vladikus"
         },
         {
             "id": 3,
@@ -32,7 +38,9 @@
             "type": "war",
             "mana": 10,
             "hp": 5,
-            "damage": 6
+            "damage": 6,
+            "nameRu": "Мишаникус",
+            "nameEn": "Mishanikus"
         },
         {
             "id": 4,
@@ -40,7 +48,9 @@
             "type": "war",
             "mana": 4,
             "hp": 2,
-            "damage": 8
+            "damage": 8,
+            "nameRu": "Саникус",
+            "nameEn": "Sanikus"
         },
         {
             "id": 5,
@@ -48,7 +58,9 @@
             "type": "war",
             "mana": 10,
             "hp": 2,
-            "damage": 5
+            "damage": 5,
+            "nameRu": "Кириллус",
+            "nameEn": "Kirillus"
         },
         {
             "id": 6,
@@ -56,7 +68,9 @@
             "type": "war",
             "mana": 9,
             "hp": 1,
-            "damage": 8
+            "damage": 8,
+            "nameRu": "Громаук",
+            "nameEn": "Gromauk"
         },
         {
             "id": 7,
@@ -64,7 +78,9 @@
             "type": "war",
             "mana": 7,
             "hp": 2,
-            "damage": 2
+            "damage": 2,
+            "nameRu": "Торгаш",
+            "nameEn": "Torgash"
         },
         {
             "id": 8,
@@ -72,7 +88,9 @@
             "type": "war",
             "mana": 1,
             "hp": 9,
-            "damage": 9
+            "damage": 9,
+            "nameRu": "Угарк",
+            "nameEn": "Ugark"
         },
         {
             "id": 9,
@@ -80,7 +98,9 @@
             "type": "war",
             "mana": 2,
             "hp": 7,
-            "damage": 10
+            "damage": 10,
+            "nameRu": "Клан Острых клыков",
+            "nameEn": "Clan Fang Clan"
         },
         {
             "id": 10,
@@ -88,7 +108,9 @@
             "type": "war",
             "mana": 9,
             "hp": 10,
-            "damage": 7
+            "damage": 7,
+            "nameRu": "Длиннорук и Морнгул",
+            "nameEn": "Longarm & Morngul"
         },
         {
             "id": 11,
@@ -96,7 +118,9 @@
             "type": "war",
             "mana": 1,
             "hp": 9,
-            "damage": 1
+            "damage": 1,
+            "nameRu": "Брошгар",
+            "nameEn": "Broshgar"
         },
         {
             "id": 12,
@@ -104,7 +128,9 @@
             "type": "def",
             "mana": 6,
             "hp": 8,
-            "damage": 2
+            "damage": 2,
+            "nameRu": "Биглурш",
+            "nameEn": "Biglursh"
         },
         {
             "id": 13,
@@ -112,7 +138,9 @@
             "type": "def",
             "mana": 10,
             "hp": 2,
-            "damage": 7
+            "damage": 7,
+            "nameRu": "Деффорд",
+            "nameEn": "Defford"
         }
     ],
     "elf": [
@@ -123,7 +151,9 @@
             "effect": 4,
             "mana": 8,
             "hp": 3,
-            "damage": 6
+            "damage": 6,
+            "nameRu": "Зов предков!",
+            "nameEn": "The call of the ancestors!"
         },
         {
             "id": 1,
@@ -132,7 +162,9 @@
             "effect": 4,
             "mana": 2,
             "hp": 5,
-            "damage": 10
+            "damage": 10,
+            "nameRu": "Сила природы!",
+            "nameEn": "A force of nature!"
         },
         {
             "id": 2,
@@ -140,7 +172,9 @@
             "type": "war",
             "mana": 6,
             "hp": 2,
-            "damage": 2
+            "damage": 2,
+            "nameRu": "Сила природы!",
+            "nameEn": "A force of nature!"
         },
         {
             "id": 3,
@@ -148,7 +182,9 @@
             "type": "war",
             "mana": 8,
             "hp": 6,
-            "damage": 1
+            "damage": 1,
+            "nameRu": "Данпа",
+            "nameEn": "Danpa"
         },
         {
             "id": 4,
@@ -156,7 +192,9 @@
             "type": "war",
             "mana": 8,
             "hp": 9,
-            "damage": 10
+            "damage": 10,
+            "nameRu": "Лиара",
+            "nameEn": "Liara"
         },
         {
             "id": 5,
@@ -164,7 +202,9 @@
             "type": "war",
             "mana": 8,
             "hp": 3,
-            "damage": 10
+            "damage": 10,
+            "nameRu": "Раеб",
+            "nameEn": "Raeb"
         },
         {
             "id": 6,
@@ -172,7 +212,9 @@
             "type": "war",
             "mana": 8,
             "hp": 10,
-            "damage": 9
+            "damage": 9,
+            "nameRu": "Мириэль",
+            "nameEn": "Miriel"
         },
         {
             "id": 7,
@@ -180,7 +222,9 @@
             "type": "war",
             "mana": 7,
             "hp": 8,
-            "damage": 6
+            "damage": 6,
+            "nameRu": "Файлин",
+            "nameEn": "Failin"
         },
         {
             "id": 8,
@@ -188,7 +232,9 @@
             "type": "war",
             "mana": 6,
             "hp": 2,
-            "damage": 9
+            "damage": 9,
+            "nameRu": "Элендра",
+            "nameEn": "Elendra"
         },
         {
             "id": 9,
@@ -196,7 +242,9 @@
             "type": "war",
             "mana": 10,
             "hp": 5,
-            "damage": 10
+            "damage": 10,
+            "nameRu": "Мурсун",
+            "nameEn": "Mursun"
         },
         {
             "id": 10,
@@ -204,7 +252,9 @@
             "type": "war",
             "mana": 8,
             "hp": 9,
-            "damage": 3
+            "damage": 3,
+            "nameRu": "Раекс",
+            "nameEn": "Raeks"
         },
         {
             "id": 11,
@@ -212,7 +262,9 @@
             "type": "war",
             "mana": 4,
             "hp": 6,
-            "damage": 1
+            "damage": 1,
+            "nameRu": "Элорин",
+            "nameEn": "Elorin"
         },
         {
             "id": 12,
@@ -220,7 +272,9 @@
             "type": "war",
             "mana": 5,
             "hp": 2,
-            "damage": 8
+            "damage": 8,
+            "nameRu": "Передовой отряд Финарии",
+            "nameEn": "Finnaria's Advance Squad"
         },
         {
             "id": 13,
@@ -228,7 +282,9 @@
             "type": "war",
             "mana": 2,
             "hp": 9,
-            "damage": 6
+            "damage": 6,
+            "nameRu": "Финария",
+            "nameEn": "Finaria"
         },
         {
             "id": 14,
@@ -236,7 +292,9 @@
             "type": "def",
             "mana": 1,
             "hp": 5,
-            "damage": 9
+            "damage": 9,
+            "nameRu": "Болрок",
+            "nameEn": "Bolrock"
         },
         {
             "id": 15,
@@ -244,7 +302,9 @@
             "type": "def",
             "mana": 5,
             "hp": 10,
-            "damage": 8
+            "damage": 8,
+            "nameRu": "Милынь и Пух",
+            "nameEn": "Melyn & Fluf"
         }
     ]
 }
