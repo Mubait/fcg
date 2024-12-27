@@ -20,7 +20,7 @@ defineProps({
         :class="[btnPaddingColor]">
           <div class="flex flex-col justify-center rounded-lg" 
           :class="[btnSize, btnColor, btnColorHover]">
-            <p class="w-full h-full flex flex-col justify-center items-center select-none" :class="[btnTextColor, btnTextColorHover, fontSize]">{{ $t(btnText)}}</p>
+            <p class="w-full h-full grid place-items-center text-center select-none" :class="[btnTextColor, btnTextColorHover, fontSize]">{{ $t(btnText)}}</p>
           </div>
         </div>
       </div>
