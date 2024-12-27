@@ -4,7 +4,8 @@ const props = defineProps({
   damage: Number,
   hp: Number,
   mana: Number,
-  type: String
+  type: String,
+  name: String,
 })
 
 const currentType = props.type=='war'? '/cardElements/sword.png' : props.type=='def'? '/cardElements/shield.png' : '/cardElements/star.png'
@@ -27,6 +28,10 @@ const currentType = props.type=='war'? '/cardElements/sword.png' : props.type=='
     <div class="absolute h-14 -right-2 -bottom-2">
       <p class="absolute size-full flex justify-center items-center text-white text-2xl">{{ damage }}</p>
       <img class="object-contain h-full" src="/cardElements/redCircle.png"/>
+    </div>
+
+    <div class="absolute bottom-[17%] left-1/2 -translate-x-1/2 w-[90%] h-12 bg-black/70 rounded-2xl">
+     <p class="size-full text-amber-400 grid place-items-center">{{ name }}</p> 
     </div>
     <img class="h-80 object-contain rounded-2xl" :src="imgUrl"/>
   <!-- </div> -->

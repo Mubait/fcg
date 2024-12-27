@@ -34,17 +34,16 @@ onMounted(() => {
       scrollbar-thin scrollbar-thumb-rounded-full scrollbar-thumb-teal-600 active:scrollbar-thumb-teal-300
       border-2 border-teal-400 bg-teal-900/60 backdrop-blur-lg grid grid-cols-4 gap-10 place-items-center">
 
-
-      <div class="relative size-fit" v-for="property in cardsArr">
-        <BaseCard 
-        :img-url="'http://localhost:3000'+property.imgUrl"
-        :damage="property.damage"
-        :hp="property.hp"
-        :mana="property.mana"
-        :type="property.type"
-        />
-      </div>
-
+        <div class="relative size-fit" v-for="property in cardsArr">
+          <BaseCard 
+          :img-url="'http://localhost:3000'+property.imgUrl"
+          :damage="property.damage"
+          :hp="property.hp"
+          :mana="property.mana"
+          :type="property.type"
+          :name="property.name"
+          />
+        </div>
 
       </div>
 
