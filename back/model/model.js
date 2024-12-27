@@ -57,24 +57,18 @@ class Model {
       //   cards.orc.push({
       //     id: i,
       //     imgUrl: `/cards/heroes/orc/${imgUrl}`,
-      //     boevoidyh: Math.floor(Math.random() * 10) + 1,
-      //     inkellekt: Math.floor(Math.random() * 10) + 1,
-      //     masterstvo: Math.floor(Math.random() * 10) + 1,
-      //     sila: Math.floor(Math.random() * 10) + 1,
-      //     skorost: Math.floor(Math.random() * 10) + 1,
-      //     skritnost: Math.floor(Math.random() * 10) + 1
+      //     mana: Math.floor(Math.random() * 10) + 1,
+      //     hp: Math.floor(Math.random() * 10) + 1,
+      //     damage: Math.floor(Math.random() * 10) + 1,
       //   })
       // })
       // elfArrUrl.forEach((imgUrl, i)=>{
       //   cards.elf.push({
       //     id: i,
       //     imgUrl: `/cards/heroes/elf/${imgUrl}`,
-      //     boevoidyh: Math.floor(Math.random() * 10) + 1,
-      //     inkellekt: Math.floor(Math.random() * 10) + 1,
-      //     masterstvo: Math.floor(Math.random() * 10) + 1,
-      //     sila: Math.floor(Math.random() * 10) + 1,
-      //     skorost: Math.floor(Math.random() * 10) + 1,
-      //     skritnost: Math.floor(Math.random() * 10) + 1
+      //     mana: Math.floor(Math.random() * 10) + 1,
+      //     hp: Math.floor(Math.random() * 10) + 1,
+      //     damage: Math.floor(Math.random() * 10) + 1,
       //   })
       // })
       // return cards
