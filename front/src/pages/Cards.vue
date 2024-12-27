@@ -1,4 +1,5 @@
 <script setup>
+import BaseButtonStyle from '@/components/BaseButtonStyle.vue';
 import BaseCard from '@/components/BaseCard.vue';
 import { controllerCards } from '@/js/controller/controllerCards';
 import axios from 'axios';
@@ -47,7 +48,30 @@ onMounted(() => {
 
       </div>
 
-      <div class="relative h-full w-1/5 border-l-2 border-teal-400 bg-amber-800/95">
+      <div class="relative h-full w-1/5 border-l-2 border-teal-400 bg-amber-800/95
+      flex flex-col items-center gap-8">
+
+        <input class="mt-3 bg-red-400 h-10 w-48 rounded-lg text-center text-2xl font-bold pb-2 text-zinc-300
+        bg-gradient-to-b from-teal-500 to-black drop-shadow-[0_10px_10px_rgba(0,0,0,1)]"
+        :placeholder="$t('cardsPage.search')"/>
+
+        <select id="fractions" class="h-10 w-48 rounded-lg text-center text-2xl font-bold pb-2 text-zinc-300
+        bg-gradient-to-b from-teal-500 to-black drop-shadow-[0_10px_10px_rgba(0,0,0,1)]">
+          <option selected class="bg-emerald-800 text-zinc-300 text-2xl  font-bold">{{$t('cardsPage.fractions')}}</option>
+          <option value="orc" class="bg-emerald-800 text-zinc-300 text-2xl  font-bold">{{$t('cardsPage.orcs')}}</option>
+          <option value="elf" class="bg-emerald-800 text-zinc-300 text-2xl  font-bold">{{$t('cardsPage.elfs')}}</option>
+        </select>
+
+        <BaseButtonStyle class="drop-shadow-[0_10px_8px_rgba(105,0,38,1)]"
+        :btn-size="'w-44 h-12'"
+        :btn-color="'bg-gradient-to-r from-emerald-900 via-emerald-500 to-emerald-900'"
+        :btn-color-hover="'bg-gradient-to-r hover:from-emerald-700 hover:via-emerald-400 hover:to-emerald-700'"
+        :btn-padding-color="'bg-gradient-to-b from-emerald-700 to-emerald-950'"
+        :btn-text-color="'text-zinc-300'"
+        :btn-text-color-hover="'hover:text-zinc-100'"
+        :btn-text="'cardsPage.createDeck'"
+        />
+
       </div>
 
     </div>
