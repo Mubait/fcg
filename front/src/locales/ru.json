@@ -33,5 +33,12 @@
   "modeSelectionAIpage": {
     "campaign": "кампания",
     "quickPlay": "быстрая игра"
+  },
+  "cardsPage": {
+    "search": "поиск..",
+    "createDeck": "создать колоду",
+    "fractions": "фракции",
+    "orcs": "орки",
+    "elfs": "эльфы"
   }
 }

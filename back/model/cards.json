@@ -1,0 +1,310 @@
+{
+    "orc": [
+        {
+            "id": 0,
+            "imgUrl": "/cards/heroes/orc/podniatiedyha1.jpg",
+            "type": "buff",
+            "effect": 3,
+            "mana": 5,
+            "hp": 5,
+            "damage": 8,
+            "nameRu": "Бьёмся до конца!",
+            "nameEn": "The last hope!"
+        },
+        {
+            "id": 1,
+            "imgUrl": "/cards/heroes/orc/podniatiedyha2.jpg",
+            "type": "buff",
+            "effect": 5,
+            "mana": 3,
+            "hp": 1,
+            "damage": 4,
+            "nameRu": "До последнего орка!",
+            "nameEn": "To the last orc!"
+        },
+        {
+            "id": 2,
+            "imgUrl": "/cards/heroes/orc/voin1.jpg",
+            "type": "war",
+            "mana": 2,
+            "hp": 2,
+            "damage": 6,
+            "nameRu": "Владикус",
+            "nameEn": "Vladikus"
+        },
+        {
+            "id": 3,
+            "imgUrl": "/cards/heroes/orc/voin10.jpg",
+            "type": "war",
+            "mana": 10,
+            "hp": 5,
+            "damage": 6,
+            "nameRu": "Мишаникус",
+            "nameEn": "Mishanikus"
+        },
+        {
+            "id": 4,
+            "imgUrl": "/cards/heroes/orc/voin2.jpg",
+            "type": "war",
+            "mana": 4,
+            "hp": 2,
+            "damage": 8,
+            "nameRu": "Саникус",
+            "nameEn": "Sanikus"
+        },
+        {
+            "id": 5,
+            "imgUrl": "/cards/heroes/orc/voin3.jpg",
+            "type": "war",
+            "mana": 10,
+            "hp": 2,
+            "damage": 5,
+            "nameRu": "Кириллус",
+            "nameEn": "Kirillus"
+        },
+        {
+            "id": 6,
+            "imgUrl": "/cards/heroes/orc/voin4.jpg",
+            "type": "war",
+            "mana": 9,
+            "hp": 1,
+            "damage": 8,
+            "nameRu": "Громаук",
+            "nameEn": "Gromauk"
+        },
+        {
+            "id": 7,
+            "imgUrl": "/cards/heroes/orc/voin5.jpg",
+            "type": "war",
+            "mana": 7,
+            "hp": 2,
+            "damage": 2,
+            "nameRu": "Торгаш",
+            "nameEn": "Torgash"
+        },
+        {
+            "id": 8,
+            "imgUrl": "/cards/heroes/orc/voin6.jpg",
+            "type": "war",
+            "mana": 1,
+            "hp": 9,
+            "damage": 9,
+            "nameRu": "Угарк",
+            "nameEn": "Ugark"
+        },
+        {
+            "id": 9,
+            "imgUrl": "/cards/heroes/orc/voin7.jpg",
+            "type": "war",
+            "mana": 2,
+            "hp": 7,
+            "damage": 10,
+            "nameRu": "Клан Острых клыков",
+            "nameEn": "Clan Fang Clan"
+        },
+        {
+            "id": 10,
+            "imgUrl": "/cards/heroes/orc/voin8.jpg",
+            "type": "war",
+            "mana": 9,
+            "hp": 10,
+            "damage": 7,
+            "nameRu": "Длиннорук и Морнгул",
+            "nameEn": "Longarm & Morngul"
+        },
+        {
+            "id": 11,
+            "imgUrl": "/cards/heroes/orc/voin9.jpg",
+            "type": "war",
+            "mana": 1,
+            "hp": 9,
+            "damage": 1,
+            "nameRu": "Брошгар",
+            "nameEn": "Broshgar"
+        },
+        {
+            "id": 12,
+            "imgUrl": "/cards/heroes/orc/zashitnik1.jpg",
+            "type": "def",
+            "mana": 6,
+            "hp": 8,
+            "damage": 2,
+            "nameRu": "Биглурш",
+            "nameEn": "Biglursh"
+        },
+        {
+            "id": 13,
+            "imgUrl": "/cards/heroes/orc/zashitnik2.jpg",
+            "type": "def",
+            "mana": 10,
+            "hp": 2,
+            "damage": 7,
+            "nameRu": "Деффорд",
+            "nameEn": "Defford"
+        }
+    ],
+    "elf": [
+        {
+            "id": 0,
+            "imgUrl": "/cards/heroes/elf/podniatiedyha1.jpg",
+            "type": "buff",
+            "effect": 4,
+            "mana": 8,
+            "hp": 3,
+            "damage": 6,
+            "nameRu": "Зов предков!",
+            "nameEn": "The call of the ancestors!"
+        },
+        {
+            "id": 1,
+            "imgUrl": "/cards/heroes/elf/podniatiedyha2.jpg",
+            "type": "buff",
+            "effect": 4,
+            "mana": 2,
+            "hp": 5,
+            "damage": 10,
+            "nameRu": "Сила природы!",
+            "nameEn": "A force of nature!"
+        },
+        {
+            "id": 2,
+            "imgUrl": "/cards/heroes/elf/voin1.jpg",
+            "type": "war",
+            "mana": 6,
+            "hp": 2,
+            "damage": 2,
+            "nameRu": "Сила природы!",
+            "nameEn": "A force of nature!"
+        },
+        {
+            "id": 3,
+            "imgUrl": "/cards/heroes/elf/voin10.jpg",
+            "type": "war",
+            "mana": 8,
+            "hp": 6,
+            "damage": 1,
+            "nameRu": "Данпа",
+            "nameEn": "Danpa"
+        },
+        {
+            "id": 4,
+            "imgUrl": "/cards/heroes/elf/voin11.jpg",
+            "type": "war",
+            "mana": 8,
+            "hp": 9,
+            "damage": 10,
+            "nameRu": "Лиара",
+            "nameEn": "Liara"
+        },
+        {
+            "id": 5,
+            "imgUrl": "/cards/heroes/elf/voin12.jpg",
+            "type": "war",
+            "mana": 8,
+            "hp": 3,
+            "damage": 10,
+            "nameRu": "Раеб",
+            "nameEn": "Raeb"
+        },
+        {
+            "id": 6,
+            "imgUrl": "/cards/heroes/elf/voin2.jpg",
+            "type": "war",
+            "mana": 8,
+            "hp": 10,
+            "damage": 9,
+            "nameRu": "Мириэль",
+            "nameEn": "Miriel"
+        },
+        {
+            "id": 7,
+            "imgUrl": "/cards/heroes/elf/voin3.jpg",
+            "type": "war",
+            "mana": 7,
+            "hp": 8,
+            "damage": 6,
+            "nameRu": "Файлин",
+            "nameEn": "Failin"
+        },
+        {
+            "id": 8,
+            "imgUrl": "/cards/heroes/elf/voin4.jpg",
+            "type": "war",
+            "mana": 6,
+            "hp": 2,
+            "damage": 9,
+            "nameRu": "Элендра",
+            "nameEn": "Elendra"
+        },
+        {
+            "id": 9,
+            "imgUrl": "/cards/heroes/elf/voin5.jpg",
+            "type": "war",
+            "mana": 10,
+            "hp": 5,
+            "damage": 10,
+            "nameRu": "Мурсун",
+            "nameEn": "Mursun"
+        },
+        {
+            "id": 10,
+            "imgUrl": "/cards/heroes/elf/voin6.jpg",
+            "type": "war",
+            "mana": 8,
+            "hp": 9,
+            "damage": 3,
+            "nameRu": "Раекс",
+            "nameEn": "Raeks"
+        },
+        {
+            "id": 11,
+            "imgUrl": "/cards/heroes/elf/voin7.jpg",
+            "type": "war",
+            "mana": 4,
+            "hp": 6,
+            "damage": 1,
+            "nameRu": "Элорин",
+            "nameEn": "Elorin"
+        },
+        {
+            "id": 12,
+            "imgUrl": "/cards/heroes/elf/voin8.jpg",
+            "type": "war",
+            "mana": 5,
+            "hp": 2,
+            "damage": 8,
+            "nameRu": "Передовой отряд Финарии",
+            "nameEn": "Finnaria's Advance Squad"
+        },
+        {
+            "id": 13,
+            "imgUrl": "/cards/heroes/elf/voin9.jpg",
+            "type": "war",
+            "mana": 2,
+            "hp": 9,
+            "damage": 6,
+            "nameRu": "Финария",
+            "nameEn": "Finaria"
+        },
+        {
+            "id": 14,
+            "imgUrl": "/cards/heroes/elf/zashitnkik1.jpg",
+            "type": "def",
+            "mana": 1,
+            "hp": 5,
+            "damage": 9,
+            "nameRu": "Болрок",
+            "nameEn": "Bolrock"
+        },
+        {
+            "id": 15,
+            "imgUrl": "/cards/heroes/elf/zashitnkik2.jpg",
+            "type": "def",
+            "mana": 5,
+            "hp": 10,
+            "damage": 8,
+            "nameRu": "Милынь и Пух",
+            "nameEn": "Melyn & Fluf"
+        }
+    ]
+}

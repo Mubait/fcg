@@ -33,5 +33,12 @@
   "modeSelectionAIpage": {
     "campaign": "campaign",
     "quickPlay": "quick play"
+  },
+  "cardsPage": {
+    "search": "search..",
+    "createDeck": "create a deck",
+    "fractions": "fractions",
+    "orcs": "orcs",
+    "elfs": "elfs"
   }
 }

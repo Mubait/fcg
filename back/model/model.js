@@ -46,30 +46,39 @@ class Model {
 
   getCardsJson = async () =>{
     try {
-      const orcCardsPath = path.join(__dirname, '../assets/cards/heroes/orc/')
-      const elfCardsPath = path.join(__dirname, '../assets/cards/heroes/elf/')
+      // const orcCardsPath = path.join(__dirname, '../assets/cards/heroes/orc/')
+      // const elfCardsPath = path.join(__dirname, '../assets/cards/heroes/elf/')
 
-      var cards = {orc: [],elf: []}
+      // const orcArrUrl = await fs.readdir(orcCardsPath).catch(err=>console.err("ошибка чтения директории", err))
+      // const elfArrUrl = await fs.readdir(elfCardsPath).catch(err=>console.err("ошибка чтения директории", err))
 
-      const orcArrUrl = await fs.readdir(orcCardsPath).catch(err=>console.err("ошибка чтения директории", err))
-      const elfArrUrl = await fs.readdir(elfCardsPath).catch(err=>console.err("ошибка чтения директории", err))
+      // const cards = {orc:[], elf:[]}
+      // orcArrUrl.forEach((imgUrl, i)=>{
+      //   cards.orc.push({
+      //     id: i,
+      //     imgUrl: `/cards/heroes/orc/${imgUrl}`,
+      //     mana: Math.floor(Math.random() * 10) + 1,
+      //     hp: Math.floor(Math.random() * 10) + 1,
+      //     damage: Math.floor(Math.random() * 10) + 1,
+      //   })
+      // })
+      // elfArrUrl.forEach((imgUrl, i)=>{
+      //   cards.elf.push({
+      //     id: i,
+      //     imgUrl: `/cards/heroes/elf/${imgUrl}`,
+      //     mana: Math.floor(Math.random() * 10) + 1,
+      //     hp: Math.floor(Math.random() * 10) + 1,
+      //     damage: Math.floor(Math.random() * 10) + 1,
+      //   })
+      // })
+      // return cards
 
-      orcArrUrl.forEach((imgUrl, i)=>{
-        cards.orc.push({
-          id: i,
-          imgUrl: `/cards/heroes/orc/${imgUrl}`
-        })
-      })
-      elfArrUrl.forEach((imgUrl, i)=>{
-        cards.elf.push({
-          id: i,
-          imgUrl: `/cards/heroes/elf/${imgUrl}`
-        })
-      })
+      const cards = await fs.readFile(`${__dirname}/cards.json`, 'utf8')
+      const jsonCards = JSON.parse(cards)
 
-      return cards
+      return jsonCards
     } catch(err){
-      console.err(err)
+      console.error(err)
     }
   }
 }
