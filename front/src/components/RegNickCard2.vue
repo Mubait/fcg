@@ -28,7 +28,7 @@ const nextPage = () => {
         :btn-size="'w-44 h-6'"
         :btn-color="'bg-gradient-to-r from-pink-900 via-pink-500 to-pink-900'"
         :btn-color-hover="'bg-gradient-to-r hover:from-pink-700 hover:via-pink-400 hover:to-pink-700'"
-        :btn-padding-color="'bg-gradient-to-b from-pink-700 to-pink-950'"
+        :btn-padding-color="'bg-gradient-to-b from-pink-500 to-pink-950'"
         :btn-text-color="'text-zinc-400'"
         :btn-text-color-hover="'hover:text-zinc-200'"
         :btn-text="'regNickPage.btnText'"

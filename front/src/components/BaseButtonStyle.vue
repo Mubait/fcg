@@ -14,11 +14,11 @@ defineProps({
 
 <template>
   <div class="relative flex drop-shadow-xl">
-    <div class="p-0.5 bg-gradient-to-b from-amber-400 to-yellow-950 rounded-lg cursor-pointer">
-      <div class="p-0.5 bg-gradient-to-b from-yellow-800 to-yellow-950 rounded-lg">
-        <div class="p-1 rounded-lg"
+    <div class="p-[0.1rem] bg-gradient-to-b from-amber-500 to-yellow-950 rounded cursor-pointer">
+      <div class="p-[0.2rem] bg-gradient-to-b from-yellow-800 to-yellow-950 rounded">
+        <div class="p-[0.2rem] rounded"
         :class="[btnPaddingColor]">
-          <div class="flex flex-col justify-center rounded-lg" 
+          <div class="flex flex-col justify-center" 
           :class="[btnSize, btnColor, btnColorHover]">
             <p class="w-full h-full grid place-items-center text-center select-none" :class="[btnTextColor, btnTextColorHover, fontSize]">{{ $t(btnText)}}</p>
           </div>
