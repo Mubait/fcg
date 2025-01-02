@@ -100,7 +100,7 @@
             "hp": 7,
             "damage": 10,
             "nameRu": "Клан Острых клыков",
-            "nameEn": "Clan Fang Clan"
+            "nameEn": "Sharp Fangs clan"
         },
         {
             "id": 10,
@@ -173,8 +173,8 @@
             "mana": 6,
             "hp": 2,
             "damage": 2,
-            "nameRu": "Сила природы!",
-            "nameEn": "A force of nature!"
+            "nameRu": "Арча",
+            "nameEn": "Archa"
         },
         {
             "id": 3,
