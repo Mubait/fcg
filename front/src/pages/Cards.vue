@@ -5,15 +5,31 @@ import { controllerCards } from '@/js/controller/controllerCards';
 import axios from 'axios';
 import { inject, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import decks from '@/js/decks.json';
 
 const router = useRouter()
 
+const cardsJson = ref()
 const cardsArr = ref()
+const currentDeck = ref()
+const addedCardArr = ref([[],[],[]]) // Здесь данные с сервера (запрос на получение колоды с бд)
+const cardOverflow = ref([false, false, false])
+
+const addToDeck = () => { // Запрос на добавление колоды в бд
+  if(currentDeck.value != null){
+    decks[0] = addedCardArr.value[0]
+    decks[1] = addedCardArr.value[1]
+    decks[2] = addedCardArr.value[2]
+    console.log(decks)
+  }
+}
+
 
 onMounted(() => {
   controllerCards.getCards()
-  .then(cardsArrReturned => {
-    cardsArr.value = cardsArrReturned
+  .then(cardsReturned => {
+    cardsArr.value = cardsReturned.orc.concat(cardsReturned.elf)
+    cardsJson.value = cardsReturned
   })
   .catch(function (err) {
     console.log(err)
@@ -30,23 +46,97 @@ onMounted(() => {
 
     <div class="absolute right-0 h-full w-[88%] flex justify-end">
 
-      <div class="relative w-full h-[90%] top-1/2 -translate-y-1/2 mr-20 p-5 overflow-y-scroll
-      scrollbar-thin scrollbar-thumb-rounded-full scrollbar-thumb-teal-600 active:scrollbar-thumb-teal-300
-      border-2 border-teal-400 bg-teal-900/60 backdrop-blur-lg grid grid-cols-4 gap-10 place-items-center">
 
-        <div class="relative size-fit" v-for="property in cardsArr">
-          <BaseCard 
-          :img-url="'http://localhost:3000'+property.imgUrl"
-          :damage="property.damage"
-          :hp="property.hp"
-          :mana="property.mana"
-          :type="property.type"
-          :name="property.nameRu"
-          />
-          <!-- костыль с name, исправить !!! -->
+      <div class="relative w-full flex h-[90%] top-1/2 -translate-y-1/2">
+
+        <div class="relative size-full p-5 overflow-y-scroll
+        scrollbar-thin scrollbar-thumb-rounded-full scrollbar-thumb-teal-600 active:scrollbar-thumb-teal-300
+        border-2 border-teal-400 bg-teal-900/60 backdrop-blur-lg grid grid-cols-4 gap-10 place-items-center">
+
+          <div class="relative size-fit" v-for="card in cardsArr" v-show="currentDeck == null">
+            <BaseCard 
+            :img-url="'http://localhost:3000'+card.imgUrl"
+            :damage="card.damage"
+            :hp="card.hp"
+            :mana="card.mana"
+            :type="card.type"
+            :name="card.nameRu"
+            :text-size="'text-lg'"
+            />
+          </div>
+
+          <div class="relative size-fit rounded-2xl hover:scale-105 animate-[fromBlur_1s_ease-in-out_forwards] hover:brightness-50 hover:border-2 hover:border-red-500 cursor-pointer" 
+          v-for="(card, index) in addedCardArr[currentDeck]"
+          @click="addedCardArr[currentDeck].splice(index, 1), cardOverflow[currentDeck] = false">
+            <BaseCard 
+            :img-url="'http://localhost:3000'+card.imgUrl"
+            :damage="card.damage"
+            :hp="card.hp"
+            :mana="card.mana"
+            :type="card.type"
+            :name="card.nameRu"
+            :text-size="'text-md'"
+            />
+          </div>
+
+        </div>
+
+        <div class="relative h-full w-40 bg-teal-950 backdrop-blur-lg overflow-y-scroll border-2 border-teal-400
+        grid grid-cols-1 gap-5 place-items-center p-3
+        scrollbar-thin scrollbar-thumb-rounded-full scrollbar-thumb-teal-600 active:scrollbar-thumb-teal-300"
+        v-show="currentDeck != null">
+          <div class="relative size-fit transition cursor-pointer hover:brightness-50 hover:scale-105" 
+          v-for="card in cardsArr"
+          @click="addedCardArr[currentDeck].length < 12 ? addedCardArr[currentDeck].push(card) : cardOverflow[currentDeck] = true">
+            <BaseCard 
+            :img-url="'http://localhost:3000'+card.imgUrl"
+            :damage="card.damage"
+            :hp="card.hp"
+            :mana="card.mana"
+            :type="card.type"
+            :name="card.nameRu"
+            :text-size="'text-[9px]'"
+            />
+          </div>
+        </div>
+
+        <div v-if="currentDeck != null" class="absolute right-3 bottom-1" @click="console.log(cardOverflow[currentDeck])">
+          <p class="text-3xl"
+          :class="cardOverflow[currentDeck]? 'text-red-600 animate-bounce' : 'text-white'"> {{ addedCardArr[currentDeck].length }}/12 </p>
         </div>
 
       </div>
+
+      <div class="relative h-[90%] top-1/2 -translate-y-1/2 ml-1 mr-12 space-y-3">
+        <img class="object-contain h-10 cursor-pointer hover:brightness-50" src="/4.2.cardsPg/reload.png"
+        @click="currentDeck = null"/>
+        <div class="flex items-center cursor-pointer hover:brightness-50" 
+        v-for="(deckImg, index) in new Array(3).fill('/4.2.cardsPg/koloda.png')"
+        :class="currentDeck == index ? 'brightness-50' : 'brightness-100'"
+        @click="currentDeck = index">
+          <img class="object-contain h-10" :src="deckImg"/>
+          <p class="text-white text-sm">{{ index+1 }}</p>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       <div class="relative h-full w-1/5 border-l-2 border-teal-400 bg-amber-800/95
       flex flex-col items-center gap-8">
@@ -62,7 +152,7 @@ onMounted(() => {
           <option value="elf" class="bg-emerald-800 text-zinc-300 text-2xl  font-bold">{{$t('cardsPage.elfs')}}</option>
         </select>
 
-        <BaseButtonStyle class="drop-shadow-[0_10px_8px_rgba(105,0,38,1)]"
+        <BaseButtonStyle class="drop-shadow-[0_10px_8px_rgba(105,0,38,1)]" @click="addToDeck()"
         :btn-size="'w-44 h-12'"
         :btn-color="'bg-gradient-to-r from-emerald-900 via-emerald-500 to-emerald-900'"
         :btn-color-hover="'bg-gradient-to-r hover:from-emerald-700 hover:via-emerald-400 hover:to-emerald-700'"
