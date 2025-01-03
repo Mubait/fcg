@@ -3,7 +3,7 @@ class ModelCards {
     return getCardsPromise
     .then(function (response) {
       if(response.status == 200)
-        return response.data.orc.concat(response.data.elf)
+        return response.data
       else throw new Error('Http status: ', response.status)
     })
     .catch(function (error) {
