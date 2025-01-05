@@ -9,16 +9,16 @@ class Users {
   }
   axiosPostUserAddnick = (userData) => {
     return axios.post(`${import.meta.env.VITE_URLSERVER}/users/addnick`, userData, 
-      { headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}`}})
+      { headers: { Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`}})
   }
   axiosGetUserCheckNick = () => {
     return axios.get(`${import.meta.env.VITE_URLSERVER}/users/checkNickname`,
-      { headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}`}}
+      { headers: { Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`}}
     )
   }
   axiosGetUserNick = () => {
     return axios.get(`${import.meta.env.VITE_URLSERVER}/users/getNick`,
-      { headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}`}}
+      { headers: { Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`}}
     )
   }
 }
