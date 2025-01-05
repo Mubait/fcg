@@ -29,6 +29,32 @@ cardsRouter.get('/', (req, res) => {
   }
 });
 
+cardsRouter.get('/getDecks', (req, res) => {
+  const authHeader = req.headers['authorization']
+  if(!authHeader){
+    console.error('Отсутствует токен доступа')
+    return res.sendStatus(401)
+  }
+  const accessToken = authHeader.split(' ')[1]
+
+  try {
+    model.verifyToken(accessToken)
+  } catch(err) {
+    console.error('Ошибка проверки токена', err)
+    return res.sendStatus(401)
+  }
+
+  try{
+    model.getDecks(accessToken)
+    .then(decksData => {
+      return res.json(decksData)
+    })
+  } catch(err) {
+    console.error('Ошибка чтения колод с БД', err)
+    return res.sendStatus(500)
+  }
+});
+
 cardsRouter.post('/addDecks', (req, res) => {
   const decksData = req.body
   const emptyBody = !Object.keys(decksData).length ? true : false

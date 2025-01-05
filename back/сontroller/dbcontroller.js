@@ -11,8 +11,11 @@ class DbController {
     return dbmodel.updateUser(userData)
   }
 
-  createDeck = (decksData) => {
-    return dbmodel.createDeck(decksData)
+  createDecks = (decksData) => {
+    return dbmodel.createDecks(decksData)
+  }
+  getDecks = (userId) => {
+    return dbmodel.getDecks(userId)
   }
 }
 

@@ -23,6 +23,9 @@ users.hasMany(decks, {
   foreignKey: 'userId',
   onDelete: 'CASCADE',
 });
+(async () => {
+  await decks.sync();
+})();
 
 module.exports = {
   decks

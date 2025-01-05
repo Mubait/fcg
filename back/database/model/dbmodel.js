@@ -27,13 +27,26 @@ class DbModel {
     })
   }
 
-  createDeck = (deckData) => {
-    return decks.create(deckData).then(deckCreated => {
-      return true
+  createDecks = (decksData) => {
+    return decks.findOrCreate({
+        where: { userId: decksData.userId },
+        defaults: decksData // Значения по умолчанию для создания новой записи
+    }).then(([deck, created]) => {
+        if (!created) {
+            return deck.update(decksData) // Обновляем существующую запись
+        }
+        return true
     }).catch(err => {
-      console.error('Ошибка создания колоды. Возможно, такого ид пользователя нет', err)
-      return false
+        console.error('Ошибка чтения или обновления колод:', err);
     })
+  }
+  getDecks = (id) => {
+    try {
+      return decks.findOne({ where: { userId: id } })
+    } catch (err) {
+      console.error('Ошибка чтения колод', err)
+      return false
+    }
   }
 }
 
