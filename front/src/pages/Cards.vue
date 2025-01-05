@@ -4,14 +4,14 @@ import BaseCard from '@/components/BaseCard.vue';
 import { controllerCards } from '@/js/controller/controllerCards';
 import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
-import decks from '@/js/decks.js';
+import { userInfo } from '@/js/userInfo';
 
 const router = useRouter()
 
 const cardsJson = ref()
 const cardsArr = ref()
 const currentDeck = ref()
-const addedCardArr = ref([[],[],[]])
+const addedCardArr = ref(JSON.parse(sessionStorage.getItem('userInfo')).decks)
 const deckOverflow = ref([false, false, false])
 
 const addDecks = () => { // Запрос на добавление колоды в бд
@@ -21,6 +21,8 @@ const addDecks = () => { // Запрос на добавление колоды 
     }
     controllerCards.addDecks(decks)
     .then(decksAdded => {
+      userInfo.decks = addedCardArr.value
+      sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
       console.log(decksAdded)
     })
   }

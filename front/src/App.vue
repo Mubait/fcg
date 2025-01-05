@@ -6,6 +6,7 @@ import { ref, watch, provide, computed, onMounted } from 'vue'
 import {Howl} from 'howler'
 import { useI18n } from 'vue-i18n'
 import axios from "axios"
+import { userInfo } from "./js/userInfo"
 
 const { locale } = useI18n() 
 

@@ -18,7 +18,12 @@ let userSignin = () => {
     if(userSigninIsOk) {
       signinIsOk.value = true
       controllerCards.getDecks().then(decksData => {
-        userInfo.decks = decksData.attributes
+        try {
+          userInfo.decks = decksData.attributes
+        } catch (err) {
+          console.error(err)
+        }
+        sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
       })
       controllerUsers.userCheckNick()
       .then(isUserNickExist => {
