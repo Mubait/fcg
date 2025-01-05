@@ -2,6 +2,8 @@
 import { ref, onMounted, reactive } from 'vue'
 import { useRouter } from 'vue-router';
 import { controllerUsers } from '@/js/controller/controllerUsers'
+import { controllerCards } from '@/js/controller/controllerCards';
+import { userInfo } from '@/js/userInfo';
 
 const router = useRouter();
 const userData = {email: '', password: ''}
@@ -15,6 +17,14 @@ let userSignin = () => {
     signinVisible.value = true
     if(userSigninIsOk) {
       signinIsOk.value = true
+      controllerCards.getDecks().then(decksData => {
+        try {
+          userInfo.decks = decksData.attributes
+        } catch (err) {
+          console.error(err)
+        }
+        sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
+      })
       controllerUsers.userCheckNick()
       .then(isUserNickExist => {
         if(isUserNickExist) router.push('/main')

@@ -4,20 +4,27 @@ import BaseCard from '@/components/BaseCard.vue';
 import { controllerCards } from '@/js/controller/controllerCards';
 import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
-import decks from '@/js/decks.js';
+import { userInfo } from '@/js/userInfo';
 
 const router = useRouter()
 
 const cardsJson = ref()
 const cardsArr = ref()
 const currentDeck = ref()
-const addedCardArr = ref([[],[],[]])
+const addedCardArr = ref(JSON.parse(sessionStorage.getItem('userInfo')).decks)
 const deckOverflow = ref([false, false, false])
 
-const addToDeck = () => { // Запрос на добавление колоды в бд
+const addDecks = () => { // Запрос на добавление колоды в бд
   if(currentDeck.value != null){
-    decks = addedCardArr.value
-    console.log(decks)
+    const decks = {
+      attributes: addedCardArr.value
+    }
+    controllerCards.addDecks(decks)
+    .then(decksAdded => {
+      userInfo.decks = addedCardArr.value
+      sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
+      console.log(decksAdded)
+    })
   }
 }
 
@@ -149,7 +156,7 @@ onMounted(() => {
           <option value="elf" class="bg-emerald-800 text-zinc-300 text-2xl  font-bold">{{$t('cardsPage.elfs')}}</option>
         </select>
 
-        <BaseButtonStyle class="drop-shadow-[0_10px_8px_rgba(105,0,38,1)]" @click="addToDeck()"
+        <BaseButtonStyle class="drop-shadow-[0_10px_8px_rgba(105,0,38,1)]" @click="addDecks()"
         :btn-size="'w-44 h-12'"
         :btn-color="'bg-gradient-to-r from-emerald-900 via-emerald-500 to-emerald-900'"
         :btn-color-hover="'bg-gradient-to-r hover:from-emerald-700 hover:via-emerald-400 hover:to-emerald-700'"
