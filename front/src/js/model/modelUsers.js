@@ -5,8 +5,8 @@ class ModelUsers {
       console.log(response.data)
       const token = response.data
       if(response.status == 200) {
-        localStorage.setItem('accessToken', token.accessToken)
-        localStorage.setItem('refreshToken', token.refreshToken)
+        sessionStorage.setItem('accessToken', token.accessToken)
+        sessionStorage.setItem('refreshToken', token.refreshToken)
         return true
       }
       return false

@@ -2,6 +2,16 @@
 import MainHeader from '@/components/MainHeader.vue';
 import MainPlayMenu from '@/components/MainPlayMenu.vue';
 
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
+
+const accessToken = sessionStorage.getItem('accessToken')
+if (!accessToken) {
+  alert('Вы не авторизованы!')
+  router.push('/auth')
+}
+
 </script>
 
 <template>

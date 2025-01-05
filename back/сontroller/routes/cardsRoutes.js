@@ -37,6 +37,7 @@ cardsRouter.get('/getDecks', (req, res) => {
   }
   const accessToken = authHeader.split(' ')[1]
 
+  console.log("TOKEN", accessToken)
   try {
     model.verifyToken(accessToken)
   } catch(err) {

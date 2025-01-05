@@ -8,42 +8,56 @@ import { userInfo } from '@/js/userInfo';
 
 const router = useRouter()
 
-const cardsJson = ref()
-const cardsArr = ref()
-const currentDeck = ref()
-const addedCardArr = ref(JSON.parse(sessionStorage.getItem('userInfo')).decks)
-const deckOverflow = ref([false, false, false])
+let cardsJson = undefined
+let cardsArr = undefined
+let currentDeck = undefined
+let addedCardArr = undefined
+let deckOverflow = undefined
+let addDecks = undefined
 
-const addDecks = () => { // Запрос на добавление колоды в бд
-  if(currentDeck.value != null){
-    const decks = {
-      attributes: addedCardArr.value
-    }
-    controllerCards.addDecks(decks)
-    .then(decksAdded => {
-      userInfo.decks = addedCardArr.value
-      sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
-      console.log(decksAdded)
-    })
-  }
+const accessToken = sessionStorage.getItem('accessToken')
+if (!accessToken) {
+  alert('Вы не авторизованы!')
+  router.push('/auth')
 }
+else {
+  cardsJson = ref()
+  cardsArr = ref()
+  currentDeck = ref()
+  addedCardArr = ref(JSON.parse(sessionStorage.getItem('userInfo')).decks)
+  deckOverflow = ref([false, false, false])
+
+  addDecks = () => { // Запрос на добавление колоды в бд
+    if(currentDeck.value != null){
+      const decks = {
+        attributes: addedCardArr.value
+      }
+      controllerCards.addDecks(decks)
+      .then(decksAdded => {
+        userInfo.decks = addedCardArr.value
+        sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
+        console.log(decksAdded)
+      })
+    }
+  }
 
 
-onMounted(() => {
-  controllerCards.getCards()
-  .then(cardsReturned => {
-    cardsArr.value = cardsReturned.orc.concat(cardsReturned.elf)
-    cardsJson.value = cardsReturned
-  })
-  .catch(function (err) {
-    console.log(err)
-  })
-});
+  onMounted(() => {
+    controllerCards.getCards()
+    .then(cardsReturned => {
+      cardsArr.value = cardsReturned.orc.concat(cardsReturned.elf)
+      cardsJson.value = cardsReturned
+    })
+    .catch(function (err) {
+      console.log(err)
+    })
+  });
+}
 
 </script>
 
 <template>
-  <main class="fixed size-full bg-bgCards bg-cover">
+  <main class="fixed size-full bg-bgCards bg-cover" v-if="accessToken">
     
     <img class="absolute ml-2 mt-2 object-contain h-1/6 cursor-pointer hover:brightness-50 select-none" src="/logo/logoOrc.png"
     @click="router.push('/main')"/>
