@@ -8,7 +8,7 @@ require('dotenv').config()
 
 const assetsPath = path.join(__dirname, '/assets')
 
-console.log("PATH::",assetsPath)
+console.log("PATH::", assetsPath)
 
 const app = express()
 const port = 3000
