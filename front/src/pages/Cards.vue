@@ -2,24 +2,21 @@
 import BaseButtonStyle from '@/components/BaseButtonStyle.vue';
 import BaseCard from '@/components/BaseCard.vue';
 import { controllerCards } from '@/js/controller/controllerCards';
-import axios from 'axios';
-import { inject, onMounted, ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
-import decks from '@/js/decks.json';
+import decks from '@/js/decks.js';
 
 const router = useRouter()
 
 const cardsJson = ref()
 const cardsArr = ref()
 const currentDeck = ref()
-const addedCardArr = ref([[],[],[]]) // Здесь данные с сервера (запрос на получение колоды с бд)
-const cardOverflow = ref([false, false, false])
+const addedCardArr = ref([[],[],[]])
+const deckOverflow = ref([false, false, false])
 
 const addToDeck = () => { // Запрос на добавление колоды в бд
   if(currentDeck.value != null){
-    decks[0] = addedCardArr.value[0]
-    decks[1] = addedCardArr.value[1]
-    decks[2] = addedCardArr.value[2]
+    decks = addedCardArr.value
     console.log(decks)
   }
 }
@@ -65,9 +62,9 @@ onMounted(() => {
             />
           </div>
 
-          <div class="relative size-fit rounded-2xl hover:scale-105 animate-[fromBlur_1s_ease-in-out_forwards] hover:brightness-50 hover:border-2 hover:border-red-500 cursor-pointer" 
+          <div class="relative size-fit rounded-2xl transition hover:scale-105 animate-[fromBlur_1s_ease-in-out_forwards] hover:brightness-50 hover:border-2 hover:border-red-500 cursor-pointer" 
           v-for="(card, index) in addedCardArr[currentDeck]"
-          @click="addedCardArr[currentDeck].splice(index, 1), cardOverflow[currentDeck] = false">
+          @click="addedCardArr[currentDeck].splice(index, 1), deckOverflow[currentDeck] = false">
             <BaseCard 
             :img-url="'http://localhost:3000'+card.imgUrl"
             :damage="card.damage"
@@ -87,7 +84,7 @@ onMounted(() => {
         v-show="currentDeck != null">
           <div class="relative size-fit transition cursor-pointer hover:brightness-50 hover:scale-105" 
           v-for="card in cardsArr"
-          @click="addedCardArr[currentDeck].length < 12 ? addedCardArr[currentDeck].push(card) : cardOverflow[currentDeck] = true">
+          @click="addedCardArr[currentDeck].length < 12 ? addedCardArr[currentDeck].push(card) : deckOverflow[currentDeck] = true">
             <BaseCard 
             :img-url="'http://localhost:3000'+card.imgUrl"
             :damage="card.damage"
@@ -100,9 +97,9 @@ onMounted(() => {
           </div>
         </div>
 
-        <div v-if="currentDeck != null" class="absolute right-3 bottom-1" @click="console.log(cardOverflow[currentDeck])">
+        <div v-if="currentDeck != null" class="absolute right-3 bottom-1" @click="console.log(deckOverflow[currentDeck])">
           <p class="text-3xl"
-          :class="cardOverflow[currentDeck]? 'text-red-600 animate-bounce' : 'text-white'"> {{ addedCardArr[currentDeck].length }}/12 </p>
+          :class="deckOverflow[currentDeck]? 'text-red-600 animate-bounce' : 'text-white'"> {{ addedCardArr[currentDeck].length }}/12 </p>
         </div>
 
       </div>

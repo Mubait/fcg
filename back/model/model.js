@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken')
 const { dbcontroller } = require('../сontroller/dbcontroller')
+const { decks } = require('./decks')
 const path = require('path')
 const fs = require('fs').promises
 
@@ -80,6 +81,24 @@ class Model {
     } catch(err){
       console.error(err)
     }
+  }
+
+  addDecksToDB = (decksData, accessToken) => {
+    const userDataDecoded = jwt.decode(accessToken)
+    
+    // Берем данные пользователя из бд, чтоб получить ид пользователя... Нужно было добавлять в токен сразу при авторизации....
+    return dbcontroller.getUser(userDataDecoded)
+    .then(userData => {
+      decksData.userId = userData.id
+      return dbcontroller.createDecks(decksData)
+    })
+  }
+  getDecks = (accessToken) => {
+    const userDataDecoded = jwt.decode(accessToken)
+    return dbcontroller.getUser(userDataDecoded)
+    .then(userData => {
+      return dbcontroller.getDecks(userData.id)
+    })
   }
 }
 
