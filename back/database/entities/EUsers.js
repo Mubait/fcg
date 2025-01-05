@@ -1,4 +1,4 @@
-const {sequelize, Sequelize } = require('../initdb')
+const {sequelize, Sequelize } = require('../initdb');
 
 const users = sequelize.define("users", {
   id: {
@@ -22,6 +22,8 @@ const users = sequelize.define("users", {
     allowNull: true,
   }
 });
+
+
 
 module.exports = {
   users

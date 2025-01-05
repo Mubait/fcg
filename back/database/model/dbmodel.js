@@ -1,4 +1,5 @@
 const { users } = require('../entities/EUsers')
+const { decks } = require('../entities/EDecks')
 
 class DbModel {
   createUser = (userData) => {
@@ -21,7 +22,16 @@ class DbModel {
     return users.update(userData, { where: { email: userData.email } }).then(userUpdated => {
       return true
     }).catch(err => {
-      console.error('Ошибка обновления дааных пользователя', err)
+      console.error('Ошибка обновления данных пользователя', err)
+      return false
+    })
+  }
+
+  createDeck = (deckData) => {
+    return decks.create(deckData).then(deckCreated => {
+      return true
+    }).catch(err => {
+      console.error('Ошибка создания колоды. Возможно, такого ид пользователя нет', err)
       return false
     })
   }

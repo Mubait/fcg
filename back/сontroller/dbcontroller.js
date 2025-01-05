@@ -10,6 +10,10 @@ class DbController {
   updateUser = (userData) => {
     return dbmodel.updateUser(userData)
   }
+
+  createDeck = (decksData) => {
+    return dbmodel.createDeck(decksData)
+  }
 }
 
 const dbcontroller = new DbController()
