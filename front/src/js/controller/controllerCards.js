@@ -8,6 +8,9 @@ class ControllerCards {
   addDecks = (decksData) => {
     return modelCards.addDecks(cards.axiosAddDecks(decksData))
   }
+  getDecks = () => {
+    return modelCards.getDecks(cards.axiosGetDecks())
+  }
 }
 
 const controllerCards = new ControllerCards()
