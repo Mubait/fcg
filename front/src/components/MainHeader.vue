@@ -2,6 +2,7 @@
 import { controllerUsers } from '@/js/controller/controllerUsers';
 import { userInfo } from '@/js/userInfo';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 const avatarUrl = ref(sessionStorage.getItem('useravatar') ? sessionStorage.getItem('useravatar') : '/logo/noAvatar.png')
 const isProfileOpen = ref(false)
@@ -9,6 +10,7 @@ const userName = ref()
 const getUserNickPromise = controllerUsers.userGetNick().then(userNick => {
   userName.value = userNick
 })
+const router = useRouter()
 
 const triggerUploadAvatar = () => {
   document.getElementById('fileInput').click()
@@ -81,7 +83,8 @@ const onFileChange = (event) => {
       </div>
       <div class="flex items-center gap-2">
         <img class="object-contain w-1/9" src="/logo/logout.png"/>
-        <p class="size-fit text-zinc-400 hover:text-zinc-200 cursor-pointer">{{ $t('mainPage.logout') }}</p>
+        <p class="size-fit text-zinc-400 hover:text-zinc-200 cursor-pointer"
+        @click="router.push('/auth')">{{ $t('mainPage.logout') }}</p>
       </div>
     </div>
   </div>
