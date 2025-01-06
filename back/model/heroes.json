@@ -7,9 +7,33 @@
       "imgUrl": "/cards/heroes/bigheroes/orc_hero1.png",
       "hp": 20,
       "effectAttributes": {
+        "type": "defAll",
+        "effect": 2,
+        "mana": 4
+      }
+    },
+    {
+      "id": 2,
+      "nameRu": "Гразз Меткий",
+      "nameEn": "Grazz Oneshot",
+      "imgUrl": "/cards/heroes/bigheroes/orc_hero2.png",
+      "hp": 20,
+      "effectAttributes": {
+        "type": "damageHero",
+        "effect": 1,
+        "mana": 1
+      }
+    },
+    {
+      "id": 3,
+      "nameRu": "Бррок Землетряс",
+      "nameEn": "Brrok Earthshaker",
+      "imgUrl": "/cards/heroes/bigheroes/orc_hero3.png",
+      "hp": 20,
+      "effectAttributes": {
         "type": "damageAll",
-        "damage": 2,
-        "mana": 3
+        "effect": 2,
+        "mana": 5
       }
     }
   ],
@@ -22,7 +46,31 @@
       "hp": 20,
       "effectAttributes": {
         "type": "damageOne",
-        "damage": 3,
+        "effect": 3,
+        "mana": 2
+      }
+    },
+    {
+      "id": 2,
+      "nameRu": "Древний",
+      "nameEn": "Ancient",
+      "imgUrl": "/cards/heroes/bigheroes/elf_hero2.png",
+      "hp": 20,
+      "effectAttributes": {
+        "type": "healthAll",
+        "effect": 1,
+        "mana": 3
+      }
+    },
+    {
+      "id": 3,
+      "nameRu": "Аквана",
+      "nameEn": "Aquana",
+      "imgUrl": "/cards/heroes/bigheroes/elf_hero1.png",
+      "hp": 20,
+      "effectAttributes": {
+        "type": "healthMe",
+        "effect": 2,
         "mana": 2
       }
     }
@@ -35,9 +83,9 @@
       "imgUrl": "/cards/heroes/bigheroes/werewolf_hero1.png",
       "hp": 20,
       "effectAttributes": {
-        "type": "damageOne",
-        "damage": 3,
-        "mana": 2
+        "type": "defOne",
+        "effect": 2,
+        "mana": 4
       }
     }
   ],
@@ -49,9 +97,9 @@
       "imgUrl": "/cards/heroes/bigheroes/undead_hero1.png",
       "hp": 20,
       "effectAttributes": {
-        "type": "damageOne",
-        "damage": 3,
-        "mana": 2
+        "type": "healthMe",
+        "effect": 4,
+        "mana": 6
       }
     }
   ],
@@ -63,9 +111,9 @@
       "imgUrl": "/cards/heroes/bigheroes/human_hero1.png",
       "hp": 20,
       "effectAttributes": {
-        "type": "damageOne",
-        "damage": 3,
-        "mana": 2
+        "type": "buffAll",
+        "effect": 2,
+        "mana": 6
       }
     }
   ]
