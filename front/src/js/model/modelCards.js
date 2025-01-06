@@ -11,6 +11,18 @@ class ModelCards {
       return false
     })
   }
+  getHeroesCards = (getHeroesCardsPromise) => {
+    return getHeroesCardsPromise
+    .then(function (response) {
+      if(response.status == 200)
+        return response.data
+      else throw new Error('Http status: ', response.status)
+    })
+    .catch(function (error) {
+      console.log(error)
+      return false
+    })
+  }
   addDecks = (addDecksPromise) => {
     return addDecksPromise
     .then(function (response) {

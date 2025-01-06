@@ -16,7 +16,7 @@ const isPlayMenuOpen = ref(false)
       <p class="text-zinc-400 text-2xl">{{ $t('mainPage.vsPlayer') }}</p>
     </div>
     <div class="w-1/2 h-full flex justify-center items-center cursor-pointer rounded-r-lg
-    bg-gradient-to-b from-red-700/95 to-black/95 hover:brightness-150" @click="router.push('/main/modeselectionai')">
+    bg-gradient-to-b from-red-700/95 to-black/95 hover:brightness-150" @click="router.push('/main/modelselectionai')">
       <p class="text-zinc-400 text-2xl">{{ $t('mainPage.vsAI') }}</p>
     </div>
   </div>

@@ -5,6 +5,9 @@ class ControllerCards {
   getCards = () => {
     return modelCards.getCards(cards.axiosGetCards())
   }
+  getHeroesCards = () => {
+    return modelCards.getHeroesCards(cards.axiosGetHeroesCards())
+  }
   addDecks = (decksData) => {
     return modelCards.addDecks(cards.axiosAddDecks(decksData))
   }

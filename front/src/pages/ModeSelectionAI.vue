@@ -26,7 +26,7 @@ if (!accessToken) {
       </div>
 
       <div class="relative h-full w-72 rounded-3xl cursor-pointer overflow-hidden drop-shadow-[0_20px_20px_rgba(148,134,117,1)]" 
-      @click="console.log('ok')">
+      @click="router.push('/main/modelSelectionAI/qpgame')">
         <img class="absolute transition duration-300 
         object-cover size-full hover:scale-110 hover:brightness-75 cursor-pointer brightness-50" src="/5.modeSelectionAIPg/quickPlay.jpg"/>
         <p class="absolute w-full text-center top-1/2 -translate-y-1/2 mx-auto

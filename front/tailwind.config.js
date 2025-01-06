@@ -11,7 +11,8 @@ export default {
         'bgAuth': "url('/2.regPg/regPg.jpg')",
         'bgRegNick': "url('/3.regNicknamePg/bgPgRegNick1.jpg')",
         'bgMain': "url('/4.mainPg/mainPg.jpg')",
-        'bgCards': "url('/4.2.cardsPg/cardsBg.jpg')"
+        'bgCards': "url('/4.2.cardsPg/cardsBg.jpg')",
+        'bgQpgame': "url('/5.1.qpgamePg/qpgamebg.jpg')",
       },
       fontFamily: {
 				stalinist: ["Stalinist One"],

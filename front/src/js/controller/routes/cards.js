@@ -6,6 +6,11 @@ class Cards {
       { headers: { Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`}}
     )
   }
+  axiosGetHeroesCards = () => {
+    return axios.get(`${import.meta.env.VITE_URLSERVER}/cards/getHeroesCards`,
+      { headers: { Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`}}
+    )
+  }
   axiosAddDecks = (decksData) => {
     return axios.post(`${import.meta.env.VITE_URLSERVER}/cards/addDecks`, decksData,
       { headers: { Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`}}
