@@ -40,5 +40,8 @@
     "fractions": "fractions",
     "orcs": "orcs",
     "elfs": "elfs"
+  },
+  "qpgamePage": {
+    "chooseHero": "choose you hero!"
   }
 }

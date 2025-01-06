@@ -1,7 +1,7 @@
 <script setup>
 const props = defineProps({
   imgUrl: String,
-  damage: Number,
+  damage: String,
   hp: Number,
   mana: Number,
   type: String,
