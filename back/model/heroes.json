@@ -87,6 +87,18 @@
         "effect": 2,
         "mana": 4
       }
+    },
+    {
+      "id": 2,
+      "nameRu": "Синемун",
+      "nameEn": "Bluemoon",
+      "imgUrl": "/cards/heroes/bigheroes/werewolf_hero2.png",
+      "hp": 20,
+      "effectAttributes": {
+        "type": "killOne",
+        "effect": "kill",
+        "mana": 7
+      }
     }
   ],
   "undead": [
