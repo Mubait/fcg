@@ -14,6 +14,7 @@ let currentDeck = undefined
 let addedCardArr = undefined
 let deckOverflow = undefined
 let addDecks = undefined
+let isDecksAdded = undefined
 
 const accessToken = sessionStorage.getItem('accessToken')
 if (!accessToken) {
@@ -26,19 +27,20 @@ else {
   currentDeck = ref()
   addedCardArr = ref(JSON.parse(sessionStorage.getItem('userInfo')).decks)
   deckOverflow = ref([false, false, false])
+  isDecksAdded = ref(false)
 
   addDecks = () => { // Запрос на добавление колоды в бд
-    if(currentDeck.value != null){
-      const decks = {
-        attributes: addedCardArr.value
-      }
-      controllerCards.addDecks(decks)
-      .then(decksAdded => {
-        userInfo.decks = addedCardArr.value
-        sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
-        console.log(decksAdded)
-      })
+    isDecksAdded.value = true
+    const decks = {
+      attributes: addedCardArr.value
     }
+    controllerCards.addDecks(decks)
+    .then(decksAdded => {
+      userInfo.decks = addedCardArr.value
+      sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
+      console.log(decksAdded)
+      isDecksAdded.value = false
+    })
   }
 
 
@@ -139,23 +141,6 @@ else {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       <div class="relative h-full w-1/5 border-l-2 border-teal-400 bg-amber-800/95
       flex flex-col items-center gap-8">
 
@@ -178,7 +163,10 @@ else {
         :btn-text-color="'text-zinc-300'"
         :btn-text-color-hover="'hover:text-zinc-100'"
         :btn-text="'cardsPage.createDeck'"
+        :active="'active:brightness-150'"
         />
+
+        <img v-show="isDecksAdded" class="object-contain h-10 animate-spin" src="/4.2.cardsPg/spinner.png"/>
 
       </div>
 
