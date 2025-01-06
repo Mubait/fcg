@@ -1,0 +1,26 @@
+{
+  "orc": [
+    {
+      "id": 1,
+      "imgUrl": "/cards/heroes/bigheroes/orc_hero1.png",
+      "hp": 20,
+      "effectAttributes": {
+        "type": "damageAll",
+        "damage": 2,
+        "mana": 3
+      }
+    }
+  ],
+  "elf": [
+    {
+      "id": 1,
+      "imgUrl": "/cards/heroes/bigheroes/elf_hero1.png",
+      "hp": 20,
+      "effectAttributes": {
+        "type": "damageOne",
+        "damage": 3,
+        "mana": 2
+      }
+    }
+  ]
+}

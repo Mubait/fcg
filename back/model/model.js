@@ -82,6 +82,12 @@ class Model {
       console.error(err)
     }
   }
+  getHeroesCards = async () => {
+    const heroesCards = await fs.readFile(`${__dirname}/heroes.json`, 'utf8')
+    const jsonHeroesCards = JSON.parse(heroesCards)
+
+    return jsonHeroesCards
+  }
 
   addDecksToDB = (decksData, accessToken) => {
     const userDataDecoded = jwt.decode(accessToken)
