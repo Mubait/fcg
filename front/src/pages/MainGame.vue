@@ -1,10 +1,16 @@
 <script setup>
 import MainHeader from '@/components/MainHeader.vue';
 import MainPlayMenu from '@/components/MainPlayMenu.vue';
+import { controllerCards } from '@/js/controller/controllerCards';
+import preloadData from '@/js/preloadData';
+import { userInfo } from '@/js/userInfo';
 
 import { useRouter } from 'vue-router';
 
 const router = useRouter()
+
+preloadData()
+
 
 const accessToken = sessionStorage.getItem('accessToken')
 if (!accessToken) {

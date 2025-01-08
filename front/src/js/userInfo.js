@@ -6,6 +6,7 @@ let userInfo = {
     [],
     []
   ],
+  heroes: []
 }
 
 export { userInfo }

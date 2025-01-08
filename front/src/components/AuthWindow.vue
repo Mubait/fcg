@@ -17,14 +17,6 @@ let userSignin = () => {
     signinVisible.value = true
     if(userSigninIsOk) {
       signinIsOk.value = true
-      controllerCards.getDecks().then(decksData => {
-        try {
-          userInfo.decks = decksData.attributes
-        } catch (err) {
-          console.error(err)
-        }
-        sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
-      })
       controllerUsers.userCheckNick()
       .then(isUserNickExist => {
         if(isUserNickExist) router.push('/main')

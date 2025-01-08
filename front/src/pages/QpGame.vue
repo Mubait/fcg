@@ -6,16 +6,8 @@ import { useRouter } from 'vue-router';
 
 const accessToken = sessionStorage.getItem('accessToken')
 const router = useRouter()
-let heroesCardsArr = ref()
-
-controllerCards.getHeroesCards()
-.then(heroesCardsArrReturned => {
-  heroesCardsArr.value = heroesCardsArrReturned.orc
-  .concat(heroesCardsArrReturned.elf)
-  .concat(heroesCardsArrReturned.werewolf)
-  .concat(heroesCardsArrReturned.undead)
-  .concat(heroesCardsArrReturned.human)
-})
+let heroesCardsArr = ref(JSON.parse(sessionStorage.getItem('userInfo')).heroes)
+console.log(JSON.parse(sessionStorage.getItem('userInfo')).heroes)
 
 
 if (!accessToken) {
