@@ -1,7 +1,7 @@
 <script setup>
 const props = defineProps({
   imgUrl: String,
-  damage: String,
+  damage: [String, Number],
   hp: Number,
   mana: Number,
   type: String,
@@ -14,7 +14,7 @@ const currentType = props.type=='war'? '/cardElements/sword.png' : props.type=='
 </script>
 
 <template>
-  <div class="relative size-full">
+  <div class="relative h-full w-fit select-none">
     <div v-if="mana" class="absolute h-1/6 left-0 top-0">
       <p class="absolute size-full flex justify-center items-center text-white drop-shadow-[0_25px_20px_rgba(148,134,117,1)] z-10"
       :class="textSize">{{ mana }}</p>

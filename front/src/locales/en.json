@@ -42,6 +42,10 @@
     "elfs": "elfs"
   },
   "qpgamePage": {
-    "chooseHero": "choose you hero!"
+    "chooseHero": "choose you hero!",
+    "heroName": "name: ",
+    "ability": "ability: ",
+    "mana": "mana: ",
+    "hp": "hp: "
   }
 }

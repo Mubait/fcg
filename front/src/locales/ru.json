@@ -42,6 +42,10 @@
     "elfs": "эльфы"
   },
   "qpgamePage": {
-    "chooseHero": "выбери героя!"
+    "chooseHero": "выбери героя!",
+    "heroName": "имя: ",
+    "ability": "способность: ",
+    "mana": "мана: ",
+    "hp": "здоровье: "
   }
 }

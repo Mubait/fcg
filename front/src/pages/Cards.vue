@@ -85,7 +85,8 @@ else {
             />
           </div>
 
-          <div class="relative size-fit rounded-2xl transition hover:scale-105 animate-[fromBlur_1s_ease-in-out_forwards] hover:brightness-50 hover:border-2 hover:border-red-500 cursor-pointer" 
+          <div class="relative size-fit rounded-2xl transition 
+          hover:scale-105 animate-[fromBlur_1s_ease-in-out_forwards] hover:brightness-50 hover:border-2 hover:border-red-500 cursor-pointer" 
           v-for="(card, index) in addedCardArr[currentDeck]"
           @click="addedCardArr[currentDeck].splice(index, 1), deckOverflow[currentDeck] = false">
             <BaseCard 
