@@ -46,6 +46,8 @@
     "heroName": "name: ",
     "ability": "ability: ",
     "mana": "mana: ",
-    "hp": "hp: "
+    "hp": "hp: ",
+    "chooseYourDeck": "choose your deck!",
+    "chooseDeck": "choose the deck"
   }
 }

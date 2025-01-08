@@ -21,7 +21,7 @@ const currentType = props.type=='war'? '/cardElements/sword.png' : props.type=='
       <img class="object-contain h-full" src="/cardElements/blueSquare.png"/>
     </div>
     <div v-if="type" class="absolute h-1/5 right-0 top-0">
-      <img class="object-contain h-full" 
+      <img class="object-contain h-full brightness-200" 
       :src="currentType"/>
     </div>
     <div v-if="hp" class="absolute h-1/6 left-0 -bottom-0">

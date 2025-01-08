@@ -14,7 +14,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="relative flex drop-shadow-xl">
+  <div class="relative size-fit flex drop-shadow-xl">
     <div class="p-[0.1rem] bg-gradient-to-b from-amber-500 to-yellow-950 rounded cursor-pointer">
       <div class="p-[0.2rem] bg-gradient-to-b from-yellow-800 to-yellow-950 rounded">
         <div class="p-[0.2rem] rounded"
