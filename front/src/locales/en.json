@@ -48,6 +48,9 @@
     "mana": "mana: ",
     "hp": "hp: ",
     "chooseYourDeck": "choose your deck!",
-    "chooseDeck": "choose the deck"
+    "chooseDeck": "choose the deck",
+    "currentMove": "move",
+    "currentMana": "mana",
+    "finishTurn": "your move"
   }
 }

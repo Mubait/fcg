@@ -48,6 +48,9 @@
     "mana": "мана: ",
     "hp": "здоровье: ",
     "chooseYourDeck": "Выбери колоду!",
-    "chooseDeck": "выбрать колоду"
+    "chooseDeck": "выбрать колоду",
+    "currentMove": "ход",
+    "currentMana": "мана",
+    "finishTurn": "твой ход"
   }
 }
