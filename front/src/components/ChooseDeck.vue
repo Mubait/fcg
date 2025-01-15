@@ -24,9 +24,9 @@ const emit = defineEmits(['chosenDeck'])
       <div v-auto-animate class="relative size-full p-5 overflow-y-scroll
       scrollbar-thin scrollbar-thumb-rounded-full scrollbar-thumb-teal-600 active:scrollbar-thumb-teal-300
       border-2 border-teal-400 bg-teal-900/60 backdrop-blur-lg grid grid-cols-4 gap-10 place-items-center"
-      @click="console.log(cardsArr)">
-        <div class="relative size-fit" v-for="card in cardsArr[currentDeck]">
-          <BaseCard 
+      >
+        <div class="relative size-fit" v-for="(card, index) in cardsArr[currentDeck]">
+          <BaseCard @click="console.log(card, index)"
           :img-url="'http://localhost:3000'+card.imgUrl"
           :damage="card.damage"
           :hp="card.hp"

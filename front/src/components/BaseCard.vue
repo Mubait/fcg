@@ -10,7 +10,7 @@ const props = defineProps({
   textSize: String,
 })
 
-const currentType = props.type=='war'? '/cardElements/sword.png' : props.type=='def'? '/cardElements/shield.png' : '/cardElements/star.png'
+const currentType = (props.type=='war'? '/cardElements/sword.png' : props.type=='def'? '/cardElements/shield.png' : '/cardElements/star.png')
 </script>
 
 <template>
