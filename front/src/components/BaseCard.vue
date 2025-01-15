@@ -1,4 +1,6 @@
 <script setup>
+import { computed } from 'vue'
+
 const props = defineProps({
   imgUrl: String,
   damage: [String, Number],
@@ -10,7 +12,9 @@ const props = defineProps({
   textSize: String,
 })
 
-const currentType = (props.type=='war'? '/cardElements/sword.png' : props.type=='def'? '/cardElements/shield.png' : '/cardElements/star.png')
+const currentType = computed(() => {
+  return props.type == 'war'? '/cardElements/sword.png' : props.type=='def'? '/cardElements/shield.png' : '/cardElements/star.png'
+});
 </script>
 
 <template>
@@ -20,7 +24,7 @@ const currentType = (props.type=='war'? '/cardElements/sword.png' : props.type==
       :class="textSize">{{ mana }}</p>
       <img class="object-contain h-full" src="/cardElements/blueSquare.png"/>
     </div>
-    <div v-if="type" class="absolute h-1/5 right-0 top-0">
+    <div v-if="type" class="absolute h-1/5 right-0 top-0" @click="console.log(currentType, type)">
       <img class="object-contain h-full brightness-200" 
       :src="currentType"/>
     </div>
