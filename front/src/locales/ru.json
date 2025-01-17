@@ -50,7 +50,8 @@
     "chooseYourDeck": "Выбери колоду!",
     "chooseDeck": "выбрать колоду",
     "currentMove": "ход",
-    "currentMana": "мана",
+    "playerMana": "твоя мана",
+    "enemyMana": "мана противника",
     "finishTurn": "твой ход"
   }
 }

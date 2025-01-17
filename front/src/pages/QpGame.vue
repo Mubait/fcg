@@ -1,4 +1,6 @@
 <script setup>
+import AiDeckAndCardsInGame from '@/components/AiDeckAndCardsInGame.vue';
+import AiHeroAndCardsOnBoard from '@/components/AiHeroAndCardsOnBoard.vue';
 import BaseButtonStyle from '@/components/BaseButtonStyle.vue';
 import BaseCard from '@/components/BaseCard.vue';
 import ChooseDeck from '@/components/ChooseDeck.vue';
@@ -16,6 +18,7 @@ let chosenHero = ref()
 let chosenDeck = ref()
 let cardsOnBoard = ref([])
 let currentMove = ref(1)
+let currentMana = ref(1)
 let chosenCardsArr = ref([])
 
 let aiChosenHero = ref()
@@ -23,10 +26,13 @@ let aiChosenDeck = ref([])
 let aiCardsOnBoard = ref([])
 let aiChosenCardsArr = ref([])
 
+let playerCardAttack = ref()
+
 controllerCards.getCards().then(cardsReturned => {
   let cardsReturnedArr = cardsReturned.elf.concat(cardsReturned.orc)
   for(let i = 0; i < 12; i++) {
-    aiChosenDeck.value.push(cardsReturnedArr[Math.floor(Math.random() * cardsReturnedArr.length)])
+    let jsonCard = { ...cardsReturnedArr[Math.floor(Math.random() * cardsReturnedArr.length)] }
+    aiChosenDeck.value.push(jsonCard)
   }
   aiChosenCardsArr.value.push(aiChosenDeck.value.at(-1))
   aiChosenDeck.value.pop()
@@ -70,11 +76,6 @@ if (!accessToken) {
 }
 else {
 }
-
-let rightClassArr = [
-  'right-[16%]', 'right-[17%]', 'right-[18%]', 'right-[19%]', 'right-[20%]', 'right-[21%]',
-  'right-[22%]', 'right-[23%]', 'right-[24%]', 'right-[25%]', 'right-[26%]', 'right-[27%]'
-]
 </script>
 
 <template>
@@ -87,57 +88,19 @@ let rightClassArr = [
 
     <div class="size-full" v-if="chosenDeck&&chosenHero">
 
-      <div class="absolute h-1/4 right-[1%] top-1/2 -translate-y-1/2 border rounded-lg">
-        <BaseCard
-        :hp="aiChosenHero.hp"
-        :damage="aiChosenHero.effectAttributes.effect"
-        :mana="aiChosenHero.effectAttributes.mana"
-        :img-url="'http://localhost:3000'+aiChosenHero.imgUrl"
-        :text-size="'text-[60%]'"
-        :name="aiChosenHero.nameRu"
-        />
-      </div>
+      <!-- <div class="absolute size-40 bg-red-400 focus:bg-black" tabindex="0"></div> -->
 
-      <div class="absolute bottom-[56%] mx-[15%] h-[20%] flex space-x-10">
-        <div class="border rounded-lg" v-for="card in aiCardsOnBoard" @click="func()">
-          <BaseCard
-          :hp="card.hp"
-          :damage="card.damage"
-          :mana="card.mana"
-          :img-url="'http://localhost:3000'+card.imgUrl"
-          :text-size="'text-[55%]'"
-          :name="card.nameRu"
-          :type="card.type"
-          />
-        </div>
-      </div>
 
-      <div class="absolute h-28 w-fit border top-[3%] rounded-lg transition hover:scale-110 hover:brightness-50 cursor-pointer"
-      :class="rightClassArr[index]"
-      v-for="(card, index) in aiChosenCardsArr">
-        <BaseCard
-        :hp="card.hp"
-        :damage="card.damage"
-        :mana="card.mana"
-        :img-url="'http://localhost:3000'+card.imgUrl"
-        :text-size="'text-[50%]'"
-        :name="card.nameRu"
-        :type="card.type"
-        />
-      </div>
-
-      <div class="absolute h-32 top-[3%] right-[8%] border rounded-lg"
-      v-for="(card, index) in aiChosenDeck">
-        <BaseCard
-          :hp="card.hp"
-          :damage="card.damage"
-          :mana="card.mana"
-          :img-url="'http://localhost:3000'+card.imgUrl"
-          :text-size="'text-[50%]'"
-          :name="card.nameRu"
-          :type="card.type"
-        />
-      </div>
+      <AiHeroAndCardsOnBoard @playerCardAttack="(data) => playerCardAttack = data" @current-mana="(data) => currentMana = data"
+      :ai-chosen-hero="aiChosenHero"
+      :ai-cards-on-board="aiCardsOnBoard"
+      :player-card-attack="playerCardAttack"
+      :current-mana="currentMana"
+      />
+      <AiDeckAndCardsInGame
+      :ai-chosen-cards-arr="aiChosenCardsArr"
+      :ai-chosen-deck="aiChosenDeck"
+      />
 
 
 
@@ -149,14 +112,17 @@ let rightClassArr = [
 
 
 
-      <HeroAndCardsOnBoard
+      <HeroAndCardsOnBoard @playerCardAttack="(data) => playerCardAttack = data"
       :chosen-hero="chosenHero"
       :cards-on-board="cardsOnBoard"
+      :ai-cards-on-board="aiCardsOnBoard"
+      :ai-chosen-hero="aiChosenHero"
       />
-      <CurrentMoveInfo
+      <CurrentMoveInfo @current-mana="(data) => currentMana = data"
       :chosen-cards-arr="chosenCardsArr"
       :chosen-deck="chosenDeck"
       :last-card-in-deck="chosenDeck.at(-1)"
+      :cards-on-board="cardsOnBoard"
       :ai-cards-on-board="aiCardsOnBoard"
       :ai-chosen-cards-arr="aiChosenCardsArr"
       :ai-chosen-deck="aiChosenDeck"
@@ -167,7 +133,7 @@ let rightClassArr = [
       :chosenDeck="chosenDeck"
       />
 
-    </div>
+      </div>
 
   </main>
 </template>

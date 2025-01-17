@@ -50,7 +50,8 @@
     "chooseYourDeck": "choose your deck!",
     "chooseDeck": "choose the deck",
     "currentMove": "move",
-    "currentMana": "mana",
+    "playerMana": "your mana",
+    "enemyMana": "enemy mana",
     "finishTurn": "your move"
   }
 }

@@ -1,12 +1,16 @@
 <script setup>
-import { ref } from 'vue';
+import { defineEmits, ref } from 'vue';
 import BaseCard from './BaseCard.vue';
 
-defineProps({
+const props = defineProps({
   chosenHero: ref(),
-  cardsOnBoard: ref([])
+  cardsOnBoard: ref([]),
+
+  aiChosenHero: ref(),
+  aiCardsOnBoard: ref([]),
 })
 
+const emit = defineEmits(['playerCardAttack'])
 </script>
 
 <template>
@@ -21,8 +25,10 @@ defineProps({
     />
   </div>
 
-  <div class="absolute top-[56%] mx-[15%] h-[20%] flex space-x-10">
-    <div class="border rounded-lg" v-for="card in cardsOnBoard">
+  <div v-auto-animate class="absolute top-[56%] mx-[15%] h-[20%] grid grid-rows-1 grid-cols-8 gap-x-10">
+    <div class="border rounded-lg focus:brightness-50 focus:scale-110 hover:brightness-50 transition cursor-pointer" tabindex="0" 
+    v-for="card in cardsOnBoard"
+    @click="emit('playerCardAttack', card)">
       <BaseCard
       :hp="card.hp"
       :damage="card.damage"
