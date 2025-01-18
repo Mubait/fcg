@@ -1,41 +1,44 @@
 <script setup>
-import AiDeckAndCardsInGame from '@/components/AiDeckAndCardsInGame.vue';
-import AiHeroAndCardsOnBoard from '@/components/AiHeroAndCardsOnBoard.vue';
 import BaseButtonStyle from '@/components/BaseButtonStyle.vue';
 import BaseCard from '@/components/BaseCard.vue';
 import ChooseDeck from '@/components/ChooseDeck.vue';
 import ChooseHero from '@/components/ChooseHero.vue';
 import CurrentMoveInfo from '@/components/CurrentMoveInfo.vue';
-import DeckAndCardsInGame from '@/components/DeckAndCardsInGame.vue';
-import HeroAndCardsOnBoard from '@/components/HeroAndCardsOnBoard.vue';
+import EnemyField from '@/components/EnemyField.vue';
+import PlayerField from '@/components/PlayerField.vue';
 import { controllerCards } from '@/js/controller/controllerCards';
 import { computed, onMounted, reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const accessToken = sessionStorage.getItem('accessToken')
 const router = useRouter()
+
+let deckChosen = ref(false)
+
+let playerMana = ref()
+let enemyMana = ref()
+let currentMove = ref()
+let aiMove = ref(false)
+
 let chosenHero = ref()
-let chosenDeck = ref()
-let cardsOnBoard = ref([])
-let currentMove = ref(1)
-let currentMana = ref(1)
-let chosenCardsArr = ref([])
+let chosenDeckArr = ref([])
+let cardsInHandArr = ref([])
+let cardsInBoardArr = ref([])
 
 let aiChosenHero = ref()
-let aiChosenDeck = ref([])
-let aiCardsOnBoard = ref([])
-let aiChosenCardsArr = ref([])
+let aiChosenDeckArr = ref([])
+let aiCardsInHandArr = ref([])
+let aiCardsInBoardArr = ref([])
 
-let playerCardAttack = ref()
 
 controllerCards.getCards().then(cardsReturned => {
   let cardsReturnedArr = cardsReturned.elf.concat(cardsReturned.orc)
   for(let i = 0; i < 12; i++) {
     let jsonCard = { ...cardsReturnedArr[Math.floor(Math.random() * cardsReturnedArr.length)] }
-    aiChosenDeck.value.push(jsonCard)
+    aiChosenDeckArr.value.push(jsonCard)
   }
-  aiChosenCardsArr.value.push(aiChosenDeck.value.at(-1))
-  aiChosenDeck.value.pop()
+  aiCardsInHandArr.value.push(aiChosenDeckArr.value.at(-1))
+  aiChosenDeckArr.value.pop()
 })
 controllerCards.getHeroesCards().then(heroesCardsReturned => {
   let heroesCardsArrReturned = heroesCardsReturned.orc
@@ -65,9 +68,10 @@ const func = () => {
 }
 
 const addDataInDeck = (data) => {
-  chosenDeck.value = data
-  chosenCardsArr.value.push(chosenDeck.value.at(-1))
-  chosenDeck.value.pop()
+  deckChosen.value = true
+  chosenDeckArr.value = data
+  cardsInHandArr.value.push(chosenDeckArr.value.at(-1))
+  chosenDeckArr.value.pop()
 }
 
 if (!accessToken) {
@@ -83,54 +87,40 @@ else {
     <img class="absolute ml-2 mt-2 object-contain h-1/6 cursor-pointer hover:brightness-50 select-none" src="/logo/logoOrc.png"
     @click="router.push('/main')"/>
     
-   <ChooseHero @chosenHero="(data) => chosenHero = data" v-if="chosenDeck&&!chosenHero"/>
-    <ChooseDeck @chosen-deck="addDataInDeck" v-if="!chosenDeck"/>
+   <ChooseHero @chosenHero="(data) => chosenHero = data" v-if="deckChosen&&!chosenHero"/>
+    <ChooseDeck @chosen-deck="addDataInDeck" v-if="!deckChosen"/>
 
-    <div class="size-full" v-if="chosenDeck&&chosenHero">
+    <div class="size-full" v-if="deckChosen&&chosenHero">
 
-      <!-- <div class="absolute size-40 bg-red-400 focus:bg-black" tabindex="0"></div> -->
+      <div class="absolute size-40 bg-red-400 focus:bg-black" @click="console.log(aiMove)"></div>
 
-
-      <AiHeroAndCardsOnBoard @playerCardAttack="(data) => playerCardAttack = data" @current-mana="(data) => currentMana = data"
+      <EnemyField
+      @ai-move="(data) => aiMove = data"
+      :ai-chosen-deck-arr="aiChosenDeckArr"
+      :ai-cards-in-hand-arr="aiCardsInHandArr"
+      :ai-cards-in-board-arr="aiCardsInBoardArr"
       :ai-chosen-hero="aiChosenHero"
-      :ai-cards-on-board="aiCardsOnBoard"
-      :player-card-attack="playerCardAttack"
-      :current-mana="currentMana"
-      />
-      <AiDeckAndCardsInGame
-      :ai-chosen-cards-arr="aiChosenCardsArr"
-      :ai-chosen-deck="aiChosenDeck"
+      :enemy-mana="enemyMana"
+      :ai-move="aiMove"
       />
 
-
-
-
-
-
-
-
-
-
-
-      <HeroAndCardsOnBoard @playerCardAttack="(data) => playerCardAttack = data"
+      <PlayerField
+      :chosen-deck-arr="chosenDeckArr"
+      :cards-in-hand-arr="cardsInHandArr"
+      :cards-in-board-arr="cardsInBoardArr"
       :chosen-hero="chosenHero"
-      :cards-on-board="cardsOnBoard"
-      :ai-cards-on-board="aiCardsOnBoard"
-      :ai-chosen-hero="aiChosenHero"
+      :player-mana="playerMana"
       />
-      <CurrentMoveInfo @current-mana="(data) => currentMana = data"
-      :chosen-cards-arr="chosenCardsArr"
-      :chosen-deck="chosenDeck"
-      :last-card-in-deck="chosenDeck.at(-1)"
-      :cards-on-board="cardsOnBoard"
-      :ai-cards-on-board="aiCardsOnBoard"
-      :ai-chosen-cards-arr="aiChosenCardsArr"
-      :ai-chosen-deck="aiChosenDeck"
-      />
-      <DeckAndCardsInGame 
-      :chosenCardsArr="chosenCardsArr"
-      :cardsOnBoard="cardsOnBoard"
-      :chosenDeck="chosenDeck"
+    
+      <CurrentMoveInfo
+      @player-mana="(data) => playerMana = data"
+      @ai-move="(data) => aiMove = data"
+      :cards-in-hand-arr="cardsInHandArr"
+      :cards-in-board-arr="cardsInBoardArr"
+      :chosen-deck-arr="chosenDeckArr"
+      :ai-cards-in-hand-arr="aiCardsInHandArr"
+      :ai-cards-in-board-arr="aiCardsInBoardArr"
+      :ai-chosen-deck-arr="aiChosenDeckArr"
       />
 
       </div>
