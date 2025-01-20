@@ -1,12 +1,8 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, toRef, watch } from 'vue';
 import BaseCard from './BaseCard.vue';
 
-let rightClassesArr = [
-  'right-[16%]', 'right-[17%]', 'right-[18%]', 'right-[19%]', 'right-[20%]', 'right-[21%]',
-  'right-[22%]', 'right-[23%]', 'right-[24%]', 'right-[25%]', 'right-[26%]', 'right-[27%]'
-]
-let cardOnHover = ref()
+const emit = defineEmits(['playerCardAttack'])
 
 const props = defineProps({
   chosenDeckArr: ref([]),
@@ -16,12 +12,21 @@ const props = defineProps({
   playerMana: ref(),
 })
 
+let rightClassesArr = [
+  'right-[16%]', 'right-[17%]', 'right-[18%]', 'right-[19%]', 'right-[20%]', 'right-[21%]',
+  'right-[22%]', 'right-[23%]', 'right-[24%]', 'right-[25%]', 'right-[26%]', 'right-[27%]'
+]
+let cardOnHover = ref()
 
 const pushCardInBoard = (card, index) => {
   props.cardsInBoardArr.length < 8
   ? (props.cardsInBoardArr.push(card), props.cardsInHandArr.splice(index, 1), cardOnHover.value = null)
   : null
 }
+const playerAddCardAttack = (card, index) => {
+  emit('playerCardAttack', card)
+}
+
 </script>
 
 <template>
@@ -39,8 +44,8 @@ const pushCardInBoard = (card, index) => {
 
   <div v-auto-animate class="absolute top-[56%] mx-[15%] h-[20%] grid grid-rows-1 grid-cols-8 gap-x-10">
     <div class="border rounded-lg focus:brightness-50 focus:scale-110 hover:brightness-50 transition cursor-pointer" tabindex="0" 
-    v-for="card in cardsInBoardArr"
-    @click="">
+    v-for="(card, index) in cardsInBoardArr"
+    @click="playerAddCardAttack(card)">
       <BaseCard
       :hp="card.hp"
       :damage="card.damage"

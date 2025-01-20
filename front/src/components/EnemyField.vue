@@ -1,11 +1,6 @@
 <script setup>
-import { ref, toRef, watch } from 'vue';
+import { ref, toRef, watch, watchEffect } from 'vue';
 import BaseCard from './BaseCard.vue';
-
-let rightClassesArr = [
-  'right-[16%]', 'right-[17%]', 'right-[18%]', 'right-[19%]', 'right-[20%]', 'right-[21%]',
-  'right-[22%]', 'right-[23%]', 'right-[24%]', 'right-[25%]', 'right-[26%]', 'right-[27%]'
-]
 
 const props = defineProps({
   aiChosenDeckArr: ref([]),
@@ -13,20 +8,46 @@ const props = defineProps({
   aiCardsInBoardArr: ref([]),
   aiChosenHero: ref(),
   enemyMana: ref(),
-  aiMove: ref()
+  aiMove: ref(),
+  playerCardAttack: ref(),
 })
 
-const emit = defineEmits(['aiMove'])
+let rightClassesArr = [
+  'right-[16%]', 'right-[17%]', 'right-[18%]', 'right-[19%]', 'right-[20%]', 'right-[21%]',
+  'right-[22%]', 'right-[23%]', 'right-[24%]', 'right-[25%]', 'right-[26%]', 'right-[27%]'
+]
+const emit = defineEmits(['aiMove', 'playerCardAttack'])
+const aiCardClickedInd = ref()
+const aiCardDamagedInd = ref()
 const aiMoveRef = toRef(props, 'aiMove');
+const damageGetted = ref()
+
+const chooseCardForAttack = (card, index) => {
+  if (props.playerCardAttack && !damageGetted.value) {
+    card.hp -= props.playerCardAttack.damage
+    damageGetted.value = true,
+    aiCardClickedInd.value = index,
+    setTimeout(() => {
+      card.hp <= 0
+      ? props.aiCardsInBoardArr.splice(index, 1)
+      : null
+      damageGetted.value = false
+      emit('playerCardAttack', null)
+    }, 1000)
+  }
+}
 
 watch(aiMoveRef, (oldv, newv) => {
   if (props.aiMove) {
-    let aiChosenCardInd = Math.floor(Math.random() * props.aiCardsInHandArr.length)
-    let aiChosenCard = props.aiCardsInHandArr[aiChosenCardInd]
 
-    props.aiCardsInBoardArr.length < 8
-    ? ( props.aiCardsInBoardArr.push(aiChosenCard), props.aiCardsInHandArr.splice(aiChosenCardInd, 1))
-    : null
+    // Добавление карт ИИ на поле
+    if(Math.random() < 0.7 && props.aiCardsInHandArr.length > 0) {
+      let aiChosenCardInd = Math.floor(Math.random() * props.aiCardsInHandArr.length)
+      let aiChosenCard = props.aiCardsInHandArr[aiChosenCardInd]
+      props.aiCardsInBoardArr.length < 8
+      ? ( props.aiCardsInBoardArr.push(aiChosenCard), props.aiCardsInHandArr.splice(aiChosenCardInd, 1))
+      : null
+    }
 
     emit('aiMove', false)
   }
@@ -47,8 +68,9 @@ watch(aiMoveRef, (oldv, newv) => {
 
   <div v-auto-animate class="absolute bottom-[56%] mx-[15%] h-[20%] grid grid-rows-1 grid-cols-8 gap-x-10">
     <div class="border rounded-lg focus:brightness-50 focus:scale-110 hover:brightness-50 transition cursor-pointer" 
-    v-for="card in aiCardsInBoardArr"
-    @click="">
+    v-for="(card, index) in aiCardsInBoardArr"
+    @click="chooseCardForAttack(card, index)">
+      <p v-if="damageGetted && aiCardClickedInd == index" class="absolute text-white grid place-items-center text-3xl z-10">{{ -playerCardAttack.damage }}</p>
       <BaseCard
       :hp="card.hp"
       :damage="card.damage"

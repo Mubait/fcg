@@ -24,11 +24,13 @@ let chosenHero = ref()
 let chosenDeckArr = ref([])
 let cardsInHandArr = ref([])
 let cardsInBoardArr = ref([])
+let playerCardAttack = ref()
 
 let aiChosenHero = ref()
 let aiChosenDeckArr = ref([])
 let aiCardsInHandArr = ref([])
 let aiCardsInBoardArr = ref([])
+
 
 
 controllerCards.getCards().then(cardsReturned => {
@@ -96,15 +98,18 @@ else {
 
       <EnemyField
       @ai-move="(data) => aiMove = data"
+      @player-card-attack="(data) => playerCardAttack = data"
       :ai-chosen-deck-arr="aiChosenDeckArr"
       :ai-cards-in-hand-arr="aiCardsInHandArr"
       :ai-cards-in-board-arr="aiCardsInBoardArr"
       :ai-chosen-hero="aiChosenHero"
       :enemy-mana="enemyMana"
       :ai-move="aiMove"
+      :player-card-attack="playerCardAttack"
       />
 
       <PlayerField
+      @player-card-attack="(data) => playerCardAttack = data"
       :chosen-deck-arr="chosenDeckArr"
       :cards-in-hand-arr="cardsInHandArr"
       :cards-in-board-arr="cardsInBoardArr"
