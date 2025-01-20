@@ -21,10 +21,13 @@ const aiCardClickedInd = ref()
 const aiCardDamagedInd = ref()
 const aiMoveRef = toRef(props, 'aiMove');
 const damageGetted = ref()
+const amountOfDamage = ref()
 
 const chooseCardForAttack = (card, index) => {
+  console.log(props.playerCardAttack.hp, card.hp)
   if (props.playerCardAttack && !damageGetted.value) {
-    card.hp -= props.playerCardAttack.damage
+    amountOfDamage.value = props.playerCardAttack.damage
+    card.hp -= amountOfDamage.value
     damageGetted.value = true,
     aiCardClickedInd.value = index,
     setTimeout(() => {
@@ -70,7 +73,7 @@ watch(aiMoveRef, (oldv, newv) => {
     <div class="border rounded-lg focus:brightness-50 focus:scale-110 hover:brightness-50 transition cursor-pointer" 
     v-for="(card, index) in aiCardsInBoardArr"
     @click="chooseCardForAttack(card, index)">
-      <p v-if="damageGetted && aiCardClickedInd == index" class="absolute text-white grid place-items-center text-3xl z-10">{{ -playerCardAttack.damage }}</p>
+      <p v-if="damageGetted && aiCardClickedInd == index" class="absolute text-white grid place-items-center text-3xl z-10">{{ -amountOfDamage }}</p>
       <BaseCard
       :hp="card.hp"
       :damage="card.damage"
