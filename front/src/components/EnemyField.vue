@@ -23,12 +23,12 @@ let rightClassesArr = [
 const emit = defineEmits(['aiMove', 'playerCardAttack', 'playerCardAttackedJSON', 'aiCardAttack', 'enemyMana'])
 const aiCardClickedInd = ref()
 const aiMoveRef = toRef(props, 'aiMove');
-const damageGetted = ref([])
+const damageGetted = ref()
 const amountOfDamage = ref()
 
 const chooseCardForAttack = (card, index) => {
-  console.log(props.isPlayerCardAttackArr[props.playerCardAttack.index], props.playerCardAttack)
   if (props.playerCardAttack.card && !damageGetted.value && !props.isPlayerCardAttackArr[props.playerCardAttack.index]) {
+    console.log('okokok')
     amountOfDamage.value = props.playerCardAttack.card.damage
     card.hp -= amountOfDamage.value
     damageGetted.value = true
