@@ -20,7 +20,7 @@ let currentMove = ref(1)
 
 const nextMove = () => {
   playerMana.value++, enemyMana.value++, currentMove.value++
-  emit('playerMana', playerMana), emit('aiMove', true)
+  emit('playerMana', playerMana), emit('enemyMana', enemyMana), emit('aiMove', true)
   
   props.chosenDeckArr.length > 0
   ? props.cardsInHandArr.push(props.chosenDeckArr.pop())
