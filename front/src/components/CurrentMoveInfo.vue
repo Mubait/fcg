@@ -7,10 +7,12 @@ const props = defineProps({
   cardsInHandArr: ref([]),
   cardsInBoardArr: ref([]),
   chosenDeckArr: ref([]),
+  isPlayerCardAttackArr: ref([]),
 
   aiCardsInHandArr: ref([]),
   aiCardsInBoardArr: ref([]),
   aiChosenDeckArr: ref([]),
+  isAiCardAttackArr: ref([]),
 })
 const emit = defineEmits(['playerMana', 'enemyMana', 'currentMove', 'aiMove'])
 
@@ -29,6 +31,9 @@ const nextMove = () => {
   props.aiChosenDeckArr.length > 0
   ? props.aiCardsInHandArr.push(props.aiChosenDeckArr.pop())
   : null
+
+  props.isPlayerCardAttackArr.splice(0, props.isPlayerCardAttackArr.length)
+  props.isAiCardAttackArr.splice(0, props.isAiCardAttackArr.length)
 }
 
 </script>

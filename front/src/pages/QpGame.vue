@@ -24,15 +24,16 @@ let chosenHero = ref()
 let chosenDeckArr = ref([])
 let cardsInHandArr = ref([])
 let cardsInBoardArr = ref([])
-let playerCardAttack = ref()
+let playerCardAttack = ref({card: null, index: null})
 let playerCardAttackedJSON = ref({})
+let isPlayerCardAttackArr = ref([])
 
 let aiChosenHero = ref()
 let aiChosenDeckArr = ref([])
 let aiCardsInHandArr = ref([])
 let aiCardsInBoardArr = ref([])
 let aiCardAttack = ref()
-
+let isAiCardAttackArr = ref([])
 
 
 controllerCards.getCards().then(cardsReturned => {
@@ -96,7 +97,7 @@ else {
 
     <div class="size-full" v-if="deckChosen&&chosenHero">
 
-      <div class="absolute size-40 bg-red-400 focus:bg-black" @click="console.log(aiMove)"></div>
+      <div class="absolute size-40 bg-red-400 focus:bg-black" @click=""></div>
 
       <EnemyField
       @ai-move="(data) => aiMove = data"
@@ -112,6 +113,8 @@ else {
       :ai-move="aiMove"
       :player-card-attack="playerCardAttack"
       :cards-in-board-arr="cardsInBoardArr"
+      :is-player-card-attack-arr="isPlayerCardAttackArr"
+      :is-ai-card-attack-arr="isAiCardAttackArr"
       />
 
       <PlayerField
@@ -125,6 +128,7 @@ else {
       :player-mana="playerMana"
       :player-card-attacked-JSON="playerCardAttackedJSON"
       :ai-card-attack="aiCardAttack"
+      :is-player-card-attack-arr="isPlayerCardAttackArr"
       />
     
       <CurrentMoveInfo
@@ -137,6 +141,8 @@ else {
       :ai-cards-in-hand-arr="aiCardsInHandArr"
       :ai-cards-in-board-arr="aiCardsInBoardArr"
       :ai-chosen-deck-arr="aiChosenDeckArr"
+      :is-player-card-attack-arr="isPlayerCardAttackArr"
+      :is-ai-card-attack-arr="isAiCardAttackArr"
       />
 
       </div>

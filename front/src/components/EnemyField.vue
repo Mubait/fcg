@@ -12,6 +12,8 @@ const props = defineProps({
   playerCardAttack: ref(),
 
   cardsInBoardArr: ref(),
+  isPlayerCardAttackArr: ref([]),
+  isAiCardAttackArr: ref([])
 })
 
 let rightClassesArr = [
@@ -20,17 +22,17 @@ let rightClassesArr = [
 ]
 const emit = defineEmits(['aiMove', 'playerCardAttack', 'playerCardAttackedJSON', 'aiCardAttack', 'enemyMana'])
 const aiCardClickedInd = ref()
-const aiCardDamagedInd = ref()
 const aiMoveRef = toRef(props, 'aiMove');
-const damageGetted = ref()
+const damageGetted = ref([])
 const amountOfDamage = ref()
 
 const chooseCardForAttack = (card, index) => {
-  if (props.playerCardAttack && !damageGetted.value) {
-    amountOfDamage.value = props.playerCardAttack.damage
+  console.log(props.isPlayerCardAttackArr[props.playerCardAttack.index], props.playerCardAttack)
+  if (props.playerCardAttack.card && !damageGetted.value && !props.isPlayerCardAttackArr[props.playerCardAttack.index]) {
+    amountOfDamage.value = props.playerCardAttack.card.damage
     card.hp -= amountOfDamage.value
-    damageGetted.value = true,
-    aiCardClickedInd.value = index,
+    damageGetted.value = true
+    aiCardClickedInd.value = index
     setTimeout(() => {
       card.hp <= 0
       ? props.aiCardsInBoardArr.splice(index, 1)
@@ -38,23 +40,29 @@ const chooseCardForAttack = (card, index) => {
       damageGetted.value = false
       emit('playerCardAttack', null)
     }, 1000)
+
+    props.isPlayerCardAttackArr[props.playerCardAttack.index] = true
   }
 }
 
 const attackPlayerCard = () => {
-  if(Math.random() < 0.7 && props.cardsInBoardArr.length > 0 && props.aiCardsInBoardArr.length > 0) {
+  for(let i = 0; i < props.aiCardsInBoardArr.length; i++){
     const aiCardAttackInd = Math.floor(Math.random() * props.aiCardsInBoardArr.length)
-    const playerCardAttackedInd = Math.floor(Math.random() * props.cardsInBoardArr.length)
+    if(Math.random() < 0.7 && props.cardsInBoardArr.length > 0 && props.aiCardsInBoardArr.length > 0 && !props.isAiCardAttackArr[aiCardAttackInd]) {
+      const playerCardAttackedInd = Math.floor(Math.random() * props.cardsInBoardArr.length)
 
-    props.cardsInBoardArr[playerCardAttackedInd].hp -= props.aiCardsInBoardArr[aiCardAttackInd].damage
-    setTimeout(() => {
-      props.cardsInBoardArr[playerCardAttackedInd].hp <= 0
-      ? props.cardsInBoardArr.splice(playerCardAttackedInd, 1)
-      : null
-    }, 1000)
+      props.cardsInBoardArr[playerCardAttackedInd].hp -= props.aiCardsInBoardArr[aiCardAttackInd].damage
+      setTimeout(() => {
+        props.cardsInBoardArr[playerCardAttackedInd].hp <= 0
+        ? props.cardsInBoardArr.splice(playerCardAttackedInd, 1)
+        : null
+      }, 1000)
 
-    emit('aiCardAttack', props.aiCardsInBoardArr[aiCardAttackInd])
-    emit('playerCardAttackedJSON', { card: props.cardsInBoardArr[playerCardAttackedInd], index: playerCardAttackedInd})
+      props.isAiCardAttackArr[aiCardAttackInd] = true
+
+      emit('aiCardAttack', props.aiCardsInBoardArr[aiCardAttackInd])
+      emit('playerCardAttackedJSON', { card: props.cardsInBoardArr[playerCardAttackedInd], index: playerCardAttackedInd})
+    }
   }
 }
 
@@ -90,7 +98,8 @@ watch(aiMoveRef, (oldv, newv) => {
   </div>
 
   <div v-auto-animate class="absolute bottom-[56%] mx-[15%] h-[20%] grid grid-rows-1 grid-cols-8 gap-x-10">
-    <div class="relative border rounded-lg focus:brightness-50 focus:scale-110 hover:brightness-50 transition cursor-pointer" 
+    <div class="relative border-2 rounded-lg focus:brightness-50 focus:scale-110 hover:brightness-50 transition cursor-pointer"
+    :class="isAiCardAttackArr[index] ? 'border-red-600' : 'border-white'" 
     v-for="(card, index) in aiCardsInBoardArr"
     @click="chooseCardForAttack(card, index)">
       <p v-if="damageGetted && aiCardClickedInd == index" class="absolute size-full text-white grid place-items-center text-3xl z-10">{{ -amountOfDamage }}</p>

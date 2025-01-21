@@ -12,6 +12,7 @@ const props = defineProps({
   playerMana: ref(),
   playerCardAttackedJSON: ref({}),
   aiCardAttack: ref(),
+  isPlayerCardAttackArr: ref([])
 })
 
 let rightClassesArr = [
@@ -32,7 +33,7 @@ const pushCardInBoard = (card, index) => {
   }
 }
 const playerAddCardAttack = (card, index) => {
-  emit('playerCardAttack', card)
+  emit('playerCardAttack', {card: card, index: index})
 }
 
 const damageCardDisplayOn = () => {
@@ -62,9 +63,10 @@ watch(playerCardAttackedJSONref, () =>{
   </div>
 
   <div v-auto-animate class="absolute top-[56%] mx-[15%] h-[20%] grid grid-rows-1 grid-cols-8 gap-x-10">
-    <div class="relative border rounded-lg focus:brightness-50 focus:scale-110 hover:brightness-50 transition cursor-pointer" tabindex="0" 
+    <div class="relative border-2 rounded-lg focus:brightness-50 focus:scale-110 hover:brightness-50 transition cursor-pointer" tabindex="0"
+    :class="isPlayerCardAttackArr[index]? 'border-red-600':'border-white'"
     v-for="(card, index) in cardsInBoardArr"
-    @click="playerAddCardAttack(card)">
+    @click="playerAddCardAttack(card, index)">
     <p v-if="playerCardAttackedJSON && playerCardAttackedJSON.index == index" class="absolute size-full text-white grid place-items-center text-3xl z-10">{{ -amountOfDamage }}</p>
       <BaseCard
       :hp="card.hp"
