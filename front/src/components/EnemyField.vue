@@ -10,8 +10,10 @@ const props = defineProps({
   enemyMana: ref(),
   aiMove: ref(),
   playerCardAttack: ref(),
-
+  playerCardAttackedJSON: ref({}),
   cardsInBoardArr: ref(),
+  chosenHero: ref(),
+
   isPlayerCardAttackArr: ref([]),
   isAiCardAttackArr: ref([])
 })
@@ -20,15 +22,16 @@ let rightClassesArr = [
   'right-[16%]', 'right-[17%]', 'right-[18%]', 'right-[19%]', 'right-[20%]', 'right-[21%]',
   'right-[22%]', 'right-[23%]', 'right-[24%]', 'right-[25%]', 'right-[26%]', 'right-[27%]'
 ]
-const emit = defineEmits(['aiMove', 'playerCardAttack', 'playerCardAttackedJSON', 'aiCardAttack', 'enemyMana'])
+const emit = defineEmits(['aiMove', 'playerCardAttack', 'playerCardAttackedJSON', 'aiCardAttack', 'enemyMana', 'isHeroAttack', 'isAiWin', 'isPlayerWin'])
 const aiCardClickedInd = ref()
 const aiMoveRef = toRef(props, 'aiMove');
 const damageGetted = ref()
 const amountOfDamage = ref()
+const amountOfHeroDamaged = ref()
+const isAiHeroAttack = ref()
 
 const chooseCardForAttack = (card, index) => {
   if (props.playerCardAttack.card && !damageGetted.value && !props.isPlayerCardAttackArr[props.playerCardAttack.index]) {
-    console.log('okokok')
     amountOfDamage.value = props.playerCardAttack.card.damage
     card.hp -= amountOfDamage.value
     damageGetted.value = true
@@ -44,26 +47,51 @@ const chooseCardForAttack = (card, index) => {
     props.isPlayerCardAttackArr[props.playerCardAttack.index] = true
   }
 }
+const attackAiCard = async () => {
+  const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-const attackPlayerCard = () => {
-  for(let i = 0; i < props.aiCardsInBoardArr.length; i++){
-    const aiCardAttackInd = Math.floor(Math.random() * props.aiCardsInBoardArr.length)
+  if(props.playerCardAttack.card && !damageGetted.value && !props.isPlayerCardAttackArr[props.playerCardAttack.index]) {
+    amountOfHeroDamaged.value = props.playerCardAttack.card.damage
+    props.aiChosenHero.hp -= amountOfHeroDamaged.value
+    props.isPlayerCardAttackArr[props.playerCardAttack.index] = true
+    isAiHeroAttack.value = true
+    await sleep(1000)
+    isAiHeroAttack.value = false
+    if(props.aiChosenHero.hp <= 0){
+      console.log('you re win')
+    }
+  }
+}
+
+const attackPlayerCard = async () => {
+  const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+  for(let aiCardAttackInd = 0; aiCardAttackInd < props.aiCardsInBoardArr.length; aiCardAttackInd++){
+    emit('aiCardAttack', props.aiCardsInBoardArr[aiCardAttackInd])
+
+    if(Math.random() < 0.3 || props.cardsInBoardArr.length == 0) {
+      props.chosenHero.hp -= props.aiCardsInBoardArr[aiCardAttackInd].damage
+      props.isAiCardAttackArr[aiCardAttackInd] = true
+      emit('isHeroAttack', true)
+      if(props.chosenHero.hp <= 0){
+        console.log('ai wins')
+      }
+    }
     if(Math.random() < 0.7 && props.cardsInBoardArr.length > 0 && props.aiCardsInBoardArr.length > 0 && !props.isAiCardAttackArr[aiCardAttackInd]) {
       const playerCardAttackedInd = Math.floor(Math.random() * props.cardsInBoardArr.length)
 
       props.cardsInBoardArr[playerCardAttackedInd].hp -= props.aiCardsInBoardArr[aiCardAttackInd].damage
-      setTimeout(() => {
-        props.cardsInBoardArr[playerCardAttackedInd].hp <= 0
-        ? props.cardsInBoardArr.splice(playerCardAttackedInd, 1)
-        : null
-      }, 1000)
 
-      props.isAiCardAttackArr[aiCardAttackInd] = true
-
-      emit('aiCardAttack', props.aiCardsInBoardArr[aiCardAttackInd])
       emit('playerCardAttackedJSON', { card: props.cardsInBoardArr[playerCardAttackedInd], index: playerCardAttackedInd})
+      props.isAiCardAttackArr[aiCardAttackInd] = true
+      await sleep(1100)
+      props.cardsInBoardArr[playerCardAttackedInd].hp <= 0
+      ? (props.cardsInBoardArr.splice(playerCardAttackedInd, 1))
+      : null
     }
   }
+
+  emit('aiMove', false)
 }
 
 watch(aiMoveRef, (oldv, newv) => {
@@ -80,13 +108,14 @@ watch(aiMoveRef, (oldv, newv) => {
     }
 
     attackPlayerCard()
-    emit('aiMove', false)
   }
 })
 </script>
 
 <template>
-  <div class="absolute h-1/4 right-[1%] top-1/2 -translate-y-1/2 border rounded-lg">
+  <div class="absolute h-1/4 right-[1%] top-1/2 -translate-y-1/2 border rounded-lg cursor-pointer hover:brightness-50"
+  @click="attackAiCard()">
+  <p v-if="isAiHeroAttack" class="absolute size-full text-white grid place-items-center text-3xl z-10">{{ -amountOfHeroDamaged }}</p>
     <BaseCard
     :hp="aiChosenHero.hp"
     :damage="aiChosenHero.effectAttributes.effect"
@@ -102,7 +131,7 @@ watch(aiMoveRef, (oldv, newv) => {
     :class="isAiCardAttackArr[index] ? 'border-red-600' : 'border-white'" 
     v-for="(card, index) in aiCardsInBoardArr"
     @click="chooseCardForAttack(card, index)">
-      <p v-if="damageGetted && aiCardClickedInd == index" class="absolute size-full text-white grid place-items-center text-3xl z-10">{{ -amountOfDamage }}</p>
+      <p v-if="damageGetted && aiCardClickedInd == index" class="absolute select-none size-full text-white grid place-items-center text-3xl z-10">{{ -amountOfDamage }}</p>
       <BaseCard
       :hp="card.hp"
       :damage="card.damage"

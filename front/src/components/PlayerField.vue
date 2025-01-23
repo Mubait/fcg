@@ -2,7 +2,7 @@
 import { ref, toRef, watch } from 'vue';
 import BaseCard from './BaseCard.vue';
 
-const emit = defineEmits(['playerCardAttack', 'playerCardAttackedJSON', 'playerMana'])
+const emit = defineEmits(['playerCardAttack', 'playerCardAttackedJSON', 'playerMana', 'isHeroAttack'])
 
 const props = defineProps({
   chosenDeckArr: ref([]),
@@ -12,7 +12,8 @@ const props = defineProps({
   playerMana: ref(),
   playerCardAttackedJSON: ref({}),
   aiCardAttack: ref(),
-  isPlayerCardAttackArr: ref([])
+  isPlayerCardAttackArr: ref([]),
+  isHeroAttack: ref(),
 })
 
 let rightClassesArr = [
@@ -22,6 +23,8 @@ let rightClassesArr = [
 let cardOnHover = ref()
 let playerCardAttackedJSONref = toRef(props, 'playerCardAttackedJSON')
 let amountOfDamage = ref()
+let amountOfHeroDamaged = ref()
+let isHeroAttackRef = toRef(props, 'isHeroAttack')
 
 const pushCardInBoard = (card, index) => {
   if (props.cardsInBoardArr.length < 8 && card.mana <= props.playerMana) {
@@ -36,22 +39,30 @@ const playerAddCardAttack = (card, index) => {
   emit('playerCardAttack', {card: card, index: index})
 }
 
-const damageCardDisplayOn = () => {
+const displayCardDamaged = async () => {
+  const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
   amountOfDamage = props.aiCardAttack.damage
-  setTimeout(() => {
-    emit('playerCardAttackedJSON', null)
-  }, 1000)
+  await sleep(1000)
+  emit('playerCardAttackedJSON', null)
 }
-
+const displayHeroCardDamaged = async () => {
+  const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+  amountOfHeroDamaged.value = props.aiCardAttack.damage
+  await sleep(1000)
+  emit('isHeroAttack', false)
+}
 watch(playerCardAttackedJSONref, () =>{
-  playerCardAttackedJSONref.value ? damageCardDisplayOn() : null
+  playerCardAttackedJSONref.value ? displayCardDamaged() : null
 })
-
+watch(isHeroAttackRef, () => {
+  isHeroAttackRef.value ? displayHeroCardDamaged() : null
+})
 </script>
 
 <template>
 
-  <div class="absolute h-1/4 left-[1%] top-1/2 -translate-y-1/2 border rounded-lg">
+  <div class="absolute h-1/4 left-[1%] top-1/2 -translate-y-1/2 border rounded-lg cursor-pointer hover:brightness-50">
+    <p v-if="isHeroAttack" class="absolute size-full text-white grid place-items-center text-3xl z-10">{{ -amountOfHeroDamaged }}</p>
     <BaseCard
     :hp="chosenHero.hp"
     :damage="chosenHero.effectAttributes.effect"

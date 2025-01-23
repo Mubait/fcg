@@ -27,6 +27,7 @@ let cardsInBoardArr = ref([])
 let playerCardAttack = ref({card: null, index: null})
 let playerCardAttackedJSON = ref({})
 let isPlayerCardAttackArr = ref([])
+let isHeroAttack = ref()
 
 let aiChosenHero = ref()
 let aiChosenDeckArr = ref([])
@@ -105,6 +106,7 @@ else {
       @player-card-attacked-JSON="(data) => playerCardAttackedJSON = data"
       @ai-card-attack="(data) => aiCardAttack = data"
       @enemy-mana="(data) => enemyMana = data"
+      @is-hero-attack="(data) => isHeroAttack = data"
       :ai-chosen-deck-arr="aiChosenDeckArr"
       :ai-cards-in-hand-arr="aiCardsInHandArr"
       :ai-cards-in-board-arr="aiCardsInBoardArr"
@@ -115,12 +117,14 @@ else {
       :cards-in-board-arr="cardsInBoardArr"
       :is-player-card-attack-arr="isPlayerCardAttackArr"
       :is-ai-card-attack-arr="isAiCardAttackArr"
+      :chosen-hero="chosenHero"
       />
 
       <PlayerField
       @player-card-attack="(data) => playerCardAttack = data"
       @player-card-attacked-JSON="(data) => playerCardAttackedJSON = data"
       @player-mana="(data) => playerMana = data"
+      @is-hero-attack="(data) => isHeroAttack = data"
       :chosen-deck-arr="chosenDeckArr"
       :cards-in-hand-arr="cardsInHandArr"
       :cards-in-board-arr="cardsInBoardArr"
@@ -129,6 +133,7 @@ else {
       :player-card-attacked-JSON="playerCardAttackedJSON"
       :ai-card-attack="aiCardAttack"
       :is-player-card-attack-arr="isPlayerCardAttackArr"
+      :is-hero-attack="isHeroAttack"
       />
     
       <CurrentMoveInfo
@@ -143,6 +148,7 @@ else {
       :ai-chosen-deck-arr="aiChosenDeckArr"
       :is-player-card-attack-arr="isPlayerCardAttackArr"
       :is-ai-card-attack-arr="isAiCardAttackArr"
+      :ai-move="aiMove"
       />
 
       </div>

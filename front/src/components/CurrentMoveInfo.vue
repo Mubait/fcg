@@ -1,5 +1,5 @@
 <script setup>
-import { defineEmits, ref } from 'vue';
+import { defineEmits, ref, toRef, watch } from 'vue';
 import BaseButtonStyle from './BaseButtonStyle.vue';
 import BaseCard from './BaseCard.vue';
 
@@ -13,29 +13,33 @@ const props = defineProps({
   aiCardsInBoardArr: ref([]),
   aiChosenDeckArr: ref([]),
   isAiCardAttackArr: ref([]),
+
+  aiMove: ref()
 })
 const emit = defineEmits(['playerMana', 'enemyMana', 'currentMove', 'aiMove'])
 
 let playerMana = ref(1)
 let enemyMana = ref(1)
 let currentMove = ref(1)
+let aiMoveRef = toRef(props, 'aiMove')
 
 const nextMove = () => {
-  playerMana.value++, enemyMana.value++, currentMove.value++
-  emit('playerMana', playerMana), emit('enemyMana', enemyMana), emit('aiMove', true)
-  
-  props.chosenDeckArr.length > 0
-  ? props.cardsInHandArr.push(props.chosenDeckArr.pop())
-  : null
+  if(!props.aiMove) {
+    playerMana.value++, enemyMana.value++, currentMove.value++
+    emit('playerMana', playerMana), emit('enemyMana', enemyMana), emit('aiMove', true)
+    
+    props.chosenDeckArr.length > 0
+    ? props.cardsInHandArr.push(props.chosenDeckArr.pop())
+    : null
 
-  props.aiChosenDeckArr.length > 0
-  ? props.aiCardsInHandArr.push(props.aiChosenDeckArr.pop())
-  : null
+    props.aiChosenDeckArr.length > 0
+    ? props.aiCardsInHandArr.push(props.aiChosenDeckArr.pop())
+    : null
 
-  props.isPlayerCardAttackArr.splice(0, props.isPlayerCardAttackArr.length)
-  props.isAiCardAttackArr.splice(0, props.isAiCardAttackArr.length)
+    props.isPlayerCardAttackArr.splice(0, props.isPlayerCardAttackArr.length)
+    props.isAiCardAttackArr.splice(0, props.isAiCardAttackArr.length)
+  }
 }
-
 </script>
 
 <template>
