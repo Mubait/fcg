@@ -10,7 +10,11 @@
         "type": "defAll",
         "effect": 2,
         "mana": 4
-      }
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/orc/orc_hero1_1_свейн.mp3",
+        "http://localhost:3000/audio/heroes/orc/orc_hero1_2_свейн.mp3"
+      ]
     },
     {
       "id": 2,
@@ -22,7 +26,11 @@
         "type": "damageHero",
         "effect": 1,
         "mana": 1
-      }
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/orc/orc_hero2_1_удир.mp3",
+        "http://localhost:3000/audio/heroes/orc/orc_hero2_2_удир.mp3"
+      ]
     },
     {
       "id": 3,
@@ -34,7 +42,11 @@
         "type": "damageAll",
         "effect": 2,
         "mana": 5
-      }
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/orc/orc_hero3_1_сион.mp3",
+        "http://localhost:3000/audio/heroes/orc/orc_hero3_2_сион.mp3"
+      ]
     }
   ],
   "elf": [
@@ -48,7 +60,11 @@
         "type": "damageOne",
         "effect": 3,
         "mana": 2
-      }
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/elf/elf_hero1_1_цирилла.mp3",
+        "http://localhost:3000/audio/heroes/elf/elf_hero1_2_цирилла.mp3"
+      ]
     },
     {
       "id": 2,
@@ -60,7 +76,11 @@
         "type": "healthAll",
         "effect": 1,
         "mana": 3
-      }
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/elf/elf_hero2_1_некромант.mp3",
+        "http://localhost:3000/audio/heroes/elf/elf_hero2_2_некромант.mp3"
+      ]
     },
     {
       "id": 3,
@@ -72,7 +92,11 @@
         "type": "healthMe",
         "effect": 2,
         "mana": 2
-      }
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/elf/elf_hero3_1_джайна.mp3",
+        "http://localhost:3000/audio/heroes/elf/elf_hero3_2_джайна.mp3"
+      ]
     }
   ],
   "werewolf": [
@@ -86,7 +110,11 @@
         "type": "defOne",
         "effect": 2,
         "mana": 4
-      }
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/werewolf/werewolf_hero1_1_насус.mp3",
+        "http://localhost:3000/audio/heroes/werewolf/werewolf_hero1_2_насус.mp3"
+      ]
     },
     {
       "id": 2,
@@ -98,7 +126,11 @@
         "type": "killOne",
         "effect": "kill",
         "mana": 7
-      }
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/werewolf/werewolf_hero2_1_орн.mp3",
+        "http://localhost:3000/audio/heroes/werewolf/werewolf_hero2_2_орн.mp3"
+      ]
     }
   ],
   "undead": [
@@ -112,7 +144,11 @@
         "type": "healthMe",
         "effect": 4,
         "mana": 6
-      }
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/undead/undead_hero1_1_келтузад.mp3",
+        "http://localhost:3000/audio/heroes/undead/undead_hero1_2_келтузад.mp3"
+      ]
     }
   ],
   "human": [
@@ -126,7 +162,11 @@
         "type": "buffAll",
         "effect": 2,
         "mana": 6
-      }
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/human/human_hero1_1_степан.mp3",
+        "http://localhost:3000/audio/heroes/human/human_hero1_2_степан.mp3"
+      ]
     }
   ]
 }
