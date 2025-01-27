@@ -55,24 +55,6 @@ controllerCards.getHeroesCards().then(heroesCardsReturned => {
   aiChosenHero.value = heroesCardsArrReturned[Math.floor(Math.random() * heroesCardsArrReturned.length)]
 })
 
-let soundUrl = ref('http://localhost:3000/audio/orc/1_chosen.mp3')
-let sound = new Howl({
-  src: [soundUrl.value],
-  loop: false,
-  volume: 0.5,
-});
-
-
-const func = () => {
-  sound.play()
-  soundUrl = 'http://localhost:3000/audio/orc/2_chosen.mp3'
-  sound = new Howl({
-    src: ['http://localhost:3000/audio/orc/2_chosen.mp3'],
-    loop: false,
-    volume: 0.5,
-  })
-}
-
 const addDataInDeck = (data) => {
   deckChosen.value = true
   chosenDeckArr.value = data
@@ -149,6 +131,7 @@ else {
       :is-player-card-attack-arr="isPlayerCardAttackArr"
       :is-ai-card-attack-arr="isAiCardAttackArr"
       :ai-move="aiMove"
+      :chosen-hero="chosenHero"
       />
 
       </div>

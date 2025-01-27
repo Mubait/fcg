@@ -8,13 +8,15 @@ const props = defineProps({
   cardsInBoardArr: ref([]),
   chosenDeckArr: ref([]),
   isPlayerCardAttackArr: ref([]),
+  chosenHero: ref(),
 
   aiCardsInHandArr: ref([]),
   aiCardsInBoardArr: ref([]),
   aiChosenDeckArr: ref([]),
   isAiCardAttackArr: ref([]),
 
-  aiMove: ref()
+  aiMove: ref(),
+
 })
 const emit = defineEmits(['playerMana', 'enemyMana', 'currentMove', 'aiMove'])
 
@@ -22,6 +24,15 @@ let playerMana = ref(1)
 let enemyMana = ref(1)
 let currentMove = ref(1)
 let aiMoveRef = toRef(props, 'aiMove')
+
+const chosenHeroSoundOn = () => {
+  const sound = new Howl({
+    src: [props.chosenHero.voice[1]],
+    loop: false,
+    volume: 0.5,
+  })
+  sound.play()
+}
 
 const nextMove = () => {
   if(!props.aiMove) {
@@ -38,6 +49,8 @@ const nextMove = () => {
 
     props.isPlayerCardAttackArr.splice(0, props.isPlayerCardAttackArr.length)
     props.isAiCardAttackArr.splice(0, props.isAiCardAttackArr.length)
+
+    Math.random() < 0.1 ? chosenHeroSoundOn() : null
   }
 }
 </script>

@@ -9,6 +9,16 @@ let currentCardHeroIndex = ref()
 
 
 const isHeroChosen = ref(false)
+
+
+const chosenHeroSoundOn = (heroSoundUrl) => {
+  const sound = new Howl({
+    src: [heroSoundUrl],
+    loop: false,
+    volume: 0.5,
+  })
+  sound.play()
+}
 </script>
 
 <template>
@@ -24,7 +34,7 @@ const isHeroChosen = ref(false)
     <div class="relative size-fit min-w-[15%] transition cursor-pointer border rounded-lg
     hover:scale-105" v-for="(heroCard, index) in heroesCardsArr"
     @mouseover="currentCardHeroIndex = index" @mouseleave="currentCardHeroIndex = null"
-    @click="emit('chosenHero', heroCard), isHeroChosen = true">
+    @click="chosenHeroSoundOn(heroCard.voice[0]), emit('chosenHero', heroCard), isHeroChosen = true">
       <div v-if="currentCardHeroIndex == index" class="absolute size-full bg-black/70 rounded-xl 
       animate-[fromBlur_0.5s_ease-in-out_forwards]
       py-5 flex-col z-10">
