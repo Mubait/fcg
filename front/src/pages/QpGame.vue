@@ -28,6 +28,8 @@ let playerCardAttack = ref({card: null, index: null})
 let playerCardAttackedJSON = ref({})
 let isPlayerCardAttackArr = ref([])
 let isHeroAttack = ref()
+let playerIsWin = ref(false)
+let playerIsLose = ref(false)
 
 let aiChosenHero = ref()
 let aiChosenDeckArr = ref([])
@@ -78,9 +80,9 @@ else {
    <ChooseHero @chosenHero="(data) => chosenHero = data" v-if="deckChosen&&!chosenHero"/>
     <ChooseDeck @chosen-deck="addDataInDeck" v-if="!deckChosen"/>
 
-    <div class="size-full" v-if="deckChosen&&chosenHero">
+    <div class="size-full" v-if="deckChosen&&chosenHero&&!playerIsWin&&!playerIsLose">
 
-      <div class="absolute size-40 bg-red-400 focus:bg-black" @click=""></div>
+      <!-- <div class="absolute size-40 bg-red-400 focus:bg-black" @click="console.log(playerIsWin)"></div> -->
 
       <EnemyField
       @ai-move="(data) => aiMove = data"
@@ -89,6 +91,8 @@ else {
       @ai-card-attack="(data) => aiCardAttack = data"
       @enemy-mana="(data) => enemyMana = data"
       @is-hero-attack="(data) => isHeroAttack = data"
+      @player-is-win="(data) => playerIsWin = data"
+      @player-is-lose="(data) => playerIsLose = data"
       :ai-chosen-deck-arr="aiChosenDeckArr"
       :ai-cards-in-hand-arr="aiCardsInHandArr"
       :ai-cards-in-board-arr="aiCardsInBoardArr"
@@ -134,6 +138,21 @@ else {
       :chosen-hero="chosenHero"
       />
 
+      </div>
+
+      <div class="absolute w-full h-1/3 top-1/2 -translate-y-1/2
+      bg-gradient-to-r backdrop-blur-sm from-black/80 via-teal-900/80 to-black/80
+      flex items-center justify-center
+      border-y-2 animate-fromBlur"
+      v-if="playerIsWin">
+        <p class="text-zinc-200 text-6xl ">{{ $t('qpgamePage.win') }}</p>
+      </div>
+      <div class="absolute w-full h-1/3 top-1/2 -translate-y-1/2
+      bg-gradient-to-r backdrop-blur-sm from-black/80 via-red-700/80 to-black/80
+      flex items-center justify-center
+      border-y-2 animate-fromBlur"
+      v-else-if="playerIsLose">
+        <p class="text-zinc-200 text-6xl ">{{ $t('qpgamePage.lose') }}</p>
       </div>
 
   </main>

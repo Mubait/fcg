@@ -52,6 +52,8 @@
     "currentMove": "move",
     "playerMana": "your mana",
     "enemyMana": "enemy mana",
-    "finishTurn": "your move"
+    "finishTurn": "your move",
+    "win": "YOU'RE WIN!",
+    "lose": "YOU'RE LOSE.."
   }
 }

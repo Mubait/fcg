@@ -22,7 +22,8 @@ let rightClassesArr = [
   'right-[16%]', 'right-[17%]', 'right-[18%]', 'right-[19%]', 'right-[20%]', 'right-[21%]',
   'right-[22%]', 'right-[23%]', 'right-[24%]', 'right-[25%]', 'right-[26%]', 'right-[27%]'
 ]
-const emit = defineEmits(['aiMove', 'playerCardAttack', 'playerCardAttackedJSON', 'aiCardAttack', 'enemyMana', 'isHeroAttack', 'isAiWin', 'isPlayerWin'])
+const emit = defineEmits(['aiMove', 'playerCardAttack', 'playerCardAttackedJSON', 'aiCardAttack', 'enemyMana', 
+'isHeroAttack', 'isAiWin', 'isPlayerWin', 'playerIsWin', 'playerIsLose'])
 const aiCardClickedInd = ref()
 const aiMoveRef = toRef(props, 'aiMove');
 const damageGetted = ref()
@@ -57,9 +58,7 @@ const attackAiCard = async () => {
     isAiHeroAttack.value = true
     await sleep(1000)
     isAiHeroAttack.value = false
-    if(props.aiChosenHero.hp <= 0){
-      console.log('you re win')
-    }
+    props.aiChosenHero.hp <= 0 ? emit('playerIsWin', true) : null
   }
 }
 
@@ -73,9 +72,8 @@ const attackPlayerCard = async () => {
       props.chosenHero.hp -= props.aiCardsInBoardArr[aiCardAttackInd].damage
       props.isAiCardAttackArr[aiCardAttackInd] = true
       emit('isHeroAttack', true)
-      if(props.chosenHero.hp <= 0){
-        console.log('ai wins')
-      }
+      await sleep(1100)
+      props.chosenHero.hp <= 0 ? emit('playerIsLose', true) : null
     }
     if(Math.random() < 0.7 && props.cardsInBoardArr.length > 0 && props.aiCardsInBoardArr.length > 0 && !props.isAiCardAttackArr[aiCardAttackInd]) {
       const playerCardAttackedInd = Math.floor(Math.random() * props.cardsInBoardArr.length)

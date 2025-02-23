@@ -52,6 +52,8 @@
     "currentMove": "ход",
     "playerMana": "твоя мана",
     "enemyMana": "мана противника",
-    "finishTurn": "твой ход"
+    "finishTurn": "твой ход",
+    "win": "ПОБЕДА!",
+    "lose": "ПОРАЖЕНИЕ.."
   }
 }
