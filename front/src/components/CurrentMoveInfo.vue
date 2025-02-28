@@ -9,6 +9,7 @@ const props = defineProps({
   chosenDeckArr: ref([]),
   isPlayerCardAttackArr: ref([]),
   chosenHero: ref(),
+  playerMana: ref(),
 
   aiCardsInHandArr: ref([]),
   aiCardsInBoardArr: ref([]),
@@ -20,7 +21,6 @@ const props = defineProps({
 })
 const emit = defineEmits(['playerMana', 'enemyMana', 'currentMove', 'aiMove'])
 
-let playerMana = ref(1)
 let enemyMana = ref(1)
 let currentMove = ref(1)
 let aiMoveRef = toRef(props, 'aiMove')
@@ -36,8 +36,9 @@ const chosenHeroSoundOn = () => {
 
 const nextMove = () => {
   if(!props.aiMove) {
-    playerMana.value++, enemyMana.value++, currentMove.value++
-    emit('playerMana', playerMana), emit('enemyMana', enemyMana), emit('aiMove', true)
+    let playerManaInc = props.playerMana
+    playerManaInc++, enemyMana.value++, currentMove.value++
+    emit('playerMana', playerManaInc), emit('enemyMana', enemyMana), emit('aiMove', true)
     
     props.chosenDeckArr.length > 0
     ? props.cardsInHandArr.push(props.chosenDeckArr.pop())

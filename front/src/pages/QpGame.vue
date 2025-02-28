@@ -15,8 +15,8 @@ const router = useRouter()
 
 let deckChosen = ref(false)
 
-let playerMana = ref()
-let enemyMana = ref()
+let playerMana = ref(1)
+let enemyMana = ref(1)
 let currentMove = ref()
 let aiMove = ref(false)
 
@@ -126,6 +126,7 @@ else {
       @player-mana="(data) => playerMana = data"
       @enemy-mana="(data) => enemyMana = data"
       @ai-move="(data) => aiMove = data"
+      :player-mana="playerMana"
       :cards-in-hand-arr="cardsInHandArr"
       :cards-in-board-arr="cardsInBoardArr"
       :chosen-deck-arr="chosenDeckArr"
