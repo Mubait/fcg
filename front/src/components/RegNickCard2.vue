@@ -9,8 +9,8 @@ import { controllerUsers } from '@/js/controller/controllerUsers';
 const router = useRouter()
 let userName = undefined
 
-const nextPage = () => {
-  controllerUsers.userAddNick({username: userName})
+const nextPage = async () => {
+  await controllerUsers.userAddNick({username: userName})
   router.push('/main')
 }
 </script>
