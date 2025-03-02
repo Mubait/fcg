@@ -16,7 +16,8 @@
   "regNickPage": {
     "regNickHead": "выбери карту и внеси в неё своё имя!",
     "enterYourName": "впиши своё имя!",
-    "btnText": "дальше"
+    "btnText": "дальше",
+    "emptyNick": "ник не может быть пустым!"
   },
   "mainPage": {
     "score": "рейтинг",

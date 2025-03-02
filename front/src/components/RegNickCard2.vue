@@ -5,13 +5,19 @@ import { userInfo } from '@/js/userInfo'
 
 import BaseButtonStyle from './BaseButtonStyle.vue'
 import { controllerUsers } from '@/js/controller/controllerUsers';
+import { ref } from 'vue';
 
 const router = useRouter()
 let userName = undefined
+let nickIsEmptyErrVisible = ref(false)
 
 const nextPage = async () => {
   await controllerUsers.userAddNick({username: userName})
-  router.push('/main')
+  nickIsEmptyErrVisible.value = true
+  setTimeout(() => {
+    nickIsEmptyErrVisible.value = false
+    }, 2000)
+  userName ? router.push('/main') : null
 }
 </script>
 
@@ -33,6 +39,7 @@ const nextPage = async () => {
         :btn-text-color-hover="'hover:text-zinc-200'"
         :btn-text="'regNickPage.btnText'"
         />
+        <p v-if="!userName && nickIsEmptyErrVisible" class="absolute text-red-600 text-xs w-40 bottom-[17%]">{{ $t('regNickPage.emptyNick') }}</p>
       </div>
     </div>
   </div>
