@@ -14,12 +14,14 @@ const preloadData = () => {
     try {
       userInfo.decks = decksData.attributes
     } catch (err) {
+      userInfo.decks = [[],[],[]]
       console.error(err)
     }
   })
 
   Promise.all([getheroesCardsPromise, getDecksPromise])
   .then(() => {
+    console.log(userInfo.decks)
     sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
   })
 }
