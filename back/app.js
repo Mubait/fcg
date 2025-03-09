@@ -30,15 +30,14 @@ const io = require('socket.io')(server, {
 });
 
 io.on('connection', (socket) => {
-  console.log('Пользователь подключился');
+  console.log('user connect');
 
   socket.on('disconnect', () => {
-    console.log('Пользователь отключился');
+    console.log('user disconnect');
   });
 
   socket.on('send', (message) => {
-    console.log('dasd')
-    socket.broadcast.emit('receive', message);
+    socket.emit('receive', message);
   });
 });
 
