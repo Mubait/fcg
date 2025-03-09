@@ -4,20 +4,34 @@ import MainPlayMenu from '@/components/MainPlayMenu.vue';
 import { controllerCards } from '@/js/controller/controllerCards';
 import preloadData from '@/js/preloadData';
 import { userInfo } from '@/js/userInfo';
-
+import { io } from "socket.io-client"
 import { useRouter } from 'vue-router';
 
 const router = useRouter()
 
 preloadData()
 
-
 const accessToken = sessionStorage.getItem('accessToken')
 if (!accessToken) {
   alert('Вы не авторизованы!')
   router.push('/auth')
 }
+else{
+  const socket = io(import.meta.env.VITE_URLSERVER)
+  
+  socket.on('connect', () => {
+    console.log('Подключено к серверу');
+  });
 
+  socket.on('disconnect', () => {
+    console.log('Отключено от сервера');
+  });
+
+  // Слушаем события от сервера
+  socket.on('message', (data) => {
+    messages.value.push(data);
+  });
+}
 </script>
 
 <template>
