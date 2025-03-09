@@ -18,7 +18,7 @@ if (!accessToken) {
 }
 else{
   const socket = io(import.meta.env.VITE_URLSERVER)
-  
+  let messages = []
   socket.on('connect', () => {
     console.log('Подключено к серверу');
   });
@@ -28,9 +28,11 @@ else{
   });
 
   // Слушаем события от сервера
-  socket.on('message', (data) => {
-    messages.value.push(data);
+  socket.on('receive', (data) => {
+    console.log(data)
+    messages.push(data);
   });
+  socket.emit('send', 'sendMsg')
 }
 </script>
 
