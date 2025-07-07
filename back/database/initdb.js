@@ -1,8 +1,10 @@
 const Sequelize = require("sequelize");
+require('dotenv').config();
 
-const sequelize = new Sequelize("fantasycardgame", "root", "3572", {
-  dialect: 'mysql',
+const sequelize = new Sequelize("fantasycardgame", "postgres", "qwerty", {
+  dialect: 'postgres',
   host: process.env.hostdb,
+  port: 5432,
   define: {
       timestamps: false
   }
