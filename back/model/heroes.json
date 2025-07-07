@@ -1,0 +1,172 @@
+{
+  "orc": [
+    {
+      "id": 1,
+      "nameRu": "Клорн Бесстрашный",
+      "nameEn": "Klorn Fearless",
+      "imgUrl": "/cards/heroes/bigheroes/orc_hero1.png",
+      "hp": 20,
+      "effectAttributes": {
+        "type": "defAll",
+        "effect": 2,
+        "mana": 4
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/orc/orc_hero1_1_свейн.mp3",
+        "http://localhost:3000/audio/heroes/orc/orc_hero1_2_свейн.mp3"
+      ]
+    },
+    {
+      "id": 2,
+      "nameRu": "Гразз Меткий",
+      "nameEn": "Grazz Oneshot",
+      "imgUrl": "/cards/heroes/bigheroes/orc_hero2.png",
+      "hp": 20,
+      "effectAttributes": {
+        "type": "damageHero",
+        "effect": 1,
+        "mana": 1
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/orc/orc_hero2_1_удир.mp3",
+        "http://localhost:3000/audio/heroes/orc/orc_hero2_2_удир.mp3"
+      ]
+    },
+    {
+      "id": 3,
+      "nameRu": "Бррок Землетряс",
+      "nameEn": "Brrok Earthshaker",
+      "imgUrl": "/cards/heroes/bigheroes/orc_hero3.png",
+      "hp": 20,
+      "effectAttributes": {
+        "type": "damageAll",
+        "effect": 2,
+        "mana": 5
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/orc/orc_hero3_1_сион.mp3",
+        "http://localhost:3000/audio/heroes/orc/orc_hero3_2_сион.mp3"
+      ]
+    }
+  ],
+  "elf": [
+    {
+      "id": 1,
+      "nameRu": "Мифиаса",
+      "nameEn": "Mifiasa",
+      "imgUrl": "/cards/heroes/bigheroes/elf_hero1.png",
+      "hp": 20,
+      "effectAttributes": {
+        "type": "damageOne",
+        "effect": 3,
+        "mana": 2
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/elf/elf_hero1_1_цирилла.mp3",
+        "http://localhost:3000/audio/heroes/elf/elf_hero1_2_цирилла.mp3"
+      ]
+    },
+    {
+      "id": 2,
+      "nameRu": "Древний",
+      "nameEn": "Ancient",
+      "imgUrl": "/cards/heroes/bigheroes/elf_hero2.png",
+      "hp": 20,
+      "effectAttributes": {
+        "type": "healthAll",
+        "effect": 1,
+        "mana": 3
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/elf/elf_hero2_1_некромант.mp3",
+        "http://localhost:3000/audio/heroes/elf/elf_hero2_2_некромант.mp3"
+      ]
+    },
+    {
+      "id": 3,
+      "nameRu": "Аквана",
+      "nameEn": "Aquana",
+      "imgUrl": "/cards/heroes/bigheroes/elf_hero3.png",
+      "hp": 20,
+      "effectAttributes": {
+        "type": "healthMe",
+        "effect": 2,
+        "mana": 2
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/elf/elf_hero3_1_джайна.mp3",
+        "http://localhost:3000/audio/heroes/elf/elf_hero3_2_джайна.mp3"
+      ]
+    }
+  ],
+  "werewolf": [
+    {
+      "id": 1,
+      "nameRu": "Волмун",
+      "nameEn": "Wolmoon",
+      "imgUrl": "/cards/heroes/bigheroes/werewolf_hero1.png",
+      "hp": 20,
+      "effectAttributes": {
+        "type": "defOne",
+        "effect": 2,
+        "mana": 4
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/werewolf/werewolf_hero1_1_насус.mp3",
+        "http://localhost:3000/audio/heroes/werewolf/werewolf_hero1_2_насус.mp3"
+      ]
+    },
+    {
+      "id": 2,
+      "nameRu": "Синемун",
+      "nameEn": "Bluemoon",
+      "imgUrl": "/cards/heroes/bigheroes/werewolf_hero2.png",
+      "hp": 20,
+      "effectAttributes": {
+        "type": "killOne",
+        "effect": "kill",
+        "mana": 7
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/werewolf/werewolf_hero2_1_орн.mp3",
+        "http://localhost:3000/audio/heroes/werewolf/werewolf_hero2_2_орн.mp3"
+      ]
+    }
+  ],
+  "undead": [
+    {
+      "id": 1,
+      "nameRu": "Вечный",
+      "nameEn": "Eternal",
+      "imgUrl": "/cards/heroes/bigheroes/undead_hero1.png",
+      "hp": 20,
+      "effectAttributes": {
+        "type": "healthMe",
+        "effect": 4,
+        "mana": 6
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/undead/undead_hero1_1_келтузад.mp3",
+        "http://localhost:3000/audio/heroes/undead/undead_hero1_2_келтузад.mp3"
+      ]
+    }
+  ],
+  "human": [
+    {
+      "id": 1,
+      "nameRu": "Беримир",
+      "nameEn": "Berimir",
+      "imgUrl": "/cards/heroes/bigheroes/human_hero1.png",
+      "hp": 20,
+      "effectAttributes": {
+        "type": "buffAll",
+        "effect": 2,
+        "mana": 6
+      },
+      "voice": [
+        "http://localhost:3000/audio/heroes/human/human_hero1_1_степан.mp3",
+        "http://localhost:3000/audio/heroes/human/human_hero1_2_степан.mp3"
+      ]
+    }
+  ]
+}

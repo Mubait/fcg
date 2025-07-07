@@ -1,0 +1,60 @@
+{
+  "rootPage": {
+    "gameDescription": "Fantasy Card Game это карточная игра с 5-ю фракциями: люди, эльфы, оборотни, орки, нежить.....",
+    "buttonPlay": "начать"
+  },
+  "authPage": {
+    "email": "Почта",
+    "password": "Пароль",
+    "newPassword":  "Забыли пароль?",
+    "signIn": "Вход",
+    "signUp": "Регистрация",
+    "signInIsNotOk": "неверные данные",
+    "signUpIsOk": "успешно!",
+    "signUpIsNotOk": "такая почта уже зарегистрировна"
+  },
+  "regNickPage": {
+    "regNickHead": "выбери карту и внеси в неё своё имя!",
+    "enterYourName": "впиши своё имя!",
+    "btnText": "дальше",
+    "emptyNick": "ник не может быть пустым!"
+  },
+  "mainPage": {
+    "score": "рейтинг",
+    "cards": "карты",
+    "friends": "друзья",
+    "forum": "форум",
+    "btnPlayText": "играть",
+    "settings": "настройки",
+    "help": "помощь",
+    "logout": "выйти",
+    "vsPlayer": "ИГРОК",
+    "vsAI": "ИИ"
+  },
+  "modeSelectionAIpage": {
+    "campaign": "кампания",
+    "quickPlay": "быстрая игра"
+  },
+  "cardsPage": {
+    "search": "поиск..",
+    "createDeck": "создать колоду",
+    "fractions": "фракции",
+    "orcs": "орки",
+    "elfs": "эльфы"
+  },
+  "qpgamePage": {
+    "chooseHero": "выбери героя!",
+    "heroName": "имя: ",
+    "ability": "способность: ",
+    "mana": "мана: ",
+    "hp": "здоровье: ",
+    "chooseYourDeck": "Выбери колоду!",
+    "chooseDeck": "выбрать колоду",
+    "currentMove": "ход",
+    "playerMana": "твоя мана",
+    "enemyMana": "мана противника",
+    "finishTurn": "твой ход",
+    "win": "ПОБЕДА!",
+    "lose": "ПОРАЖЕНИЕ.."
+  }
+}

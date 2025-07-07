@@ -1,0 +1,60 @@
+{
+  "rootPage": {
+    "gameDescription": "Fantasy Card Game is a card game with 5 factions: humans, elves, werewolves, orcs, undead.....",
+    "buttonPlay": "next"
+  },
+  "authPage": {
+    "email": "Email",
+    "password": "Password",
+    "newPassword":  "forgot you password?",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "signInIsNotOk": "bad data",
+    "signUpIsOk": "success!",
+    "signUpIsNotOk": "this email already exists"
+  },
+  "regNickPage": {
+    "regNickHead": "choose a card and put your name on it!",
+    "enterYourName": "enter your name!",
+    "btnText": "next",
+    "emptyNick": "nick cannot be empty"
+  },
+  "mainPage": {
+    "score": "score",
+    "cards": "cards",
+    "friends": "friends",
+    "forum": "forum",
+    "btnPlayText": "play",
+    "settings": "settings",
+    "help": "help",
+    "logout": "log out",
+    "vsPlayer": "PLAYER",
+    "vsAI": "AI"
+  },
+  "modeSelectionAIpage": {
+    "campaign": "campaign",
+    "quickPlay": "quick play"
+  },
+  "cardsPage": {
+    "search": "search..",
+    "createDeck": "create a deck",
+    "fractions": "fractions",
+    "orcs": "orcs",
+    "elfs": "elfs"
+  },
+  "qpgamePage": {
+    "chooseHero": "choose you hero!",
+    "heroName": "name: ",
+    "ability": "ability: ",
+    "mana": "mana: ",
+    "hp": "hp: ",
+    "chooseYourDeck": "choose your deck!",
+    "chooseDeck": "choose the deck",
+    "currentMove": "move",
+    "playerMana": "your mana",
+    "enemyMana": "enemy mana",
+    "finishTurn": "your move",
+    "win": "YOU'RE WIN!",
+    "lose": "YOU'RE LOSE.."
+  }
+}
