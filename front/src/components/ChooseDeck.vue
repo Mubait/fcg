@@ -6,6 +6,7 @@ import BaseButtonStyle from './BaseButtonStyle.vue';
 const currentDeck = ref(0)
 const cardsArr = ref(JSON.parse(sessionStorage.getItem('userInfo')).decks)
 const isDeckChosen = ref(false)
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const emit = defineEmits(['chosenDeck'])
 </script>
@@ -27,7 +28,7 @@ const emit = defineEmits(['chosenDeck'])
       >
         <div class="relative size-fit" v-for="(card, index) in cardsArr[currentDeck]">
           <BaseCard @click="console.log(card, index)"
-          :img-url="'http://localhost:3000'+card.imgUrl"
+          :img-url="`${backendUrl}${card.imgUrl}`"
           :damage="card.damage"
           :hp="card.hp"
           :mana="card.mana"

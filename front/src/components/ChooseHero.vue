@@ -9,6 +9,7 @@ let currentCardHeroIndex = ref()
 
 
 const isHeroChosen = ref(false)
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 
 const chosenHeroSoundOn = (heroSoundUrl) => {
@@ -44,7 +45,7 @@ const chosenHeroSoundOn = (heroSoundUrl) => {
         <p class="mt-1 mx-3 text-white text-[65%]">{{$t('qpgamePage.ability')}} {{heroCard.effectAttributes.type}}</p>
       </div>
       <BaseCard
-      :img-url="'http://localhost:3000' + heroCard.imgUrl"
+      :img-url="`${backendUrl}${heroCard.imgUrl}`"
       :mana="heroCard.effectAttributes.mana"
       :damage="heroCard.effectAttributes.effect"
       :hp="heroCard.hp"

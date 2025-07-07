@@ -30,6 +30,7 @@ const damageGetted = ref()
 const amountOfDamage = ref()
 const amountOfHeroDamaged = ref()
 const isAiHeroAttack = ref()
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const chooseCardForAttack = (card, index) => {
   if (props.playerCardAttack.card && !damageGetted.value && !props.isPlayerCardAttackArr[props.playerCardAttack.index]) {
@@ -118,7 +119,7 @@ watch(aiMoveRef, (oldv, newv) => {
     :hp="aiChosenHero.hp"
     :damage="aiChosenHero.effectAttributes.effect"
     :mana="aiChosenHero.effectAttributes.mana"
-    :img-url="'http://localhost:3000'+aiChosenHero.imgUrl"
+    :img-url="`${backendUrl}${aiChosenHero.imgUrl}`"
     :text-size="'text-[60%]'"
     :name="aiChosenHero.nameRu"
     />
@@ -134,7 +135,7 @@ watch(aiMoveRef, (oldv, newv) => {
       :hp="card.hp"
       :damage="card.damage"
       :mana="card.mana"
-      :img-url="'http://localhost:3000'+card.imgUrl"
+      :img-url="`${backendUrl}${card.imgUrl}`"
       :text-size="'text-[55%]'"
       :name="card.nameRu"
       :type="card.type"
@@ -150,7 +151,7 @@ watch(aiMoveRef, (oldv, newv) => {
     :hp="card.hp"
     :damage="card.damage"
     :mana="card.mana"
-    :img-url="'http://localhost:3000'+card.imgUrl"
+    :img-url="`${backendUrl}${card.imgUrl}`"
     :text-size="'text-[50%]'"
     :name="card.nameRu"
     :type="card.type"
@@ -163,7 +164,7 @@ watch(aiMoveRef, (oldv, newv) => {
     :hp="card.hp"
     :damage="card.damage"
     :mana="card.mana"
-    :img-url="'http://localhost:3000'+card.imgUrl"
+    :img-url="`${backendUrl}${card.imgUrl}`"
     :text-size="'text-[50%]'"
     :name="card.nameRu"
     :type="card.type"

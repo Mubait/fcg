@@ -3,6 +3,7 @@ import { ref, toRef, watch } from 'vue';
 import BaseCard from './BaseCard.vue';
 
 const emit = defineEmits(['playerCardAttack', 'playerCardAttackedJSON', 'playerMana', 'isHeroAttack'])
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const props = defineProps({
   chosenDeckArr: ref([]),
@@ -67,7 +68,7 @@ watch(isHeroAttackRef, () => {
     :hp="chosenHero.hp"
     :damage="chosenHero.effectAttributes.effect"
     :mana="chosenHero.effectAttributes.mana"
-    :img-url="'http://localhost:3000'+chosenHero.imgUrl"
+    :img-url="`${backendUrl}${chosenHero.imgUrl}`"
     :text-size="'text-[60%]'"
     :name="chosenHero.nameRu"
     />
@@ -83,7 +84,7 @@ watch(isHeroAttackRef, () => {
       :hp="card.hp"
       :damage="card.damage"
       :mana="card.mana"
-      :img-url="'http://localhost:3000'+card.imgUrl"
+      :img-url="`${backendUrl}${card.imgUrl}`"
       :text-size="'text-[55%]'"
       :name="card.nameRu"
       :type="card.type"
@@ -96,7 +97,7 @@ watch(isHeroAttackRef, () => {
     :hp="cardOnHover.hp"
     :damage="cardOnHover.damage"
     :mana="cardOnHover.mana"
-    :img-url="'http://localhost:3000'+cardOnHover.imgUrl"
+    :img-url="`${backendUrl}${cardOnHover.imgUrl}`"
     :text-size="'text-[60%]'"
     :name="cardOnHover.nameRu"
     :type="cardOnHover.type"
@@ -112,7 +113,7 @@ watch(isHeroAttackRef, () => {
     :hp="card.hp"
     :damage="card.damage"
     :mana="card.mana"
-    :img-url="'http://localhost:3000'+card.imgUrl"
+    :img-url="`${backendUrl}${card.imgUrl}`"
     :text-size="'text-[50%]'"
     :name="card.nameRu"
     :type="card.type"
@@ -125,7 +126,7 @@ watch(isHeroAttackRef, () => {
     <BaseCard
     :hp="card.hp"
     :damage="card.damage"
-    :img-url="'http://localhost:3000'+card.imgUrl"
+    :img-url="`${backendUrl}${card.imgUrl}`"
     :mana="card.mana"
     :type="card.type"
     :name="card.nameRu"

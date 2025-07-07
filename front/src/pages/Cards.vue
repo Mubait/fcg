@@ -7,6 +7,7 @@ import { useRouter } from 'vue-router';
 import { userInfo } from '@/js/userInfo';
 
 const router = useRouter()
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 let cardsJson = undefined
 let cardsArr = undefined
@@ -75,7 +76,7 @@ else {
 
           <div class="relative size-fit" v-for="card in cardsArr" v-show="currentDeck == null">
             <BaseCard 
-            :img-url="'http://localhost:3000'+card.imgUrl"
+            :img-url="`${backendUrl}${card.imgUrl}`"
             :damage="card.damage"
             :hp="card.hp"
             :mana="card.mana"
@@ -90,7 +91,7 @@ else {
           v-for="(card, index) in addedCardArr[currentDeck]"
           @click="addedCardArr[currentDeck].splice(index, 1), deckOverflow[currentDeck] = false">
             <BaseCard 
-            :img-url="'http://localhost:3000'+card.imgUrl"
+            :img-url="`${backendUrl}${card.imgUrl}`"
             :damage="card.damage"
             :hp="card.hp"
             :mana="card.mana"
@@ -110,7 +111,7 @@ else {
           v-for="card in cardsArr"
           @click="addedCardArr[currentDeck].length < 12 ? addedCardArr[currentDeck].push(card) : deckOverflow[currentDeck] = true">
             <BaseCard 
-            :img-url="'http://localhost:3000'+card.imgUrl"
+            :img-url="`${backendUrl}${card.imgUrl}`"
             :damage="card.damage"
             :hp="card.hp"
             :mana="card.mana"
