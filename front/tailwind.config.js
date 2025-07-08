@@ -1,3 +1,5 @@
+import defaultTheme from 'tailwindcss/defaultTheme.js';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -15,6 +17,7 @@ export default {
         'bgQpgame': "url('/5.1.qpgamePg/qpgamebg.jpg')",
       },
       fontFamily: {
+        sans: ["Norse Cyrillic", defaultTheme.fontFamily.sans],
 				stalinist: ["Stalinist One"],
 			},
       keyframes: {

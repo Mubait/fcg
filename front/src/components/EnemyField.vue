@@ -114,13 +114,13 @@ watch(aiMoveRef, (oldv, newv) => {
 <template>
   <div class="absolute h-1/4 right-[1%] top-1/2 -translate-y-1/2 border rounded-lg cursor-pointer hover:brightness-50"
   @click="attackAiCard()">
-  <p v-if="isAiHeroAttack" class="absolute size-full text-white grid place-items-center text-3xl z-10">{{ -amountOfHeroDamaged }}</p>
+  <p v-if="isAiHeroAttack" class="absolute size-full text-white grid place-items-center text-5xl z-10">{{ -amountOfHeroDamaged }}</p>
     <BaseCard
     :hp="aiChosenHero.hp"
     :damage="aiChosenHero.effectAttributes.effect"
     :mana="aiChosenHero.effectAttributes.mana"
     :img-url="`${backendUrl}${aiChosenHero.imgUrl}`"
-    :text-size="'text-[60%]'"
+    :text-size="'text-2xl'"
     :name="aiChosenHero.nameRu"
     />
   </div>
@@ -136,7 +136,7 @@ watch(aiMoveRef, (oldv, newv) => {
       :damage="card.damage"
       :mana="card.mana"
       :img-url="`${backendUrl}${card.imgUrl}`"
-      :text-size="'text-[55%]'"
+      :text-size="'text-md'"
       :name="card.nameRu"
       :type="card.type"
       />
@@ -152,7 +152,7 @@ watch(aiMoveRef, (oldv, newv) => {
     :damage="card.damage"
     :mana="card.mana"
     :img-url="`${backendUrl}${card.imgUrl}`"
-    :text-size="'text-[50%]'"
+    :text-size="'text-[8px]'"
     :name="card.nameRu"
     :type="card.type"
     />
@@ -165,7 +165,7 @@ watch(aiMoveRef, (oldv, newv) => {
     :damage="card.damage"
     :mana="card.mana"
     :img-url="`${backendUrl}${card.imgUrl}`"
-    :text-size="'text-[50%]'"
+    :text-size="'text-md'"
     :name="card.nameRu"
     :type="card.type"
     />

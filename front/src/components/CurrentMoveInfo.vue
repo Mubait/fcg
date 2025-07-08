@@ -68,6 +68,7 @@ const nextMove = () => {
     :btn-text-color-hover="'hover:text-zinc-100'"
     :btn-text="'qpgamePage.finishTurn'"
     :active="'active:brightness-150'"
+    :font-size="'text-3xl'"
     />
   </div>
   <div class="absolute size-fit bottom-[3%] left-[1%] grid grid-rows-3 grid-cols-2 gap-x-5 select-none">

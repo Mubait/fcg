@@ -42,13 +42,13 @@ const onFileChange = (event) => {
     bg-gradient-to-b from-amber-700/90 to-black/90">
 
     <div class="grid grid-cols-4 w-7/12 place-items-center">
-      <p class="text-2xl cursor-pointer w-fit
+      <p class="text-6xl cursor-pointer w-fit
       brightness-150 hover:brightness-200 text-blue-500 drop-shadow-[0_0px_10px_rgba(0,0,255,1)]"> {{ $t('mainPage.score') }} </p> 
-      <p @click="router.push('/main/cards')" class="text-2xl cursor-pointer w-fit
+      <p @click="router.push('/main/cards')" class="text-6xl cursor-pointer w-fit
       brightness-150 hover:brightness-200 text-blue-500 drop-shadow-[0_0px_10px_rgba(0,0,255,1)]"> {{ $t('mainPage.cards') }} </p> 
-      <p class="text-2xl cursor-pointer w-fit
+      <p class="text-6xl cursor-pointer w-fit
       brightness-150 hover:brightness-200 text-blue-500 drop-shadow-[0_0px_10px_rgba(0,0,255,1)]"> {{ $t('mainPage.friends') }} </p>
-      <p class="ml-80 text-2xl cursor-pointer
+      <p class="ml-80 text-6xl cursor-pointer
       brightness-150 hover:brightness-200 text-blue-500 drop-shadow-[0_0px_10px_rgba(0,0,255,1)]"> {{ $t('mainPage.forum') }} </p>
     </div>
 
@@ -71,19 +71,19 @@ const onFileChange = (event) => {
       :src="avatarUrl"/>
     </div>
 
-    <p class="relative w-full text-center my-2 text-blue-500 drop-shadow-[0_0px_10px_rgba(0,0,255,1)]">{{ userName }}</p>
+    <p class="relative text-5xl w-full text-center my-2 text-blue-500 drop-shadow-[0_0px_10px_rgba(0,0,255,1)]">{{ userName }}</p>
     <div class="size-full ml-6 mt-8 flex flex-col gap-4">
       <div class="flex items-center gap-2">
         <img class="object-contain w-1/9" src="/logo/settings.png"/>
-        <p class="size-fit text-zinc-400 hover:text-zinc-200 cursor-pointer">{{ $t('mainPage.settings') }}</p>
+        <p class="size-fit text-3xl text-zinc-400 hover:text-zinc-200 cursor-pointer">{{ $t('mainPage.settings') }}</p>
       </div>
       <div class="flex items-center gap-2">
         <img class="object-contain w-1/9" src="/logo/help.png"/>
-        <p class="size-fit text-zinc-400 hover:text-zinc-200 cursor-pointer">{{ $t('mainPage.help') }}</p>
+        <p class="size-fit text-3xl text-zinc-400 hover:text-zinc-200 cursor-pointer">{{ $t('mainPage.help') }}</p>
       </div>
       <div class="flex items-center gap-2">
         <img class="object-contain w-1/9" src="/logo/logout.png"/>
-        <p class="size-fit text-zinc-400 hover:text-zinc-200 cursor-pointer"
+        <p class="size-fit text-3xl text-zinc-400 hover:text-zinc-200 cursor-pointer"
         @click="router.push('/auth')">{{ $t('mainPage.logout') }}</p>
       </div>
     </div>

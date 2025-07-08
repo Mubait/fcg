@@ -23,7 +23,7 @@ const chosenHeroSoundOn = (heroSoundUrl) => {
 </script>
 
 <template>
-  <p class="absolute text-center top-[15%] w-full text-5xl text-stone-300 drop-shadow-[0_10px_15px_rgba(255,0,0,1)]">
+  <p class="absolute text-center top-[15%] w-full text-8xl text-stone-300 drop-shadow-[0_10px_15px_rgba(255,0,0,1)]">
     {{ $t('qpgamePage.chooseHero') }}
   </p>
   <div class="relative h-1/2 w-full top-1/2 -translate-y-1/2 p-5 overflow-x-scroll overflow-y-hidden border-y-2 border-green-400
@@ -39,10 +39,10 @@ const chosenHeroSoundOn = (heroSoundUrl) => {
       <div v-if="currentCardHeroIndex == index" class="absolute size-full bg-black/70 rounded-xl 
       animate-[fromBlur_0.5s_ease-in-out_forwards]
       py-5 flex-col z-10">
-        <p class="text-white text-sm text-center">{{heroCard.nameRu}}</p>
-        <p class="mt-5 mx-3 text-white text-[65%]">{{$t('qpgamePage.hp')}} {{heroCard.hp}}</p>
-        <p class="mt-1 mx-3 text-white text-[70%]">{{$t('qpgamePage.mana')}} {{heroCard.effectAttributes.mana}}</p>
-        <p class="mt-1 mx-3 text-white text-[65%]">{{$t('qpgamePage.ability')}} {{heroCard.effectAttributes.type}}</p>
+        <p class="text-white text-4xl text-center">{{heroCard.nameRu}}</p>
+        <p class="mt-5 mx-3 text-white text-2xl">{{$t('qpgamePage.hp')}} {{heroCard.hp}}</p>
+        <p class="mt-1 mx-3 text-white text-2xl">{{$t('qpgamePage.mana')}} {{heroCard.effectAttributes.mana}}</p>
+        <p class="mt-1 mx-3 text-white text-2xl">{{$t('qpgamePage.ability')}} {{heroCard.effectAttributes.type}}</p>
       </div>
       <BaseCard
       :img-url="`${backendUrl}${heroCard.imgUrl}`"

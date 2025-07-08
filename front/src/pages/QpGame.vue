@@ -146,14 +146,14 @@ else {
       flex items-center justify-center
       border-y-2 animate-fromBlur"
       v-if="playerIsWin">
-        <p class="text-zinc-200 text-6xl ">{{ $t('qpgamePage.win') }}</p>
+        <p class="text-zinc-200 text-9xl ">{{ $t('qpgamePage.win') }}</p>
       </div>
       <div class="absolute w-full h-1/3 top-1/2 -translate-y-1/2
       bg-gradient-to-r backdrop-blur-sm from-black/80 via-red-700/80 to-black/80
       flex items-center justify-center
       border-y-2 animate-fromBlur"
       v-else-if="playerIsLose">
-        <p class="text-zinc-200 text-6xl ">{{ $t('qpgamePage.lose') }}</p>
+        <p class="text-zinc-200 text-9xl ">{{ $t('qpgamePage.lose') }}</p>
       </div>
 
   </main>

@@ -11,7 +11,7 @@ const currentComponent = shallowRef(RegNickCard1)
 
   <div class="absolute flex justify-center w-full">
     <div class="animate-fromBlur mt-10">
-      <p class="text-zinc-300 text-4xl drop-shadow-[0_5px_10px_rgba(105,0,38,1)]">{{ $t('regNickPage.regNickHead') }}</p>
+      <p class="text-zinc-300 text-6xl drop-shadow-[0_5px_10px_rgba(105,0,38,1)]">{{ $t('regNickPage.regNickHead') }}</p>
     </div>
 
   </div>

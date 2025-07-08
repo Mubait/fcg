@@ -22,7 +22,7 @@ if (!accessToken) {
         <img class="absolute transition duration-300
         object-cover size-full hover:scale-110 hover:brightness-75 cursor-pointer brightness-50" src="/5.modeSelectionAIPg/campaign.jpg"/>
         <p class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-        text-2xl text-white">{{ $t('modeSelectionAIpage.campaign') }}</p>
+        text-5xl text-white">{{ $t('modeSelectionAIpage.campaign') }}</p>
       </div>
 
       <div class="relative h-full w-72 rounded-3xl cursor-pointer overflow-hidden drop-shadow-[0_20px_20px_rgba(148,134,117,1)]" 
@@ -30,7 +30,7 @@ if (!accessToken) {
         <img class="absolute transition duration-300 
         object-cover size-full hover:scale-110 hover:brightness-75 cursor-pointer brightness-50" src="/5.modeSelectionAIPg/quickPlay.jpg"/>
         <p class="absolute w-full text-center top-1/2 -translate-y-1/2 mx-auto
-        text-2xl text-white">{{ $t('modeSelectionAIpage.quickPlay') }}</p>
+        text-5xl text-white">{{ $t('modeSelectionAIpage.quickPlay') }}</p>
       </div>
       
     </div>

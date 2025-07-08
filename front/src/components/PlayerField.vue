@@ -69,7 +69,7 @@ watch(isHeroAttackRef, () => {
     :damage="chosenHero.effectAttributes.effect"
     :mana="chosenHero.effectAttributes.mana"
     :img-url="`${backendUrl}${chosenHero.imgUrl}`"
-    :text-size="'text-[60%]'"
+    :text-size="'text-2xl'"
     :name="chosenHero.nameRu"
     />
   </div>
@@ -85,7 +85,7 @@ watch(isHeroAttackRef, () => {
       :damage="card.damage"
       :mana="card.mana"
       :img-url="`${backendUrl}${card.imgUrl}`"
-      :text-size="'text-[55%]'"
+      :text-size="'text-md'"
       :name="card.nameRu"
       :type="card.type"
       />
@@ -98,7 +98,7 @@ watch(isHeroAttackRef, () => {
     :damage="cardOnHover.damage"
     :mana="cardOnHover.mana"
     :img-url="`${backendUrl}${cardOnHover.imgUrl}`"
-    :text-size="'text-[60%]'"
+    :text-size="'text-md'"
     :name="cardOnHover.nameRu"
     :type="cardOnHover.type"
     />
@@ -114,7 +114,7 @@ watch(isHeroAttackRef, () => {
     :damage="card.damage"
     :mana="card.mana"
     :img-url="`${backendUrl}${card.imgUrl}`"
-    :text-size="'text-[50%]'"
+    :text-size="'text-[8px]'"
     :name="card.nameRu"
     :type="card.type"
     />
@@ -130,7 +130,7 @@ watch(isHeroAttackRef, () => {
     :mana="card.mana"
     :type="card.type"
     :name="card.nameRu"
-    :text-size="'text-[50%]'"
+    :text-size="'text-md'"
     />
   </div>
 </template>

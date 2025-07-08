@@ -1,11 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap'); */
+@font-face {
+  font-family: 'Norse Cyrillic';
+  src: url('/fonts/Norse-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
+/* @layer components {
   p {
-    @apply font-stalinist;
+    @apply 'Norse Cyrillic';
   }
-}
+} */

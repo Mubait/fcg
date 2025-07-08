@@ -82,7 +82,7 @@ else {
             :mana="card.mana"
             :type="card.type"
             :name="card.nameRu"
-            :text-size="'text-lg'"
+            :text-size="'text-4xl'"
             />
           </div>
 
@@ -97,7 +97,7 @@ else {
             :mana="card.mana"
             :type="card.type"
             :name="card.nameRu"
-            :text-size="'text-md'"
+            :text-size="'text-3xl'"
             />
           </div>
 
@@ -117,13 +117,13 @@ else {
             :mana="card.mana"
             :type="card.type"
             :name="card.nameRu"
-            :text-size="'text-[9px]'"
+            :text-size="'text-[14px]'"
             />
           </div>
         </div>
 
         <div v-if="currentDeck != null" class="absolute right-3 bottom-1" @click="console.log(deckOverflow[currentDeck])">
-          <p class="text-3xl"
+          <p class="text-7xl"
           :class="deckOverflow[currentDeck]? 'text-red-600 animate-bounce' : 'text-white'"> {{ addedCardArr[currentDeck].length }}/12 </p>
         </div>
 
@@ -137,7 +137,7 @@ else {
         :class="currentDeck == index ? 'brightness-50' : 'brightness-100'"
         @click="currentDeck = index">
           <img class="object-contain h-10" :src="deckImg"/>
-          <p class="text-white text-sm">{{ index+1 }}</p>
+          <p class="text-white text-2xl">{{ index+1 }}</p>
         </div>
       </div>
 
@@ -166,6 +166,7 @@ else {
         :btn-text-color-hover="'hover:text-zinc-100'"
         :btn-text="'cardsPage.createDeck'"
         :active="'active:brightness-150'"
+        :font-size="'text-3xl'"
         />
 
         <img v-show="isDecksAdded" class="object-contain h-10 animate-spin" src="/4.2.cardsPg/spinner.png"/>
